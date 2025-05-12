@@ -1,0 +1,8 @@
+# Ignore Excel files
+*.xlsx
+*.xls
+
+# Other common ignores
+*.log
+*.tmp
+__pycache__/

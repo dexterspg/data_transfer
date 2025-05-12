@@ -1,0 +1,202 @@
+{
+    "sheet_name": "Location",
+    "enabled": true,
+    "mandatory_fields": ["LocationId", "BusinessUnitId", "StoreNumber", "Number", "DefaultCurrency", "DefaultUnit", "Name", "Status", "Type", "CountryText", "ProvinceText", "City", "CivicNumber", "PostalCode", "Street"],
+    "mappings":{
+        "LocationId": {
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "regex": ".*",
+            "description": "",
+            "default": "autogenerate"
+        },
+        "BusinessUnitId": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "based on FOS???",
+            "default": "autogenerate",
+            "prefix": "BU"
+        },
+        "StoreNumber": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "StoreNumber to StoreNumber",
+            "default": "autogenerate",
+            "prefix": "S"
+        },
+        "Number": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "Number to Number",
+            "default": "autogenerate",
+            "prefix" : "L"
+        },
+        "DefaultCurrency": {
+            "external_column": "Intl - Currency Type",
+            "regex": ".*",
+            "description": "Needs to be set to ISO 4217 codes",
+            "default": "EMPTY"
+        },
+        "DefaultUnit": {
+            "external_column": "Intl - Measurement Type",
+            "regex": ".*",
+            "description": "Possible Values: SF SM ACRES HECTARES",
+            "default": "EMPTY"
+        },
+        "Category": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "",
+            "default": ""
+        },
+        "Name": {
+            "external_column": "Property Name",
+            "regex": ".*",
+            "description": "Property Name To Name",
+            "default": "EMPTY"
+        },
+        "PropertyType": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "PropertyType to PropertyType",
+            "default": ""
+        },
+        "Quality": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "Quality to Quality",
+            "default": ""
+        },
+        "Status": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "Possible Values: Active Inactive",
+            "default": "Active"
+        },
+        "Type": {
+            "external_column": "Property Type (L/O)",
+            "regex": ".*",
+            "description": "Possible Values : Owned , Leased",
+            "default": "EMPTY"
+        },
+        "CountryCode": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "CountryCode to CountryCode",
+            "default": ""
+        },
+        "CountryText": {
+            "external_column": "Property Country",
+            "regex": ".*",
+            "description": "",
+            "default": "EMPTY"
+        },
+        "ProvinceCode": {
+            "external_column": "Property State / Prv",
+            "regex": ".*",
+            "description": "ProvinceCode to ProvinceCode",
+            "default": ""
+        },
+        "ProvinceText": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "ProvinceText to ProvinceText",
+            "default": "EMPTY"
+        },
+        "City": {
+            "external_column": "Property City",
+            "regex": ".*",
+            "description": "Property City to City",
+            "default": "EMPTY"
+        },
+        "District": {
+            "external_column": "Property County",
+            "regex": ".*",
+            "description": "District to District",
+            "default": ""
+        },
+        "CivicNumber": {
+            "external_column": "Property Street Address 1",
+            "regex": "^\\d+",
+            "description": "CivicNumber to CivicNumber",
+            "default": "0"
+        },
+        "PostalCode": {
+            "external_column": "Property Zip",
+            "regex": ".*",
+            "description": "PostalCode to Property Zip",
+            "default": "EMPTY"
+        },
+        "Street": {
+            "external_column": "Property Street Address 1",
+            "regex": "^\\d+\\s(.+)",
+            "description": "Street to Street",
+            "default": "EMPTY"
+        },
+        "Suite": {
+            "external_column": "Suite",
+            "regex": ".*",
+            "description": "Suite to Suite",
+            "default": ""
+        },
+        "CountryCode2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "CountryCode2 to CountryCode2",
+            "default": ""
+        },
+        "CountryText2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "CountryText2 to CountryText2",
+            "default": ""
+        },
+        "ProvinceCode2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "ProvinceCode2 to ProvinceCode2",
+            "default": ""
+        },
+        "ProvinceText2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "ProvinceText2 to ProvinceText2",
+            "default": ""
+        },
+        "City2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "City2 to City2",
+            "default": ""
+        },
+        "District2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "District2 to District2",
+            "default": ""
+        },
+        "CivicNumber2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "CivicNumber2 to CivicNumber2",
+            "default": ""
+        },
+        "PostalCode2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "PostalCode2 to PostalCode2",
+            "default": ""
+        },
+        "Street2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "Street2 to Street2",
+            "default": ""
+        },
+        "Suite2": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "Suite2 to Suite2",
+            "default": ""
+        }
+    } 
+}
