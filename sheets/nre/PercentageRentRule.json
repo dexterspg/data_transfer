@@ -1,0 +1,97 @@
+{
+    "sheet_name": "PercentageRentRule",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "PercentageRentPeriodId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Category": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "SubCategory": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "MinimumPerYear": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "MaximumPerYear": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "AdjustmentFrequency": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "PaymentFrequency": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ExpenseCategories": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ChargeExpenseCategories": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "CalculationMode": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "BreakevenPointType": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "BreakevenPointPercentage": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Brackets": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Formula": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Note": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "sheet_name": "LocationAreaHistory",
+    "enabled": true,
+    "mandatory_fields": ["AreaId", "Measure"],
+    "mappings": {
+        "AreaId": {
+            "external_column": "",
+            "regex": ".*",
+            "description": "",
+            "default": "autogenerate",
+            "prefix": "A"
+        },
+        "Details": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "StartDate": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "EndDate": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Floor": {
+            "external_column": "Floor - (ID#)",
+            "regex": ".*",
+            "description": "",
+            "default": ""
+        },
+        "Measure": {
+            "external_column": "Our Rentable Area in Property - Calculated Field",
+            "regex": ".*",
+            "description": "",
+            "default": "EMPTY"
+        },
+        "Suite": {
+            "external_column": "Suite",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

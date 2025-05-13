@@ -1,0 +1,25 @@
+{
+    "sheet_name": "LocationLegalEntity",
+    "enabled": true,
+    "mandatory_fields": ["LocationId", "LegalEntityId", "ErpSystemDisplayId"],
+    "mappings": {
+        "LocationId": {
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "regex": ".*",
+            "description": "",
+            "default": "EMPTY"
+        },
+        "LegalEntityId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": "1000",
+        },
+        "ErpSystemDisplayId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": "ErpSystem1"
+        }
+    }
+}

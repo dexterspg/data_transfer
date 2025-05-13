@@ -1,0 +1,25 @@
+{
+    "sheet_name": "Note",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "EntityType": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "EntityId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Message": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

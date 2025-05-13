@@ -1,0 +1,31 @@
+{
+    "sheet_name": "PercentageRentPeriod",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "LeaseId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "PercentageRentPeriodId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "DateFrom": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "DateTo": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

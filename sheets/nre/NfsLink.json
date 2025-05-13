@@ -1,0 +1,43 @@
+{
+    "sheet_name": "NfsLink",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "NfsLinkId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "LeaseId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "MasterAgreementId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ContractId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "LeaseComponentId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ActivationGroupId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

@@ -126,9 +126,9 @@ class ExcelProcessor:
                     else:
                         value=row[output_col]
 
-                        if isMandatory and not value:
-                            if default_val:
-                                value=default_val 
+                    if isMandatory and not value:
+                        if default_val:
+                            value=default_val 
                         else:
                             print(f"Warning: No default value set for mandatory field '{header}' for Sheet '{sheet_name}'")
 
@@ -139,17 +139,17 @@ class ExcelProcessor:
 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
         sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
-        #
-        # data_row_range=(sheet_no_duplicates.max_row-template_sheet.header_idx())
-        #
-        # for header in header_to_autogenerate_id:
-        #     in_header_props= self.config['mappings'][header]
-        #
-        #     if in_header_props.get('prefix', "") != "":
-        #         id_generator=IdGenerator(in_header_props['prefix'])
-        #     else:
-        #         id_generator=IdGenerator()
-        #
-        #     for r_idx in range(data_row_range):
-        #         value=id_generator.generate_id()
-        #         cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)
+
+        data_row_range=(sheet_no_duplicates.max_row-template_sheet.header_idx())
+
+        for header in header_to_autogenerate_id:
+            in_header_props= self.config['mappings'][header]
+
+            if in_header_props.get('prefix', "") != "":
+                id_generator=IdGenerator(in_header_props['prefix'])
+            else:
+                id_generator=IdGenerator()
+
+            for r_idx in range(data_row_range):
+                value=id_generator.generate_id()
+                cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)

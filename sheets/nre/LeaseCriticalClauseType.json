@@ -1,0 +1,31 @@
+{
+    "sheet_name": "LeaseCriticalClauseType",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "LeaseId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "LeaseCriticalClauseTypeId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Type": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "IsNotApplicable": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

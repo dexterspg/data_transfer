@@ -16,7 +16,7 @@ class SheetUtils:
         seen = set()
         rows_to_delete = []
         for row in sheet_obj.iter_rows(min_row=start_row, max_row=end_row, min_col=col_range[0], max_col=col_range[1]):
-            row_values = tuple(cell.value for cell in row)
+            row_values = tuple(str(cell.value) for cell in row)
             if row_values in seen:
                 rows_to_delete.append(row[0].row)
             else:

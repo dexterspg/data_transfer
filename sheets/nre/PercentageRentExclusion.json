@@ -1,0 +1,25 @@
+{
+    "sheet_name": "PercentageRentExclusion",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "PercentageRentPeriodId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "SaleCategory": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "SaleSubCategory": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

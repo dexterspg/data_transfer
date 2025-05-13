@@ -1,0 +1,31 @@
+{
+    "sheet_name": "OperatingCostPeriod",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "LocationId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "OperatingCostPeriodId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Year": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Status": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

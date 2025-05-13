@@ -1,0 +1,25 @@
+{
+    "sheet_name": "AreaBasedProShare",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "AreaBasedProShareId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "DividendAreaType": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "DivisorAreaType": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

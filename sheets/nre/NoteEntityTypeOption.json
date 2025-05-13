@@ -1,0 +1,13 @@
+{
+    "sheet_name": "NoteEntityTypeOption",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "Premise": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

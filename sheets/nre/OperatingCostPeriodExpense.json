@@ -1,0 +1,37 @@
+{
+    "sheet_name": "OperatingCostPeriodExpense",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "OperatingCostPeriodId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ExpenseType": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Amount": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "RevisedAmount": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "ConsiderRevisedAmount": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

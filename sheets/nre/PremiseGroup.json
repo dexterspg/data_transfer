@@ -1,0 +1,25 @@
+{
+    "sheet_name": "PremiseGroup",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "PremiseId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Group": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "GroupOption": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

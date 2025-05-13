@@ -1,0 +1,13 @@
+{
+    "sheet_name": "DocumentEntities",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "Location": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

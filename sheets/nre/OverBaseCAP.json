@@ -1,0 +1,37 @@
+{
+    "sheet_name": "OverBaseCAP",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "OverBaseCAPId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "BaseYear": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "BaseAmount": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "MaxIncreasePercentage": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Cumulative": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

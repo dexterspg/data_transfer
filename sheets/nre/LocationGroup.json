@@ -1,0 +1,25 @@
+{
+    "sheet_name": "LocationGroup",
+    "enabled": true,
+    "mandatory_fields": ["LocationId", "Group", "GroupOption"],
+    "mappings": {
+        "LocationId": {
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "regex": ".*",
+            "description": "",
+            "default": "EMPTY"
+        },
+        "Group": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": "Region"
+        },
+        "GroupOption": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": "North"
+        }
+    }
+}

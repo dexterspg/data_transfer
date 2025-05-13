@@ -1,0 +1,19 @@
+{
+    "sheet_name": "FixedCAP",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "FixedCAPId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Amount": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

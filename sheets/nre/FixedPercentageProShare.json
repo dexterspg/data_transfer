@@ -1,0 +1,19 @@
+{
+    "sheet_name": "FixedPercentageProShare",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "FixedPercentageProShareId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "FixedPercentage": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "sheet_name": "TermVendor",
+    "enabled": true,
+    "mandatory_fields": [],
+    "mappings": {
+        "TermId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "VendorId": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        },
+        "Ownership": {
+            "external_column": "",
+            "regex": "",
+            "description": "",
+            "default": ""
+        }
+    }
+}
