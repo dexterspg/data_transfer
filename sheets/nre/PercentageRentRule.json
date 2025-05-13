@@ -1,7 +1,7 @@
 {
     "sheet_name": "PercentageRentRule",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["PercentageRentPeriodId", "AdjustmentFrequency", "PaymentFrequency", "ChargeExpenseCategories", "CalculationMode"] ,
     "mappings": {
         "PercentageRentPeriodId": {
             "external_column": "",

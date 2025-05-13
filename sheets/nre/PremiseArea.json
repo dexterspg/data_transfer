@@ -1,25 +1,27 @@
 {
     "sheet_name": "PremiseArea",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["PremiseId", "AreaId", "Type", "Source", "Unit"] ,
     "mappings": {
         "PremiseId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "P0"
         },
         "AreaId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix":"PA"
         },
         "Type": {
-            "external_column": "",
+            "external_column": "Subspace Primary Use",
             "regex": "",
-            "description": "",
-            "default": ""
+            "description": "Possible values : Premise GLA",
+            "default": "EMPTY"
         },
         "Cadaster": {
             "external_column": "",
@@ -47,9 +49,9 @@
         },
         "Source": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "Contract"
         },
         "ToBeMeasure": {
             "external_column": "",
@@ -58,10 +60,10 @@
             "default": ""
         },
         "Unit": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column": "Intl - Measurement Type",
+            "regex": ".*",
+            "description": "Possible Values: SF SM ACRES HECTARES",
+            "default": "EMPTY"
         },
         "Verified": {
             "external_column": "",

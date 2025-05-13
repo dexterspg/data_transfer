@@ -1,7 +1,7 @@
 {
     "sheet_name": "CriticalClause",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseCriticalClauseTypeId", "CriticalClauseId", "Exercised", "NotificationDate"] ,
     "mappings": {
         "LeaseCriticalClauseTypeId": {
             "external_column": "",

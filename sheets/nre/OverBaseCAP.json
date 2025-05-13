@@ -1,7 +1,7 @@
 {
     "sheet_name": "OverBaseCAP",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["OverBaseCAPId", "BaseYear", "BaseAmount", "MaxIncreasePercentage", "Cumulative"] ,
     "mappings": {
         "OverBaseCAPId": {
             "external_column": "",

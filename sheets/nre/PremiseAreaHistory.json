@@ -1,7 +1,7 @@
 {
     "sheet_name": "PremiseAreaHistory",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["AreaId", "Measure"] ,
     "mappings": {
         "AreaId": {
             "external_column": "",

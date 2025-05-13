@@ -1,7 +1,7 @@
 {
     "sheet_name": "Draw",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["DrawId", "Trigger", "LeaseIncentiveId"] ,
     "mappings": {
         "DrawId": {
             "external_column": "",

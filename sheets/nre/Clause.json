@@ -1,7 +1,7 @@
 {
     "sheet_name": "Clause",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields": ["LeaseClauseTypeId", "ClauseId"] ,
     "mappings": {
         "LeaseClauseTypeId": {
             "external_column": "",

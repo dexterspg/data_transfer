@@ -33,6 +33,7 @@ class ExcelProcessor:
         """Extract value using regex pattern"""
         if pd.isna(text):
             return None
+        # print(text)
         match = re.search(pattern, str(text))
         if match:
             # If there are capture groups, return the first one
@@ -96,6 +97,8 @@ class ExcelProcessor:
             if not in_header_props:
                 continue
 
+            print(f"{header}") 
+
             default_val= in_header_props['default']
             output_col = in_header_props['external_column']
             ext_col_exists = in_header_props['external_column'] != ""
@@ -129,8 +132,8 @@ class ExcelProcessor:
 
 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        # sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
-        sheet_no_duplicates = SheetUtils._remove_duplicates_for_sheet_use_df(template_sheet)
+        sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
+        # sheet_no_duplicates = SheetUtils._remove_duplicates_for_sheet_use_df(template_sheet)
 
         data_row_range=(sheet_no_duplicates.get_sheet().max_row-template_sheet.header_idx())
 

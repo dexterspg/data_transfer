@@ -1,7 +1,7 @@
 {
     "sheet_name": "FixedPercentageProShare",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["FixedPercentageProShareId", "FixedPercentage"] ,
     "mappings": {
         "FixedPercentageProShareId": {
             "external_column": "",

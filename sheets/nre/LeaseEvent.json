@@ -1,7 +1,7 @@
 {
     "sheet_name": "LeaseEvent",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "Type"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

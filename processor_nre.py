@@ -20,8 +20,8 @@ def main():
     current_time= datetime.datetime.now() 
     # formatted_datetime = current_time.strftime("%Y-%m-%d_%H-%M-%S")
     formatted_datetime = ""
-    input_file = "input_prolease_398.xlsx"
-    # input_file = "input_200rows.xlsx"
+    # input_file = "input_prolease_398.xlsx"
+    input_file = "input_200rows.xlsx"
     template_file = "template_init_accounting_on_complete.xlsx"
     output_file = f"output_nre{formatted_datetime}.xlsx"
     base_dir = "sheets/nre/"
@@ -30,7 +30,12 @@ def main():
     'LocationGroup.json',
     'LocationLegalEntity.json',
     'LocationArea.json',
-    'LocationAreaHistory.json'
+    'LocationAreaHistory.json',
+    'Premise.json',
+    'PremiseArea.json',
+    'Lease.json',
+    'Terms.json',
+    'TermAmounts.json'
     ]
 
     for file in [input_file, template_file, config_file]:

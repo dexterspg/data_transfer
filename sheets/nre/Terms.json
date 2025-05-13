@@ -1,49 +1,50 @@
 {
     "sheet_name": "Terms",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "TermId", "StartDate", "EndDate", "AmountFrequency", "PaymentFrequency", "PaymentMode", "CurrencyId", "ExpenseCategoryId"] ,
     "mappings": {
         "LeaseId": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column": "Lease Code 1 - Prim Lease Code",
+            "regex": ".*",
+            "default": "autogenerate",
+            "prefix": "LE"
         },
         "TermId": {
             "external_column": "",
             "regex": "",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "T"
         },
         "StartDate": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - From",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "EndDate": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - To",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "AmountFrequency": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "ONE_TIME"
         },
         "PaymentFrequency": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - Pay Frequency",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "PaymentMode": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "ADVANCE"
         },
         "AreaId": {
             "external_column": "",
@@ -52,10 +53,10 @@
             "default": ""
         },
         "CurrencyId": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column": "Intl - Currency Type",
+            "regex": ".*",
+            "description": "Needs to be set to ISO 4217 codes",
+            "default": "EMPTY"
         },
         "EndOfMonthPayment": {
             "external_column": "",
@@ -71,9 +72,9 @@
         },
         "ExpenseCategoryId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "Base Rent"
         },
         "FirstPaymentDate": {
             "external_column": "",
@@ -82,12 +83,6 @@
             "default": ""
         },
         "Note": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
-        },
-        "null": {
             "external_column": "",
             "regex": "",
             "description": "",

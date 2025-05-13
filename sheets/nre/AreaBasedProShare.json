@@ -1,7 +1,7 @@
 {
     "sheet_name": "AreaBasedProShare",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["AreaBasedProShareId", "DividendAreaType", "DivisorAreaType"] ,
     "mappings": {
         "AreaBasedProShareId": {
             "external_column": "",

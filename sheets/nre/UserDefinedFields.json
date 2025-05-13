@@ -1,7 +1,7 @@
 {
     "sheet_name": "UserDefinedFields",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields": ["ObjectType", "ObjectId", "Group", "Field", "FieldType", "FieldValue"] ,
     "mappings": {
         "ObjectType": {
             "external_column": "",

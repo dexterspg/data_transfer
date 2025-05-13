@@ -1,7 +1,7 @@
 {
     "sheet_name": "NfsLink",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["NfsLinkId", "LeaseId", "MasterAgreementId", "ContractId", "LeaseComponentId", "ActivationGroupId"] ,
     "mappings": {
         "NfsLinkId": {
             "external_column": "",

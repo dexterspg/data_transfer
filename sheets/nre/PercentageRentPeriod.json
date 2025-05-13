@@ -1,7 +1,7 @@
 {
     "sheet_name": "PercentageRentPeriod",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "PercentageRentPeriodId", "DateFrom", "DateTo"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

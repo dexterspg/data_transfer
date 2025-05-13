@@ -1,7 +1,7 @@
 {
     "sheet_name": "FixedCAP",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["FixedCAPId", "Amount"] ,
     "mappings": {
         "FixedCAPId": {
             "external_column": "",

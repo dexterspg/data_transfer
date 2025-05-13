@@ -1,7 +1,7 @@
 {
     "sheet_name": "LeaseCriticalClauseType",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "LeaseCriticalClauseTypeId", "Type", "IsNotApplicable"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

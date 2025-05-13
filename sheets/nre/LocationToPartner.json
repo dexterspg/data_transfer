@@ -1,13 +1,13 @@
 {
     "sheet_name": "LocationToPartner",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LocationId", "LocationToPartnerId", "PartnerId", "PartnerRoleId"] ,
     "mappings": {
         "LocationId": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate"
         },
         "LocationToPartnerId": {
             "external_column": "",

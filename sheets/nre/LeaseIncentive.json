@@ -1,7 +1,7 @@
 {
     "sheet_name": "LeaseIncentive",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "LeaseIncentiveId", "Type"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

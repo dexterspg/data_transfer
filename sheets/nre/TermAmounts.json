@@ -1,13 +1,14 @@
 {
     "sheet_name": "TermAmounts",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["TermId", "StartDate", "EndDate", "Amount", "TermIndexationType"] ,
     "mappings": {
         "TermId": {
             "external_column": "",
             "regex": "",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "T"
         },
         "Legacy": {
             "external_column": "",
@@ -16,22 +17,22 @@
             "default": ""
         },
         "StartDate": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - From",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "EndDate": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - To",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Amount": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Base Rent - Agg Per Annum Amt",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Hold": {
             "external_column": "",
@@ -83,9 +84,10 @@
         },
         "TermIndexationType": {
             "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column_a": "CPI - Name",
+            "regex": ".*",
+            "description": "Possible values : Flat Increase, Apply CPI",
+            "default": "Flat Increase"
         }
     }
 }

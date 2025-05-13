@@ -10,7 +10,8 @@
             "default": "EMPTY"
         },
         "LegalEntityId": {
-            "external_column": "Lessee",
+            "external_column": "",
+            "external_column_a": "Lessee",
             "regex": ".*",
             "description": "",
             "default": "1000"

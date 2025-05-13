@@ -1,25 +1,26 @@
 {
     "sheet_name": "Lease",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields": ["LeaseId", "Number", "PremiseId", "Type", "StartDate", "EndDate", "Category", "State", "Status", "IndexationType", "IndexationTypeNonLease", "CalculateTax", "AutoMonthToMonth"] ,
     "mappings": {
         "LeaseId": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column": "Lease Code 1 - Prim Lease Code",
+            "regex": ".*",
+            "default": "autogenerate",
+            "prefix": "LE"
         },
         "Number": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "LE"
         },
         "PremiseId": {
             "external_column": "",
             "regex": "",
-            "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "P"
         },
         "OriginalLeaseId": {
             "external_column": "",
@@ -35,20 +36,21 @@
         },
         "Type": {
             "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column_a": "Lease Type",
+            "regex": ".*",
+            "description": "Possible values : Head Lease, Other Agreement",
+            "default": "Head Lease"
         },
         "StartDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Lease Commence Date",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
+            "description": "extract date in YYYY-MM-dd format",
             "default": ""
         },
         "EndDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Lease Expiration Date",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
+            "description": "extract date in YYYY-MM-dd format",
             "default": ""
         },
         "Category": {
@@ -71,15 +73,16 @@
         },
         "State": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "Initial"
         },
         "Status": {
             "external_column": "",
-            "regex": "",
+            "external_column_a": "Lease Status",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "Active"
         },
         "SignatureDate": {
             "external_column": "",
@@ -95,9 +98,10 @@
         },
         "IndexationType": {
             "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column_a": "CPI - Name",
+            "regex": ".*",
+            "description": "Possible values : NONE, CPI_LOCAL, CPI_GLOBAL",
+            "default": "NONE"
         },
         "CpiGlobalCategoryId": {
             "external_column": "",
@@ -138,8 +142,8 @@
         "IndexationTypeNonLease": {
             "external_column": "",
             "regex": "",
-            "description": "",
-            "default": ""
+            "description": "Possible values : NONE, CPI_LOCAL, CPI_GLOBAL",
+            "default": "NONE"
         },
         "CpiGlobalCategoryIdNonLease": {
             "external_column": "",
@@ -179,15 +183,15 @@
         },
         "CalculateTax": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "TRUE"
         },
         "AutoMonthToMonth": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "FALSE"
         }
     }
 }

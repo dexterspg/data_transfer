@@ -1,7 +1,7 @@
 {
     "sheet_name": "LeaseCondition",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "LeaseConditionId", "Type", "StartDate", "EndDate"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

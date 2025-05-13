@@ -1,7 +1,7 @@
 {
     "sheet_name": "OverYearCAP",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["OverYearCAPId", "BaseYear", "BaseAmount", "MaxIncreasePercentage", "Cumulative"] ,
     "mappings": {
         "OverYearCAPId": {
             "external_column": "",

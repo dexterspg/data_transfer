@@ -1,7 +1,7 @@
 {
     "sheet_name": "PremiseGroup",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields": ["PremiseId", "Group", "GroupOption"] ,
     "mappings": {
         "PremiseId": {
             "external_column": "",

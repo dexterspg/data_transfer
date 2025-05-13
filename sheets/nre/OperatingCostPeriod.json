@@ -1,7 +1,7 @@
 {
     "sheet_name": "OperatingCostPeriod",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LocationId", "OperatingCostPeriodId", "Year", "Status"] ,
     "mappings": {
         "LocationId": {
             "external_column": "",

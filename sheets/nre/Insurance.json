@@ -1,7 +1,7 @@
 {
     "sheet_name": "Insurance",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LeaseId", "InsuranceId", "Type"] ,
     "mappings": {
         "LeaseId": {
             "external_column": "",

@@ -1,7 +1,7 @@
 {
     "sheet_name": "Note",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["EntityType", "EntityId", "Message"] ,
     "mappings": {
         "EntityType": {
             "external_column": "",

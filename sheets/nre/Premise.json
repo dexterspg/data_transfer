@@ -1,19 +1,20 @@
 {
     "sheet_name": "Premise",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["LocationId", "PremiseId", "HeadPremise", "Status", "Name", "Number", "Usage", "LegalEntityId", "CostCenterId", "Occupancies"] ,
     "mappings": {
         "LocationId": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate"
         },
         "PremiseId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "P"
         },
         "ParentPremiseId": {
             "external_column": "",
@@ -23,45 +24,48 @@
         },
         "HeadPremise": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "TRUE"
         },
         "Status": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "Active"
         },
         "Name": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Number": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Subspace #",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Usage": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Subspace Primary Use",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "LegalEntityId": {
             "external_column": "",
-            "regex": "",
+            "external_column_a": "Lessee",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "1000"
         },
         "CostCenterId": {
             "external_column": "",
             "regex": "",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "CC"
+
         },
         "ProfitCenterId": {
             "external_column": "",
@@ -70,15 +74,15 @@
             "default": ""
         },
         "OpeningDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "external_column": "Subspace Commence Date",
+            "regex": "\\b(\\d{2}\/\\d{2}\/\\d{4})\\b",
+            "description": "Extracts date in dd/MM/yyyy format",
+            "default": "EMPTY"
         },
         "ClosingDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Subspace Expiration Date",
+            "regex": "\\b(\\d{2}/\\d{2}/\\d{4})\\b",
+            "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "ExpansionDate": {
@@ -107,9 +111,9 @@
         },
         "Occupancies": {
             "external_column": "",
-            "regex": "",
-            "description": "",
-            "default": ""
+            "regex": ".*",
+            "description": "If head premise comma sepeated list of occupancies, if sub-premis, single occupancy, possible values: Occupied, Vacant, Leased Int, Leased Ext, Leased Int -Ext",
+            "default": "EMPTY"
         },
         "DefaultJurisdictionId": {
             "external_column": "",

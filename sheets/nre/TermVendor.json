@@ -1,7 +1,7 @@
 {
     "sheet_name": "TermVendor",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields":["TermId", "VendorId", "Ownership"] ,
     "mappings": {
         "TermId": {
             "external_column": "",

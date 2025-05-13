@@ -17,19 +17,20 @@
             "default": ""
         },
         "StartDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Lease Commence Date",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
+            "description": "extract date in YYYY-MM-dd format",
             "default": ""
         },
         "EndDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Lease Expiration Date",
+            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
+            "description": "extract date in YYYY-MM-dd format",
             "default": ""
         },
         "Floor": {
-            "external_column": "Floor - (ID#)",
+            "external_column": "",
+            "external_column_a": "Floor - (ID#)",
             "regex": ".*",
             "description": "",
             "default": ""

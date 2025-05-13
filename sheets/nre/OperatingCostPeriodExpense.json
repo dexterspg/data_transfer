@@ -1,7 +1,7 @@
 {
     "sheet_name": "OperatingCostPeriodExpense",
     "enabled": true,
-    "mandatory_fields": [],
+    "mandatory_fields": ["OperatingCostPeriodId", "ExpenseType", "Amount"] ,
     "mappings": {
         "OperatingCostPeriodId": {
             "external_column": "",
