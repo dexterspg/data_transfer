@@ -1,5 +1,8 @@
+import pandas as pd
 from sheet_model import Sheet
 from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font, PatternFill, Border, Alignment
 
 class SheetUtils:
 
@@ -25,7 +28,51 @@ class SheetUtils:
         print(len(seen))
         for row_idx in sorted(rows_to_delete, reverse=True):
             sheet_obj.delete_rows(row_idx)
-        return sheet_obj
+        sheet.set_sheet(sheet_obj)
+        return sheet.get_self()
+
+    @staticmethod
+    def _remove_duplicates(df):
+        """Remove duplicate rows from DataFrame"""
+        return df.drop_duplicates()
+
+    @staticmethod
+    def _remove_duplicates_for_sheet_use_df(sheet):
+        df =sheet.to_data_frame().drop_duplicates().reset_index(drop=True)
+
+        ws=sheet.get_sheet()
+        format_map = {}  
+        for row_idx in range(sheet.get_data_row_start(), ws.max_row + 1):
+            for col_idx in range(1, ws.max_column + 1):
+                cell = ws.cell(row=row_idx, column=col_idx)
+                format_map[(row_idx, col_idx)] = {
+                    "font": cell.font.copy(),
+                    "fill": cell.fill.copy(),
+                    "border": cell.border.copy(),
+                    "alignment": cell.alignment.copy()
+                }
+    #     for row in df.itertuples(index=False, name=None):
+    #         sheet.get_sheet().append(row)
+    # 
+        ws.delete_rows(sheet.get_data_row_start(), ws.max_row)
+        for row_idx, row_values in enumerate(df.itertuples(index=False, name=None), start=sheet.get_data_row_start()):
+                for col_idx, value in enumerate(row_values, start=1):
+                    cell = ws.cell(row=row_idx, column=col_idx, value=value)  
+                    
+                    # ✅ Restore formatting for the cell (if it was stored)
+                    if (row_idx, col_idx) in format_map:
+                        cell.font = format_map[(row_idx, col_idx)]["font"]
+                        cell.fill = format_map[(row_idx, col_idx)]["fill"]
+                        cell.border = format_map[(row_idx, col_idx)]["border"]
+                        cell.alignment = format_map[(row_idx, col_idx)]["alignment"]
+
+        sheet.set_sheet(ws)
+        return sheet
+         
+
+    @staticmethod
+    def remove_duplicates_for_single_column(df, column_name):
+        return df[[column_name]].drop_duplicates().reset_index(drop=True)
 
     @staticmethod 
     def clear_row(sheet, min_row):

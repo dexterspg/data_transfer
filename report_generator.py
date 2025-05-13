@@ -46,10 +46,6 @@ class ExcelProcessor:
         self.template_wb.save(self.output_file)
         print(f"Processing complete. Output saved to {self.output_file}")
 
-    def _remove_duplicates(self, df):
-        """Remove duplicate rows from DataFrame"""
-        return df.drop_duplicates()
-
     def set_data_row_start(self, data_row_start):
         self.data_row_start = data_row_start
 
@@ -82,8 +78,7 @@ class ExcelProcessor:
 
     def process(self):
         """Process the input file according to the template and mappings"""
-        input_df = pd.read_excel(self.input_file, header =self.input_header_row, nrows=self.limitRows,
-                                 skipfooter=self.number_of_rows_to_skip)
+        input_df = pd.read_excel(self.input_file, header =self.input_header_row, nrows=self.limitRows, skipfooter=self.number_of_rows_to_skip)
 
         sheet_name = self.config['sheet_name']
         if sheet_name not in self.template_wb.sheetnames:
@@ -104,11 +99,6 @@ class ExcelProcessor:
             default_val= in_header_props['default']
             output_col = in_header_props['external_column']
             ext_col_exists = in_header_props['external_column'] != ""
-
-            if in_header_props.get('prefix', "") != "":
-                id_generator=IdGenerator(in_header_props['prefix'])
-            else:
-                id_generator=IdGenerator()
 
             for r_idx in range(len(input_df)):
                 if default_val != "" and ( not ext_col_exists or
@@ -137,10 +127,12 @@ class ExcelProcessor:
                     cell.font = mandatory_font
 
 
-        logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
 
-        data_row_range=(sheet_no_duplicates.max_row-template_sheet.header_idx())
+        logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
+        # sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
+        sheet_no_duplicates = SheetUtils._remove_duplicates_for_sheet_use_df(template_sheet)
+
+        data_row_range=(sheet_no_duplicates.get_sheet().max_row-template_sheet.header_idx())
 
         for header in header_to_autogenerate_id:
             in_header_props= self.config['mappings'][header]

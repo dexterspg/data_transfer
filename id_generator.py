@@ -16,6 +16,6 @@ class IdGenerator:
             raise ValueError("ID limit reached")
 
     @staticmethod
-    def generate():
+    def generate_uuid():
         return str(uuid.uuid4())
 

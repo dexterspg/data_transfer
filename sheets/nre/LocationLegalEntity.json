@@ -10,14 +10,14 @@
             "default": "EMPTY"
         },
         "LegalEntityId": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Lessee",
+            "regex": ".*",
             "description": "",
-            "default": "1000",
+            "default": "1000"
         },
         "ErpSystemDisplayId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
             "default": "ErpSystem1"
         }

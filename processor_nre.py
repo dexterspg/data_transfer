@@ -3,6 +3,17 @@ import os
 import datetime 
 import time
 
+def is_file_open(file_path):
+    """Checks if a file is open by another process."""
+    if not os.path.exists(file_path):
+        return False  # File doesn't exist, so it's not open
+
+    try:
+        with open(file_path, 'a'):  # Try opening in append mode
+            return False  # Successfully opened, file is not locked
+    except IOError:
+        return True  # File is locked/open by another process
+
 def main():
     # input_file = "input_only_propertyname.xlsx"
     # input_file = "input.xlsx"
@@ -10,6 +21,7 @@ def main():
     # formatted_datetime = current_time.strftime("%Y-%m-%d_%H-%M-%S")
     formatted_datetime = ""
     input_file = "input_prolease_398.xlsx"
+    # input_file = "input_200rows.xlsx"
     template_file = "template_init_accounting_on_complete.xlsx"
     output_file = f"output_nre{formatted_datetime}.xlsx"
     base_dir = "sheets/nre/"
@@ -31,10 +43,14 @@ def main():
             print(f"Error: File '{file}' not found")
             return
 
+     # ✅ Check if output file is open
+    if is_file_open(output_file):
+        print(f" Error: '{output_file}' is currently open. Close it before running the script.")
+        return
 
     start_time=time.time()
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, 3, 3)
-    processor.set_limit_rows(200)
+    # processor.set_limit_rows(200)
     # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 
