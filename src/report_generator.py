@@ -4,9 +4,8 @@ import re
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from id_generator import IdGenerator
-from sheet_utils import SheetUtils
+from utils import SheetUtils, LoggingUtil, RegexUtils
 from sheet_model import Sheet
-from logging_util import LoggingUtil
 
 mandatory_font= Font(color="00FF9B9B")
 logger = LoggingUtil.setup_logger('ExcelProcessor')
@@ -28,20 +27,6 @@ class ExcelProcessor:
         """Load the configuration from JSON file"""
         with open(config_file, 'r') as f:
             self.config = json.load(f)
-
-    def _extract_with_regex(self, text, pattern):
-        """Extract value using regex pattern"""
-        if pd.isna(text):
-            return None
-        # print(text)
-        match = re.search(pattern, str(text))
-        if match:
-            # If there are capture groups, return the first one
-            if match.groups():
-                return match.group(1)
-            # Otherwise return the entire match
-            return match.group(0)
-        return None
 
     def _save_workbook(self):
         self.template_wb.save(self.output_file)
@@ -74,6 +59,20 @@ class ExcelProcessor:
                 logger.warning(f"Warning: no input field found for '{header}' for Sheet '{sheet_name}'")
         return in_header_props
 
+
+    def autogenerate_cell_ids(self,template_sheet, headers, data_row_range):
+        for header in headers:
+            in_header_props= self.config['mappings'][header]
+
+            if in_header_props.get('prefix', "") != "":
+                id_generator=IdGenerator(in_header_props['prefix'])
+            else:
+                id_generator=IdGenerator()
+
+            for r_idx in range(data_row_range):
+                value=id_generator.generate_id()
+                cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)
+    
     def set_number_of_last_rows_to_drop(self, number_of_rows_to_skip):
         self.number_of_rows_to_skip=number_of_rows_to_skip
 
@@ -108,14 +107,16 @@ class ExcelProcessor:
                   (output_col and output_col not in input_df.columns)):
                     value=default_val
                     if default_val == "autogenerate":
-                        # value=id_generator.generate_id()
                         header_to_autogenerate_id+=(header,)
                 else:
                     row_data = {}
                     row = input_df.iloc[r_idx]
                     if 'regex' in in_header_props and in_header_props['regex'] != "":
-                        value = self._extract_with_regex(row[output_col], in_header_props['regex'])
-                        row_data[header] = value
+                        value=None
+                        text = row.get(output_col, None)
+                        if text is not None and not pd.isna(text):
+                            value = RegexUtils._extract_with_regex(row[output_col], in_header_props['regex'])
+                            row_data[header] = value
                     else:
                         value=row[output_col]
 
@@ -130,21 +131,11 @@ class ExcelProcessor:
                     cell.font = mandatory_font
 
 
-
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
-        # sheet_no_duplicates = SheetUtils._remove_duplicates_for_sheet_use_df(template_sheet)
+        # sheet_no_duplicates=SheetUtils._remove_duplicates_for_sheet(template_sheet, self.data_row_start, self.data_row_start + len(input_df) - 1, (1, len(template_sheet.get_headers())))
+        sheet_no_duplicates = SheetUtils._remove_duplicates_for_sheet_use_df(template_sheet)
 
         data_row_range=(sheet_no_duplicates.get_sheet().max_row-template_sheet.header_idx())
 
-        for header in header_to_autogenerate_id:
-            in_header_props= self.config['mappings'][header]
+        self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, data_row_range)
 
-            if in_header_props.get('prefix', "") != "":
-                id_generator=IdGenerator(in_header_props['prefix'])
-            else:
-                id_generator=IdGenerator()
-
-            for r_idx in range(data_row_range):
-                value=id_generator.generate_id()
-                cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)

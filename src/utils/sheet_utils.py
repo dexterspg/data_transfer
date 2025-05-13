@@ -51,20 +51,22 @@ class SheetUtils:
                     "border": cell.border.copy(),
                     "alignment": cell.alignment.copy()
                 }
-    #     for row in df.itertuples(index=False, name=None):
-    #         sheet.get_sheet().append(row)
-    # 
+         
         ws.delete_rows(sheet.get_data_row_start(), ws.max_row)
+
+# Ensure new rows are written before restoring formatting
         for row_idx, row_values in enumerate(df.itertuples(index=False, name=None), start=sheet.get_data_row_start()):
-                for col_idx, value in enumerate(row_values, start=1):
-                    cell = ws.cell(row=row_idx, column=col_idx, value=value)  
-                    
-                    # ✅ Restore formatting for the cell (if it was stored)
-                    if (row_idx, col_idx) in format_map:
-                        cell.font = format_map[(row_idx, col_idx)]["font"]
-                        cell.fill = format_map[(row_idx, col_idx)]["fill"]
-                        cell.border = format_map[(row_idx, col_idx)]["border"]
-                        cell.alignment = format_map[(row_idx, col_idx)]["alignment"]
+            for col_idx, value in enumerate(row_values, start=1):
+                cell = ws.cell(row=row_idx, column=col_idx, value=value)
+
+        # Restore formatting after writing new values
+        for (row_idx, col_idx), styles in format_map.items():
+            if row_idx >= sheet.get_data_row_start() and row_idx <= ws.max_row:
+                cell = ws.cell(row=row_idx, column=col_idx)
+                cell.font = styles["font"]
+                cell.fill = styles["fill"]
+                cell.border = styles["border"]
+                cell.alignment = styles["alignment"]
 
         sheet.set_sheet(ws)
         return sheet
