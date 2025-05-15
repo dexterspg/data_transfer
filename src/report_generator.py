@@ -1,6 +1,7 @@
+from sys import orig_argv
 import pandas as pd
 import json
-import re
+from typing import List
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from id_generator import IdGenerator
@@ -30,7 +31,7 @@ class ExcelProcessor:
 
     def _save_workbook(self):
         self.template_wb.save(self.output_file)
-        print(f"Processing complete. Output saved to {self.output_file}")
+        logger.info(f"Processing complete. Output saved to {self.output_file}")
 
     def set_data_row_start(self, data_row_start):
         self.data_row_start = data_row_start
@@ -38,7 +39,7 @@ class ExcelProcessor:
     def set_limit_rows(self, limitRows):
         self.limitRows= limitRows
 
-    def valid_header_mapping(self, header : str, input_df : pd.DataFrame) -> bool:
+    def valid_header_mapping(self, header : str) -> bool:
         sheet_name = self.config['sheet_name']
         if header in self.config['mappings'].keys():
             in_header_props: dict = self.config['mappings'][header]
@@ -53,12 +54,8 @@ class ExcelProcessor:
                 logger.error(f"Warning: no mapping found for '{header}' for Sheet '{sheet_name}'")
                 return False 
 
-            if output_col and output_col not in input_df.columns:
-                logger.warning(f"Warning: no input field found for '{header}' for Sheet '{sheet_name}'")
-
             return True
         return False 
-
 
     def autogenerate_cell_ids(self,template_sheet, prefix_dict, data_row_range):
         for header, prefix in prefix_dict.items():
@@ -73,8 +70,7 @@ class ExcelProcessor:
 
     def process(self):
         """Process the input file according to the template and mappings"""
-        input_df = pd.read_excel(self.input_file, header =self.input_header_row, nrows=self.limitRows, skipfooter=self.number_of_rows_to_skip)
-        print(len(input_df))
+        input_df = pd.read_excel(io=self.input_file, header=self.input_header_row, nrows=self.limitRows, skipfooter=self.number_of_rows_to_skip)
 
         sheet_name = self.config['sheet_name']
         if sheet_name not in self.template_wb.sheetnames:
@@ -87,23 +83,24 @@ class ExcelProcessor:
         header_to_autogenerate_id={}
         input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace(".","_").str.replace('-','_')
 
-        print(template_sheet.get_headers())
+        # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
         processed_rows=[{} for _ in range(len(input_df))]  
         for header in template_sheet.get_headers():
-            if not self.valid_header_mapping(header, input_df):
+            logger.info(f"Processing {header} of sheet {sheet_name}")
+
+            if not self.valid_header_mapping(header):
                 continue
 
             in_header_props: dict= self.config['mappings'][header]
 
-            print(f"{header}") 
 
-            default_val : str = in_header_props['default']
-            output_col : str  = in_header_props['external_column']
+            default_val:str = in_header_props.get('default',"")
+            output_col :str = in_header_props.get('external_column',"")
             prefix :str = in_header_props.get('prefix',"")
 
 
-            if default_val and default_val=="autogenerate" and prefix !="":
+            if default_val=="autogenerate" and prefix !="":
                 header_to_autogenerate_id[header]=prefix 
 
             normalized_col= output_col.replace(" ", "_").replace("/", "_").replace(".", "_").replace('-', '_')
@@ -133,10 +130,13 @@ class ExcelProcessor:
             for header in template_df.columns:
                 col_idx=col_index_map[header]
                 in_header_props: dict= self.config['mappings'][header]
-                default_val : str = in_header_props['default']
+                default_val : str = in_header_props.get('default',"")
+                prefix :str = in_header_props.get('prefix',"")
                 isMandatory : bool = header in mandatory_fields
                 value=getattr(row, header)
                 if value:
+                    if default_val != "autogenerate" and prefix != "":
+                        value = prefix + value
                     cell = template_sheet.cell(
                         row=r_idx, 
                         column=col_idx, 

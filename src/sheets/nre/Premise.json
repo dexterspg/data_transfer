@@ -4,16 +4,17 @@
     "mandatory_fields":["LocationId", "PremiseId", "HeadPremise", "Status", "Name", "Number", "Usage", "LegalEntityId", "CostCenterId", "Occupancies"] ,
     "mappings": {
         "LocationId": {
-            "external_column": "Property Code 1 - Prim Prop Code",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "",
-            "default": "autogenerate"
+            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "default": "",
+            "prefix": "LO"
         },
         "PremiseId": {
-            "external_column": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "",
-            "default": "autogenerate",
+            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "default": "",
             "prefix": "P"
         },
         "ParentPremiseId": {
@@ -61,10 +62,9 @@
         },
         "CostCenterId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": "autogenerate",
-            "prefix": "CC"
+            "default": "EMPTY"
 
         },
         "ProfitCenterId": {
@@ -77,7 +77,7 @@
             "external_column": "Subspace Commence Date",
             "regex": "\\b(\\d{2}\/\\d{2}\/\\d{4})\\b",
             "description": "Extracts date in dd/MM/yyyy format",
-            "default": "EMPTY"
+            "default": ""
         },
         "ClosingDate": {
             "external_column": "Subspace Expiration Date",
@@ -92,9 +92,9 @@
             "default": ""
         },
         "PossessionDate": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "Move In Date",
+            "regex": "\\b(\\d{2}/\\d{2}/\\d{4})\\b",
+            "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "RelocateDate": {

@@ -4,10 +4,11 @@
     "mandatory_fields": ["LocationId", "Group", "GroupOption"],
     "mappings": {
         "LocationId": {
-            "external_column": "Property Code 1 - Prim Prop Code",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "",
-            "default": "EMPTY"
+            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "default": "",
+            "prefix": "LO"
         },
         "Group": {
             "external_column": "",

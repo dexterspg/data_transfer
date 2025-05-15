@@ -4,22 +4,23 @@
     "mandatory_fields": ["LocationId", "BusinessUnitId", "StoreNumber", "Number", "DefaultCurrency", "DefaultUnit", "Name", "Status", "Type", "CountryText", "ProvinceText", "City", "CivicNumber", "PostalCode", "Street"],
     "mappings":{
         "LocationId": {
-            "external_column": "Property Code 1 - Prim Prop Code",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "",
-            "default": ""
+            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "default": "",
+            "prefix": "LO"
         },
         "BusinessUnitId": {
             "external_column": "",
             "regex": ".*",
             "description": "based on FOS???",
-            "default": "autogenerate",
+            "default": "Not-Found",
             "prefix": "BU"
         },
         "StoreNumber": {
-            "external_column": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "StoreNumber to StoreNumber",
+            "description": "",
             "default": "autogenerate",
             "prefix": "S"
         },
@@ -43,9 +44,9 @@
             "default": "EMPTY"
         },
         "Category": {
-            "external_column": "",
+            "external_column": "Lease Primary Use - Calculated Field",
             "regex": ".*",
-            "description": "",
+            "description": "??",
             "default": ""
         },
         "Name": {
@@ -55,9 +56,9 @@
             "default": "EMPTY"
         },
         "PropertyType": {
-            "external_column": "",
+            "external_column": "Lease Primary Use - Calculated Field",
             "regex": ".*",
-            "description": "PropertyType to PropertyType",
+            "description": "??",
             "default": ""
         },
         "Quality": {
@@ -100,7 +101,7 @@
             "external_column": "",
             "regex": ".*",
             "description": "ProvinceText to ProvinceText",
-            "default": "EMPTY"
+            "default": "relate to ProvinceCode"
         },
         "City": {
             "external_column": "Property City",

@@ -4,28 +4,29 @@
     "mandatory_fields":["LocationId", "LocationToPartnerId", "PartnerId", "PartnerRoleId"] ,
     "mappings": {
         "LocationId": {
-            "external_column": "Property Code 1 - Prim Prop Code",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "description": "",
-            "default": "autogenerate"
+            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "default": "",
+            "prefix": "LO"
         },
         "LocationToPartnerId": {
             "external_column": "",
             "regex": "",
             "description": "",
-            "default": ""
+            "default": "RE-Nakisa-Generated"
         },
         "PartnerId": {
             "external_column": "",
             "regex": "",
-            "description": "",
-            "default": ""
+            "description": "based on Property Owner Vendor",
+            "default": "PA-Nakisa-Gen"
         },
         "PartnerRoleId": {
             "external_column": "",
             "regex": "",
             "description": "",
-            "default": ""
+            "default": "based on Property Owner Vendor"
         },
         "DateFrom": {
             "external_column": "",

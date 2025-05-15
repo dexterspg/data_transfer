@@ -18,12 +18,12 @@ def main():
     # input_file = "input_only_propertyname.xlsx"
     # input_file = "input.xlsx"
     current_time= datetime.datetime.now() 
-    # formatted_datetime = current_time.strftime("%Y-%m-%d_%H-%M-%S")
-    formatted_datetime = ""
+    formatted_datetime = current_time.strftime("%Y-%m-%d_%H-%M-%S")
     input_file = "input_prolease_398.xlsx"
     # input_file = "input_200rows.xlsx"
     template_file = "template_init_accounting_on_complete.xlsx"
-    output_file = f"output_nre{formatted_datetime}.xlsx"
+    # output_file = f"output_nre{formatted_datetime}.xlsx"
+    output_file = f"output_nre.xlsx"
     base_dir = "src/sheets/nre/"
     config_file = f"{base_dir}/Location.json"
     other_configs = [
@@ -31,6 +31,8 @@ def main():
     'LocationLegalEntity.json',
     'LocationArea.json',
     'LocationAreaHistory.json',
+    'LocationToPartner.json',
+    'LocationToPartnerContact.json',
     'Premise.json',
     'PremiseArea.json',
     'Lease.json',
@@ -55,8 +57,8 @@ def main():
 
     start_time=time.time()
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, 3, 3)
-    # processor.set_limit_rows(200)
-    processor.set_number_of_last_rows_to_drop(1)
+    processor.set_limit_rows(200)
+    # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 
     for config in other_configs:

@@ -5,19 +5,19 @@
     "mappings": {
         "LocationToPartnerId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "RE-Nakisa-Generated"
         },
         "ContactId": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Address": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Prop Owner Address 1",
+            "regex": ".*",
             "description": "",
             "default": ""
         },
@@ -28,20 +28,20 @@
             "default": ""
         },
         "Email": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Vendor Primary Contact Email",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Name": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         },
         "Phone": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Vendor Primary Contact Phone",
+            "regex": ".*",
             "description": "",
             "default": ""
         },
@@ -52,16 +52,16 @@
             "default": ""
         },
         "Fax": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Vendor Fax",
+            "regex": ".*",
             "description": "",
             "default": ""
         },
         "ContactTypes": {
             "external_column": "",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": ""
+            "default": "EMPTY"
         }
     }
 }

@@ -8,7 +8,7 @@
             "regex": ".*",
             "description": "",
             "default": "autogenerate",
-            "prefix": "A"
+            "prefix": "A1"
         },
         "Details": {
             "external_column": "",
@@ -29,16 +29,17 @@
             "default": ""
         },
         "Floor": {
-            "external_column": "",
-            "external_column_a": "Floor - (ID#)",
+            "external_column": "Floor Sort Position",
+            "external_column_alt": "Floor - (ID#)",
             "regex": ".*",
-            "description": "",
+            "description": "?",
             "default": ""
         },
         "Measure": {
-            "external_column": "Our Rentable Area in Property - Calculated Field",
+            "external_column": "Lease Rentable Area - Calculated Field",
+            "external_column_alt": "Our Rentable Area in Property - Calculated Field",
             "regex": ".*",
-            "description": "",
+            "description": "?",
             "default": "EMPTY"
         },
         "Suite": {
