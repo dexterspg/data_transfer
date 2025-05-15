@@ -92,3 +92,24 @@ class SheetUtils:
     @staticmethod
     def _num_or_rows(sheet):
         sheet_obj=SheetUtils._ensure_sheet_instance(sheet)
+
+    # @staticmethod
+    # def set_values(sheet : Sheet, value):
+    #     for row in sheet_obj.iter_rows(min_row=sheet.get_data_row_start()):
+    #         for cell in row: 
+    #             if cell.value is not None:
+    #                 cell.value = value
+    #         
+    @staticmethod
+    def write_dataframe_to_sheet(df, sheet, start_row=2):
+        # for col_idx, col_name in enumerate(df.columns, start=1):
+            # sheet.cell(row=start_row, column=col_idx, value=col_name)
+
+        # Write data rows starting from the next row
+        # for row in df.values.tolist():
+            # sheet.append(row)
+
+       # Write data rows (starting from the next row)
+        for row_idx, row in enumerate(df.itertuples(index=False), start=start_row):
+            for col_idx, value in enumerate(row, start=1):
+                sheet.cell(row=row_idx, column=col_idx, value=value)

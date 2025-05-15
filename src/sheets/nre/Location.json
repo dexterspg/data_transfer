@@ -7,7 +7,7 @@
             "external_column": "Property Code 1 - Prim Prop Code",
             "regex": ".*",
             "description": "",
-            "default": "autogenerate"
+            "default": ""
         },
         "BusinessUnitId": {
             "external_column": "",

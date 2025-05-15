@@ -55,8 +55,8 @@ def main():
 
     start_time=time.time()
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, 3, 3)
-    processor.set_limit_rows(200)
-    # processor.set_number_of_last_rows_to_drop(1)
+    # processor.set_limit_rows(200)
+    processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 
     for config in other_configs:
