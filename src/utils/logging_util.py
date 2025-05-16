@@ -5,7 +5,6 @@ class LoggingUtil:
     @staticmethod
     def setup_logger(logger_name, file_name='app.log', console_level=logging.DEBUG, file_level=logging.INFO):
         logger = logging.getLogger(logger_name)
-        logger.setLevel(logging.DEBUG)
 
         # Create handlers
         console_handler = logging.StreamHandler()

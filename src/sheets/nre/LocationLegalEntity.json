@@ -7,12 +7,11 @@
             "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
-            "default": "",
+            "default": "EMPTY",
             "prefix": "LO"
         },
         "LegalEntityId": {
-            "external_column": "",
-            "external_column_a": "Lessee",
+            "external_column": "Lessee",
             "regex": ".*",
             "description": "",
             "default": "1000"

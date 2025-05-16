@@ -1,15 +1,16 @@
-from sys import orig_argv
+import logging
 import pandas as pd
 import json
 from typing import List
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from id_generator import IdGenerator
-from utils import SheetUtils, LoggingUtil, RegexUtils
+from utils import  LoggingUtil
+from utils.regex_utils import _extract_with_regex
 from sheet_model import Sheet
 
 mandatory_font= Font(color="00FF9B9B")
-logger = LoggingUtil.setup_logger('ExcelProcessor')
+logger = LoggingUtil.setup_logger('ExcelProcessor',console_level=logging.ERROR, file_level=logging.ERROR)
 
 class ExcelProcessor:
 
@@ -45,7 +46,7 @@ class ExcelProcessor:
             in_header_props: dict = self.config['mappings'][header]
 
             if not in_header_props:
-                logger.error(f"Warning: no input mapping found for '{header}' for Sheet '{sheet_name}'") 
+                logger.warning(f"Warning: no input mapping found for '{header}' for Sheet '{sheet_name}'") 
 
             default_val: str= in_header_props['default']
             output_col : str = in_header_props['external_column']
@@ -56,6 +57,7 @@ class ExcelProcessor:
 
             return True
         return False 
+
 
     def autogenerate_cell_ids(self,template_sheet, prefix_dict, data_row_range):
         for header, prefix in prefix_dict.items():
@@ -113,7 +115,7 @@ class ExcelProcessor:
                 if is_map_in_input_col:
                     text = getattr(row, normalized_col,None)
                     if text is not None and not pd.isna(text):
-                        value =  RegexUtils._extract_with_regex(text, in_header_props['regex']) if is_regex_exists else text
+                        value =  _extract_with_regex(text, in_header_props['regex']) if is_regex_exists else text
 
                 processed_rows[r_idx-row_start][header] = value
 
