@@ -1,0 +1,2091 @@
+Sheet Name: Location
+Column name District
+  Cell R4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LocationGroup
+Sheet Name: LocationLegalEntity
+Sheet Name: LocationArea
+Column name ApplicableExpenses
+  Cell K4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LocationAreaHistory
+Column name StartDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LocationToPartner
+Column name LocationId
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name LocationToPartnerId
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name PartnerId
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name PartnerRoleId
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name DateFrom
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name DateTo
+  Cell F4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LocationToPartnerContact
+Column name LocationToPartnerId
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical='center', textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ContactId
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Address
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Description
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Email
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=10, tint=0.0, type='theme', extend=None, sz=11.0, u='single', vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Name
+  Cell F4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Phone
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Position
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Fax
+  Cell I4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ContactTypes
+  Cell J4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: OperatingCostPeriod
+Column name LocationId
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name OperatingCostPeriodId
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Year
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Status
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: OperatingCostPeriodExpense
+Column name OperatingCostPeriodId
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ExpenseType
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Premise
+Column name CostCenterId
+  Cell J4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal='right', vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ProfitCenterId
+  Cell K4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Roboto', charset=None, family=None, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=10.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal='right', vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name OpeningDate
+  Cell L4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ClosingDate
+  Cell M4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ExpansionDate
+  Cell N4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name PossessionDate
+  Cell O4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name RelocateDate
+  Cell P4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name VacatingDate
+  Cell Q4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name DefaultJurisdictionId
+  Cell S4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Roboto', charset=None, family=None, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=10.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal='right', vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: PremiseArea
+Column name ApplicableExpenses
+  Cell L4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: PremiseAreaHistory
+Column name StartDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: PremiseGroup
+Sheet Name: Lease
+Column name StartDate
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name SignatureDate
+  Cell N4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name TerminatingLeaseDate
+  Cell O4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name CurrentIndexLevel
+  Cell R4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name IndexationReferenceDate
+  Cell S4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: mm-dd-yy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ConditionalIndexationLease
+  Cell T4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MinimumPercentageChangeLease
+  Cell U4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MaximumPercentageChangeLease
+  Cell V4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name CurrentIndexLevelNonLease
+  Cell Y4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name IndexationReferenceDateNonLease
+  Cell Z4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: mm-dd-yy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ConditionalIndexationNonLease
+  Cell AA4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MinimumPercentageChangeNonLease
+  Cell AB4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MaximumPercentageChangeNonLease
+  Cell AC4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name CalculateTax
+  Cell AD4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal='left', vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Terms
+Column name StartDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name FirstPaymentDate
+  Cell M4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: TermAmounts
+Column name StartDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name FirstSpecialPaymentDate
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name LastSpecialPaymentDate
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: TermVendor
+Column name VendorId
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Roboto', charset=None, family=None, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=10.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: NfsLink
+Sheet Name: PercentageRentPeriod
+Column name DateFrom
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name DateTo
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: PercentageRentExclusion
+Column name SaleCategory
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name SaleSubCategory
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: PercentageRentRule
+Column name Category
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name SubCategory
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=True, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LeaseClauseType
+Column name IsNotApplicable
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Clause
+Sheet Name: LeaseCriticalClauseType
+Column name Type
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name IsNotApplicable
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: CriticalClause
+Column name StartDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EarlyNoticeDate
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name LatestNoticeDate
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name NotificationDate
+  Cell I4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name RentType
+  Cell M4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=None, extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Insurance
+Column name Amount
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LeaseCondition
+Column name StartDate
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EndDate
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name AdminFee
+  Cell I4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name FixedIncreasePercentage
+  Cell J4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: AreaBasedProShare
+Sheet Name: FixedPercentageProShare
+Column name FixedPercentage
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: FixedCAP
+Column name Amount
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: OverBaseCAP
+Column name BaseYear
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name BaseAmount
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MaxIncreasePercentage
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Cumulative
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: OverYearCAP
+Column name BaseYear
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name BaseAmount
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name MaxIncreasePercentage
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Cumulative
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LeaseIncentive
+Column name TotalAmount
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: 0.00
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Draw
+Column name FollowUpDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name InvoicedDate
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ReceivedDate
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: UserDefinedFields
+Column name FieldValue
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: LeaseEvent
+Column name Type
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name ActivityDate
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: dd/mm/yyyy
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Detail
+  Cell D4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Code
+  Cell E4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name RelatedOption
+  Cell F4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: DocumentLink
+Column name Link
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=10, tint=0.0, type='theme', extend=None, sz=11.0, u='single', vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Entity
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name EntityId
+  Cell C4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name SignedDate
+  Cell F4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: yyyy\-mm\-dd;@
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name Status
+  Cell G4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Column name DocumentType
+  Cell H4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: Note
+Column name EntityId
+  Cell B4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=1, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='FF000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', extend=None, sz=11.0, u=None, vertAlign=None, scheme=None
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: @
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+
+Sheet Name: NoteEntityTypeOption
+Sheet Name: DocumentEntities
+Column name Location
+  Cell A4 has style:
+    Font: <openpyxl.styles.fonts.Font object>
+Parameters:
+name='Calibri', charset=None, family=2.0, b=False, i=False, strike=None, outline=None, shadow=None, condense=None, color=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb=None, indexed=None, auto=None, theme=1, tint=0.0, type='theme', extend=None, sz=11.0, u=None, vertAlign=None, scheme='minor'
+    Fill: <openpyxl.styles.fills.PatternFill object>
+Parameters:
+patternType=None, fgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb', bgColor=<openpyxl.styles.colors.Color object>
+Parameters:
+rgb='00000000', indexed=None, auto=None, theme=None, tint=0.0, type='rgb'
+    Number format: General
+    Alignment: <openpyxl.styles.alignment.Alignment object>
+Parameters:
+horizontal=None, vertical=None, textRotation=0, wrapText=None, shrinkToFit=None, indent=0.0, relativeIndent=0.0, justifyLastLine=None, readingOrder=0.0
+

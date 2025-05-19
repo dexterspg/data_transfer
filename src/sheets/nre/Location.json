@@ -5,35 +5,30 @@
     "mappings":{
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
             "prefix": "LO"
         },
         "BusinessUnitId": {
             "external_column": "",
-            "regex": ".*",
             "description": "based on FOS???",
             "default": "Not-Found",
             "prefix": "BU"
         },
         "StoreNumber": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
             "description": "",
             "default": "autogenerate",
             "prefix": "S"
         },
         "Number": {
             "external_column": "",
-            "regex": ".*",
             "description": "Number to Number",
             "default": "autogenerate",
             "prefix" : "L"
         },
         "DefaultCurrency": {
             "external_column": "Intl - Currency Type",
-            "regex": ".*",
             "description": "Needs to be set to ISO 4217 codes",
             "default": "EMPTY"
         },
@@ -53,7 +48,8 @@
             "external_column": "Property Name",
             "regex": ".*",
             "description": "Property Name To Name",
-            "default": "EMPTY"
+            "default": "EMPTY",
+            "rules": "True"
         },
         "PropertyType": {
             "external_column": "Lease Primary Use - Calculated Field",

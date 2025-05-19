@@ -5,12 +5,15 @@ from typing import List
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from id_generator import IdGenerator
+import nre_enums
 from utils import  LoggingUtil
 from utils.regex_utils import _extract_with_regex
 from sheet_model import Sheet
+from rules import _handle_rules
+from nre_enums import get_sheet_enum
 
 mandatory_font= Font(color="00FF9B9B")
-logger = LoggingUtil.setup_logger('ExcelProcessor',console_level=logging.ERROR, file_level=logging.ERROR)
+logger = LoggingUtil.setup_logger('ExcelProcessor')
 
 class ExcelProcessor:
 
@@ -73,7 +76,6 @@ class ExcelProcessor:
     def process(self):
         """Process the input file according to the template and mappings"""
         input_df = pd.read_excel(io=self.input_file, header=self.input_header_row, nrows=self.limitRows, skipfooter=self.number_of_rows_to_skip)
-
         sheet_name = self.config['sheet_name']
         if sheet_name not in self.template_wb.sheetnames:
             logger.error(f"Warning: Sheet '{sheet_name}' not found in template")
@@ -82,7 +84,9 @@ class ExcelProcessor:
         template_sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
         mandatory_fields = self.config['mandatory_fields']
 
+
         header_to_autogenerate_id={}
+        original_input_colums = input_df.columns.copy()
         input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace(".","_").str.replace('-','_')
 
         # print(template_sheet.get_headers())
@@ -95,7 +99,6 @@ class ExcelProcessor:
                 continue
 
             in_header_props: dict= self.config['mappings'][header]
-
 
             default_val:str = in_header_props.get('default',"")
             output_col :str = in_header_props.get('external_column',"")
@@ -115,19 +118,26 @@ class ExcelProcessor:
                 if is_map_in_input_col:
                     text = getattr(row, normalized_col,None)
                     if text is not None and not pd.isna(text):
-                        value =  _extract_with_regex(text, in_header_props['regex']) if is_regex_exists else text
+                        value =  _extract_with_regex(text, in_header_props['regex']) if is_regex_exists else str(text)
 
                 processed_rows[r_idx-row_start][header] = value
 
+
+        input_df.columns=original_input_colums
         template_df = pd.DataFrame(processed_rows) 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        template_df = template_df.drop_duplicates()
+        print(template_df)
+        template_df = template_df.drop_duplicates().dropna(how="all")
+        template_df_indices= template_df.index.tolist()
+        print(template_df_indices)
+
 
         col_index_map = {
             header: template_sheet.get_col_idx(header)
             for header in template_df.columns
         }
 
+        # get_rule=[]
         for r_idx, row in enumerate(template_df.itertuples(index=False), start=self.data_row_start):
             for header in template_df.columns:
                 col_idx=col_index_map[header]
@@ -145,15 +155,27 @@ class ExcelProcessor:
                         value=value
                     )
                 elif default_val and default_val !=  "autogenerate":
+                    value = default_val
+
+                    rules = in_header_props.get('rules')
+                    if rules:
+                        found_rule= _handle_rules(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices[r_idx-self.data_row_start])
+                        if found_rule:
+                            value = found_rule
+                            # get_rule.append(value)
+
                     cell = template_sheet.cell(
                         row=r_idx, 
                         column=col_idx, 
-                        value=default_val 
+                        value=value
                     )
                     if isMandatory:
                         cell.font = mandatory_font
                 elif isMandatory and not default_val:
                     raise Exception(f"Error: mandatory field '{header}' has missing value")
+
+        # if get_rule:
+            # print(get_rule)
 
         self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, len(template_df))
         

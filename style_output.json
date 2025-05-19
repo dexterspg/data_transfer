@@ -1,0 +1,2248 @@
+{
+    "Location": {
+        "District": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LocationArea": {
+        "ApplicableExpenses": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        }
+    },
+    "LocationAreaHistory": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LocationToPartner": {
+        "LocationId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "LocationToPartnerId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "PartnerId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "PartnerRoleId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "DateFrom": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "DateTo": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LocationToPartnerContact": {
+        "LocationToPartnerId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": "center",
+                "wrapText": true
+            }
+        },
+        "ContactId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Address": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Description": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Email": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "single",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Name": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Phone": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Position": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Fax": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ContactTypes": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "OperatingCostPeriod": {
+        "LocationId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "OperatingCostPeriodId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Year": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Status": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "OperatingCostPeriodExpense": {
+        "OperatingCostPeriodId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ExpenseType": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Premise": {
+        "CostCenterId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": "right",
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ProfitCenterId": {
+            "font": {
+                "name": "Roboto",
+                "size": 10.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": "right",
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "OpeningDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ClosingDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ExpansionDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "PossessionDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "RelocateDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "VacatingDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "DefaultJurisdictionId": {
+            "font": {
+                "name": "Roboto",
+                "size": 10.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": "right",
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "PremiseArea": {
+        "ApplicableExpenses": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        }
+    },
+    "PremiseAreaHistory": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Lease": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "SignatureDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "TerminatingLeaseDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "CurrentIndexLevel": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "IndexationReferenceDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "mm-dd-yy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ConditionalIndexationLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MinimumPercentageChangeLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MaximumPercentageChangeLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "CurrentIndexLevelNonLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "IndexationReferenceDateNonLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "mm-dd-yy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ConditionalIndexationNonLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MinimumPercentageChangeNonLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MaximumPercentageChangeNonLease": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "CalculateTax": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": "left",
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Terms": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "FirstPaymentDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "TermAmounts": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "FirstSpecialPaymentDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "LastSpecialPaymentDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "TermVendor": {
+        "VendorId": {
+            "font": {
+                "name": "Roboto",
+                "size": 10.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "PercentageRentPeriod": {
+        "DateFrom": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "DateTo": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "PercentageRentExclusion": {
+        "SaleCategory": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        },
+        "SaleSubCategory": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        }
+    },
+    "PercentageRentRule": {
+        "Category": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        },
+        "SubCategory": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": true
+            }
+        }
+    },
+    "LeaseClauseType": {
+        "IsNotApplicable": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LeaseCriticalClauseType": {
+        "Type": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "IsNotApplicable": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "CriticalClause": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EarlyNoticeDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "LatestNoticeDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "NotificationDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "RentType": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": null
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Insurance": {
+        "Amount": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LeaseCondition": {
+        "StartDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EndDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "AdminFee": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "FixedIncreasePercentage": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "FixedPercentageProShare": {
+        "FixedPercentage": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "FixedCAP": {
+        "Amount": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "OverBaseCAP": {
+        "BaseYear": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "BaseAmount": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MaxIncreasePercentage": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Cumulative": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "OverYearCAP": {
+        "BaseYear": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "BaseAmount": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "MaxIncreasePercentage": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Cumulative": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LeaseIncentive": {
+        "TotalAmount": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "0.00",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Draw": {
+        "FollowUpDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "InvoicedDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ReceivedDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "UserDefinedFields": {
+        "FieldValue": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "LeaseEvent": {
+        "Type": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "ActivityDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "dd/mm/yyyy",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Detail": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Code": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "RelatedOption": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "DocumentLink": {
+        "Link": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "single",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Entity": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "EntityId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "SignedDate": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "yyyy\\-mm\\-dd;@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "Status": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        },
+        "DocumentType": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "Note": {
+        "EntityId": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "FF000000"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "@",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    },
+    "DocumentEntities": {
+        "Location": {
+            "font": {
+                "name": "Calibri",
+                "size": 11.0,
+                "bold": false,
+                "italic": false,
+                "underline": "None",
+                "color": "Values must be of type <class 'str'>"
+            },
+            "fill": {
+                "fgColor": "00000000",
+                "bgColor": "00000000"
+            },
+            "number_format": "General",
+            "alignment": {
+                "horizontal": null,
+                "vertical": null,
+                "wrapText": null
+            }
+        }
+    }
+}
