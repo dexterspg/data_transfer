@@ -5,22 +5,20 @@
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
-            "default": "autogenerate",
-            "prefix": "LE"
+            "default_a": "autogenerate",
+            "prefix_": "LE"
         },
         "Number": {
             "external_column": "",
-            "regex": ".*",
             "description": "",
-            "default": "autogenerate",
-            "prefix": "LE"
+            "default_a": "autogenerate",
+            "prefix_a": "LE"
         },
         "PremiseId": {
             "external_column": "",
             "regex": "",
-            "default": "autogenerate",
-            "prefix": "P"
+            "default_a": "autogenerate",
+            "prefix_a": "P"
         },
         "OriginalLeaseId": {
             "external_column": "",

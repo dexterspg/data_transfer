@@ -1,19 +1,20 @@
 import logging
+from os import waitpid
 import pandas as pd
 import json
 from typing import List
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from id_generator import IdGenerator
-import nre_enums
 from utils import  LoggingUtil
 from utils.regex_utils import _extract_with_regex
 from sheet_model import Sheet
 from rules import _handle_rules
 from nre_enums import get_sheet_enum
+from create_documents import save_document_indices, retrieve_document_indices
 
 mandatory_font= Font(color="00FF9B9B")
-logger = LoggingUtil.setup_logger('ExcelProcessor')
+logger = LoggingUtil.setup_logger('ExcelProcessor', console_level=logging.DEBUG)
 
 class ExcelProcessor:
 
@@ -51,8 +52,8 @@ class ExcelProcessor:
             if not in_header_props:
                 logger.warning(f"Warning: no input mapping found for '{header}' for Sheet '{sheet_name}'") 
 
-            default_val: str= in_header_props['default']
-            output_col : str = in_header_props['external_column']
+            default_val: str= in_header_props.get('default', None)
+            output_col : str = in_header_props.get('external_column',None)
 
             if not default_val and not output_col:
                 logger.error(f"Warning: no mapping found for '{header}' for Sheet '{sheet_name}'")
@@ -73,10 +74,14 @@ class ExcelProcessor:
     def set_number_of_last_rows_to_drop(self, number_of_rows_to_skip):
         self.number_of_rows_to_skip=number_of_rows_to_skip
 
+    # def populateIdsFromReference(self, header, reference):
+        # reference_sheet=self.template_wb[reference]
+
     def process(self):
         """Process the input file according to the template and mappings"""
         input_df = pd.read_excel(io=self.input_file, header=self.input_header_row, nrows=self.limitRows, skipfooter=self.number_of_rows_to_skip)
         sheet_name = self.config['sheet_name']
+        reference : str = self.config.get('has_reference', None)
         if sheet_name not in self.template_wb.sheetnames:
             logger.error(f"Warning: Sheet '{sheet_name}' not found in template")
             return
@@ -104,7 +109,6 @@ class ExcelProcessor:
             output_col :str = in_header_props.get('external_column',"")
             prefix :str = in_header_props.get('prefix',"")
 
-
             if default_val=="autogenerate" and prefix !="":
                 header_to_autogenerate_id[header]=prefix 
 
@@ -122,15 +126,19 @@ class ExcelProcessor:
 
                 processed_rows[r_idx-row_start][header] = value
 
-
         input_df.columns=original_input_colums
         template_df = pd.DataFrame(processed_rows) 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
+        if reference:
+            indices = retrieve_document_indices(str(reference))
+            duplicated_mask=template_df.duplicated(keep=False)
+            template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
+        else:
+            template_df = template_df.drop_duplicates().dropna(how="all")
         print(template_df)
-        template_df = template_df.drop_duplicates().dropna(how="all")
         template_df_indices= template_df.index.tolist()
         print(template_df_indices)
-
+        save_document_indices(sheet_name, template_df_indices)
 
         col_index_map = {
             header: template_sheet.get_col_idx(header)
@@ -157,11 +165,12 @@ class ExcelProcessor:
                 elif default_val and default_val !=  "autogenerate":
                     value = default_val
 
-                    rules = in_header_props.get('rules')
-                    if rules:
-                        found_rule= _handle_rules(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices[r_idx-self.data_row_start])
-                        if found_rule:
-                            value = found_rule
+                    # rules = in_header_props.get('rules')
+                    # if rules:
+                        # found_rule= _handle_rules(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices[r_idx-self.data_row_start])
+                        # if found_rule:
+                            # value = found_rule
+
                             # get_rule.append(value)
 
                     cell = template_sheet.cell(

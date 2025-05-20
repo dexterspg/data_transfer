@@ -2,13 +2,15 @@
     "sheet_name": "TermAmounts",
     "enabled": true,
     "mandatory_fields":["TermId", "StartDate", "EndDate", "Amount", "TermIndexationType"] ,
+    "has_reference" : "Terms",
     "mappings": {
         "TermId": {
-            "external_column": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": "",
             "description": "",
-            "default": "autogenerate",
-            "prefix": "T"
+            "default": "",
+            "prefix": "T",
+            "reference": "Terms"
         },
         "Legacy": {
             "external_column": "",

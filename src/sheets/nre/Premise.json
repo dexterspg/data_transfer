@@ -11,11 +11,12 @@
             "prefix": "LO"
         },
         "PremiseId": {
-            "external_column": "Lease Code 1 - Prim Lease Code",
+            "external_column": "",
             "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
-            "default": "EMPTY",
-            "prefix": "P"
+            "default": "autogenerate",
+            "prefix": "P",
+            "reference" : "Premise"
         },
         "ParentPremiseId": {
             "external_column": "",

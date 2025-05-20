@@ -6,14 +6,14 @@
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
-            "default": "autogenerate",
+            "default": "",
             "prefix": "LE"
         },
         "TermId": {
-            "external_column": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": "",
             "description": "",
-            "default": "autogenerate",
+            "default": "",
             "prefix": "T"
         },
         "StartDate": {

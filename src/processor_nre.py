@@ -2,6 +2,7 @@ from report_generator import ExcelProcessor
 import os
 import datetime 
 import time
+from create_documents import clear_document_indices
 
 def is_file_open(file_path):
     """Checks if a file is open by another process."""
@@ -56,6 +57,7 @@ def main() -> None:
         return
 
     start_time=time.time()
+    clear_document_indices()
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, 3, 3)
     processor.set_limit_rows(100)
     # processor.set_number_of_last_rows_to_drop(1)

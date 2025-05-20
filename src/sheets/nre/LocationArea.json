@@ -2,13 +2,15 @@
     "sheet_name": "LocationArea",
     "enabled": true,
     "mandatory_fields": ["LocationId", "AreaId", "Type", "Source", "Unit"],
+    "has_reference" : "Location",
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
-            "prefix": "LO"
+            "prefix": "LO",
+            "reference": "Location"
         },
         "AreaId": {
             "external_column": "",

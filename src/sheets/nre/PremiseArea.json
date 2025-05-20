@@ -2,20 +2,20 @@
     "sheet_name": "PremiseArea",
     "enabled": true,
     "mandatory_fields":["PremiseId", "AreaId", "Type", "Source", "Unit"] ,
+    "has_reference": "Premise",
     "mappings": {
         "PremiseId": {
             "external_column": "",
-            "regex": ".*",
             "description": "",
-            "default": "autogenerate",
-            "prefix": "P0"
+            "default_a": "autogenerate",
+            "prefix_a": "P0",
+            "reference": "Premise"
         },
         "AreaId": {
             "external_column": "",
-            "regex": ".*",
             "description": "",
-            "default": "autogenerate",
-            "prefix":"PA"
+            "default_a": "autogenerate",
+            "prefix_a":"PA"
         },
         "Type": {
             "external_column": "Subspace Primary Use",
