@@ -5,14 +5,14 @@
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "default_a": "autogenerate",
+            "default": "EMPTY",
             "prefix_": "LE"
         },
         "Number": {
             "external_column": "",
             "description": "",
-            "default_a": "autogenerate",
-            "prefix_a": "LE"
+            "default_a": "",
+            "prefix_a": "EMPTY"
         },
         "PremiseId": {
             "external_column": "",

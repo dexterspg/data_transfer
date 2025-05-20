@@ -11,9 +11,9 @@
         },
         "TermId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": "",
+            "regex": ".*",
             "description": "",
-            "default": "",
+            "default": "EMPTY",
             "prefix": "T"
         },
         "StartDate": {

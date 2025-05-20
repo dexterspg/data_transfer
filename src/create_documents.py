@@ -29,10 +29,10 @@ def retrieve_document_indices(sheet_name: str):
         print("No data found!")
         return None
 
-    print(sheet_name)
+    # print(sheet_name)
     with open(STORE_FILE, "r") as f:
         data = json.load(f)
-    print(data[sheet_name])
+    # print(data[sheet_name])
 
     return data.get(sheet_name, None)
 

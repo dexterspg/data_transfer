@@ -5,7 +5,7 @@
     "has_reference": "Premise",
     "mappings": {
         "PremiseId": {
-            "external_column": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "description": "",
             "default_a": "autogenerate",
             "prefix_a": "P0",

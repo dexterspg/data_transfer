@@ -1,4 +1,5 @@
 import logging
+from nre_enums import *
 from os import waitpid
 import pandas as pd
 import json
@@ -9,8 +10,8 @@ from id_generator import IdGenerator
 from utils import  LoggingUtil
 from utils.regex_utils import _extract_with_regex
 from sheet_model import Sheet
-from rules import _handle_rules
-from nre_enums import get_sheet_enum
+from rules import _handle_rules_column, _handle_rules_row
+from nre_enums import LocationLegalEntityColumns, get_sheet_enum
 from create_documents import save_document_indices, retrieve_document_indices
 
 mandatory_font= Font(color="00FF9B9B")
@@ -96,6 +97,7 @@ class ExcelProcessor:
 
         # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
+        header_to_apply_column_rule={}
         processed_rows=[{} for _ in range(len(input_df))]  
         for header in template_sheet.get_headers():
             logger.info(f"Processing {header} of sheet {sheet_name}")
@@ -135,10 +137,20 @@ class ExcelProcessor:
             template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
         else:
             template_df = template_df.drop_duplicates().dropna(how="all")
-        print(template_df)
+        # print(template_df)
+
         template_df_indices= template_df.index.tolist()
         print(template_df_indices)
         save_document_indices(sheet_name, template_df_indices)
+
+        header_rules = self.config.get('has_rules')
+        if header_rules:
+            print("Before")
+            print(template_df)
+            for header in header_rules:
+                found_rule= _handle_rules_column(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices)
+                if not found_rule.empty:
+                    template_df[header] = found_rule[header]
 
         col_index_map = {
             header: template_sheet.get_col_idx(header)
@@ -165,11 +177,15 @@ class ExcelProcessor:
                 elif default_val and default_val !=  "autogenerate":
                     value = default_val
 
-                    # rules = in_header_props.get('rules')
-                    # if rules:
-                        # found_rule= _handle_rules(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices[r_idx-self.data_row_start])
-                        # if found_rule:
-                            # value = found_rule
+                    rules = in_header_props.get('rules')
+                    if rules and rules=="row":
+                        indices=[]
+                        indices.append(template_df_indices[r_idx-self.data_row_start])
+                        found_rule= _handle_rules_row(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'],indices )
+                        if found_rule:
+                            value = found_rule
+                        else:
+                            value = default_val
 
                             # get_rule.append(value)
 
@@ -185,6 +201,7 @@ class ExcelProcessor:
 
         # if get_rule:
             # print(get_rule)
+        print(template_df)
 
         self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, len(template_df))
         

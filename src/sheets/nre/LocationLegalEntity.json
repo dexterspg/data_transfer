@@ -2,6 +2,7 @@
     "sheet_name": "LocationLegalEntity",
     "enabled": true,
     "mandatory_fields": ["LocationId", "LegalEntityId", "ErpSystemDisplayId"],
+    "has_rules": ["LegalEntityId"],
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -14,13 +15,14 @@
             "external_column": "Lessee",
             "regex": ".*",
             "description": "",
-            "default": "1000"
+            "default": "1000",
+            "rules":"column"
         },
         "ErpSystemDisplayId": {
             "external_column": "",
             "regex": ".*",
             "description": "",
-            "default": "ErpSystem1"
+            "default": "FINQ8S-300"
         }
     }
 }
