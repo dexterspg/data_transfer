@@ -58,8 +58,9 @@ def main() -> None:
 
     start_time=time.time()
     clear_document_indices()
-    processor = ExcelProcessor(input_file, template_file, output_file, config_file, 3, 3)
-    processor.set_limit_rows(50)
+    data_row_start =None 
+    processor = ExcelProcessor(input_file, template_file, output_file, config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
+    processor.set_limit_rows(100)
     # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 

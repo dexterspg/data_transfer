@@ -8,9 +8,8 @@
             "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": "",
             "description": "",
-            "default": "",
-            "prefix": "T",
-            "reference": "Terms"
+            "default": "autogenerate",
+            "prefix": "T"
         },
         "Legacy": {
             "external_column": "",

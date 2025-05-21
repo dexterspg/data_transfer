@@ -90,10 +90,10 @@ class ExcelProcessor:
         template_sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
         mandatory_fields = self.config['mandatory_fields']
 
-
         header_to_autogenerate_id={}
-        original_input_colums = input_df.columns.copy()
-        input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace(".","_").str.replace('-','_')
+        original_input_columns = input_df.columns.copy()
+
+        input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace('-','_').str.replace('(','_').str.replace(')','_')
 
         # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
@@ -101,7 +101,6 @@ class ExcelProcessor:
         processed_rows=[{} for _ in range(len(input_df))]  
         for header in template_sheet.get_headers():
             logger.info(f"Processing {header} of sheet {sheet_name}")
-
             if not self.valid_header_mapping(header):
                 continue
 
@@ -114,7 +113,7 @@ class ExcelProcessor:
             if default_val=="autogenerate" and prefix !="":
                 header_to_autogenerate_id[header]=prefix 
 
-            normalized_col= output_col.replace(" ", "_").replace("/", "_").replace(".", "_").replace('-', '_')
+            normalized_col= output_col.replace(" ", "_").replace("/", "_").replace('-', '_').replace('(','_').replace(')','_')
             is_map_in_input_col : bool=  True if normalized_col and normalized_col in input_df.columns else False
             is_regex_exists : bool='regex' in in_header_props and in_header_props['regex'] != ""
 
@@ -128,7 +127,7 @@ class ExcelProcessor:
 
                 processed_rows[r_idx-row_start][header] = value
 
-        input_df.columns=original_input_colums
+        input_df.columns=original_input_columns
         template_df = pd.DataFrame(processed_rows) 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
         if reference:
@@ -137,16 +136,15 @@ class ExcelProcessor:
             template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
         else:
             template_df = template_df.drop_duplicates().dropna(how="all")
-        # print(template_df)
+        print(template_df)
 
         template_df_indices= template_df.index.tolist()
-        print(template_df_indices)
+        # print(template_df_indices)
         save_document_indices(sheet_name, template_df_indices)
 
         header_rules = self.config.get('has_rules')
+        print(header_rules)
         if header_rules:
-            print("Before")
-            print(template_df)
             for header in header_rules:
                 found_rule= _handle_rules_column(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices)
                 if not found_rule.empty:
@@ -174,6 +172,9 @@ class ExcelProcessor:
                         column=col_idx, 
                         value=value
                     )
+                    
+                    if isMandatory and header_rules and header in header_rules:
+                        cell.font = mandatory_font
                 elif default_val and default_val !=  "autogenerate":
                     value = default_val
 
@@ -201,7 +202,6 @@ class ExcelProcessor:
 
         # if get_rule:
             # print(get_rule)
-        print(template_df)
 
         self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, len(template_df))
         

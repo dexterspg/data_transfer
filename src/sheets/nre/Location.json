@@ -71,7 +71,6 @@
         },
         "Type": {
             "external_column": "Property Type (L/O)",
-            "regex": ".*",
             "description": "Possible Values : Owned , Leased",
             "default": "EMPTY"
         },

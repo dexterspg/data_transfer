@@ -43,7 +43,7 @@ def _handle_rules_row(input_df, sheet_name: SheetName, header, mapping_config, i
 
     return None
 
-def createNameValue(input_df, mapping_config, indices):
+def createLocationNameValue(input_df, mapping_config, indices):
     locationId_ext = input_df.at[indices[0], "Property Code 1 - Prim Prop Code"]
     value =  f"{locationId_ext}TEST"
     return value
@@ -51,17 +51,18 @@ def createNameValue(input_df, mapping_config, indices):
 def createLegalEntityId(input_df, mapping_config,indices):
     print("======================================================")
     locationId_ext = mapping_config[LocationColumns.LOCATIONID.value].get("external_column", "")
-    legalEnityId_ext = mapping_config[LocationLegalEntityColumns.LEGALENTITYID.value].get("external_column", "")
-
-    # df = input_df.loc[indices, [locationId_ext, legalEnityId_ext]]
+    # legalEnityId_ext = mapping_config[LocationLegalEntityColumns.LEGALENTITYID.value].get("external_column", "")
+    lessee = input_df[['Lessee']]
+    
     df = input_df.loc[indices, [locationId_ext]]
     df.columns=[LocationLegalEntityColumns.LEGALENTITYID.value]
     # print(df)
+     
     
     return df
         
 ROW_RULES_MAPPING = {
-    (SheetName.LOCATION, LocationColumns.NAME) : createNameValue,
+    (SheetName.LOCATION, LocationColumns.NAME) : createLocationNameValue,
 }
 
 COLUMN_RULES_MAPPING = {

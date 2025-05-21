@@ -5,15 +5,14 @@
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
-            "default": "",
+            "default": "EMPTY",
             "prefix": "LE"
         },
         "TermId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
             "description": "",
-            "default": "EMPTY",
+            "default": "autogenerate",
             "prefix": "T"
         },
         "StartDate": {
