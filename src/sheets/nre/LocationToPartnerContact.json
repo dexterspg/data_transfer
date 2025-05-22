@@ -28,8 +28,7 @@
             "default": ""
         },
         "Email": {
-            "external_column": "",
-            "external_column_a": "Vendor Primary Contact Email",
+            "external_column": "Vendor Primary Contact Email",
             "description": "",
             "default": "EMPTY"
         },

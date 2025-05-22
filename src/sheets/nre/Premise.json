@@ -2,6 +2,7 @@
     "sheet_name": "Premise",
     "enabled": true,
     "mandatory_fields":["LocationId", "PremiseId", "HeadPremise", "Status", "Name", "Number", "Usage", "LegalEntityId", "CostCenterId", "Occupancies"] ,
+    "has_rules": ["OpeningDate", "ClosingDate", "PossessionDate" ],
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -30,8 +31,7 @@
             "default": "TRUE"
         },
         "Status": {
-            "external_column": "",
-            "regex": ".*",
+            "external_column": "Active/Inactive",
             "description": "",
             "default": "Active"
         },
@@ -48,7 +48,8 @@
             "default": "EMPTY"
         },
         "Usage": {
-            "external_column": "Subspace Primary Use",
+            "external_column": "Lease Primary Use - Calculated Field Primary Use",
+            "external_column_a": "Subspace Primary Use",
             "regex": ".*",
             "description": "",
             "default": "EMPTY"
@@ -74,13 +75,11 @@
         },
         "OpeningDate": {
             "external_column": "Subspace Commence Date",
-            "regex": "\\b(\\d{2}\/\\d{2}\/\\d{4})\\b",
             "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "ClosingDate": {
             "external_column": "Subspace Expiration Date",
-            "regex": "\\b(\\d{2}/\\d{2}/\\d{4})\\b",
             "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
@@ -92,32 +91,30 @@
         },
         "PossessionDate": {
             "external_column": "Move In Date",
-            "regex": "\\b(\\d{2}/\\d{2}/\\d{4})\\b",
             "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "RelocateDate": {
             "external_column": "",
             "regex": "",
-            "description": "",
+            "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "VacatingDate": {
             "external_column": "",
             "regex": "",
-            "description": "",
+            "description": "Extracts date in dd/MM/yyyy format",
             "default": ""
         },
         "Occupancies": {
             "external_column": "",
             "regex": ".*",
-            "description": "If head premise comma sepeated list of occupancies, if sub-premis, single occupancy, possible values: Occupied, Vacant, Leased Int, Leased Ext, Leased Int -Ext",
-            "default": "EMPTY"
+            "description": "If head premise comma sepeated list of occupancies, if sub-premis, single occupancy, possible values: Occupied, Vacant, Leased Int, Leased Ext, Leased Int -Ext example Vacant",
+            "default": "Lease Status / Type Security System"
         },
         "DefaultJurisdictionId": {
-            "external_column": "",
-            "regex": "",
-            "description": "",
+            "external_column": "RE Tax - (ID#)",
+            "description": "example CAON",
             "default": ""
         }
     }

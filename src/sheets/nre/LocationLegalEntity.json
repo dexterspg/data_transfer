@@ -2,7 +2,7 @@
     "sheet_name": "LocationLegalEntity",
     "enabled": true,
     "mandatory_fields": ["LocationId", "LegalEntityId", "ErpSystemDisplayId"],
-    "has_rules_a": ["LegalEntityId"],
+    "has_rules": ["LegalEntityId"],
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",

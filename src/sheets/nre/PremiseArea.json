@@ -7,7 +7,7 @@
         "PremiseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
             "description": "",
-            "default": "autogenerate",
+            "default": "EMPTY",
             "prefix": "P"
         },
         "AreaId": {

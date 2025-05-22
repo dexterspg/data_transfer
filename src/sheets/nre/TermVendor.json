@@ -4,22 +4,20 @@
     "mandatory_fields":["TermId", "VendorId", "Ownership"] ,
     "mappings": {
         "TermId": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Lease Code 1 - Prim Lease Code",
             "description": "",
-            "default": ""
+            "default": "autogenerate",
+            "prefix": "T"
         },
         "VendorId": {
             "external_column": "",
-            "regex": "",
             "description": "",
-            "default": ""
+            "default": "CPI - Pay To Vendor Number"
         },
         "Ownership": {
             "external_column": "",
-            "regex": "",
             "description": "",
-            "default": ""
+            "default": "100"
         }
     }
 }

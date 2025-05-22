@@ -2,6 +2,7 @@
     "sheet_name": "Lease",
     "enabled": true,
     "mandatory_fields": ["LeaseId", "Number", "PremiseId", "Type", "StartDate", "EndDate", "Category", "State", "Status", "IndexationType", "IndexationTypeNonLease", "CalculateTax", "AutoMonthToMonth"] ,
+    "has_rules": ["StartDate", "EndDate"],
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -11,7 +12,7 @@
         "Number": {
             "external_column": "",
             "description": "",
-            "default_a": "",
+            "default": "based on Lease Code",
             "prefix_a": "EMPTY"
         },
         "PremiseId": {
@@ -41,19 +42,16 @@
         },
         "StartDate": {
             "external_column": "Lease Commence Date",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
-            "description": "extract date in YYYY-MM-dd format",
-            "default": ""
+            "description": "extract date in MM-dd-yyyy format",
+            "default": "EMPTY"
         },
         "EndDate": {
             "external_column": "Lease Expiration Date",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
-            "description": "extract date in YYYY-MM-dd format",
-            "default": ""
+            "description": "extract date in MM-dd-yyyy format",
+            "default": "EMPTY"
         },
         "Category": {
-            "external_column": "",
-            "regex": "",
+            "external_column": "Lease Type",
             "description": "",
             "default": ""
         },
@@ -70,7 +68,7 @@
             "default": ""
         },
         "State": {
-            "external_column": "",
+            "external_column": "Option Type",
             "regex": ".*",
             "description": "",
             "default": "Initial"
@@ -181,14 +179,12 @@
         },
         "CalculateTax": {
             "external_column": "",
-            "regex": ".*",
-            "description": "",
+            "description": "re -tax(ID#) depending on value exists on the column",
             "default": "TRUE"
         },
         "AutoMonthToMonth": {
             "external_column": "",
-            "regex": ".*",
-            "description": "",
+            "description": "Lease Status depending on month to month",
             "default": "FALSE"
         }
     }

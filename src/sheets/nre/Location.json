@@ -18,8 +18,10 @@
         "StoreNumber": {
             "external_column": "Lease Code 1 - Prim Lease Code",
             "description": "",
-            "default": "autogenerate",
-            "prefix": "S"
+            "default" : "EMPTY",
+            "default_a": "autogenerate",
+            "prefix_a": "S"
+
         },
         "Number": {
             "external_column": "",
@@ -30,13 +32,15 @@
         "DefaultCurrency": {
             "external_column": "Intl - Currency Type",
             "description": "Needs to be set to ISO 4217 codes",
-            "default": "EMPTY"
+            "default": "EMPTY",
+            "rules": "row"
         },
         "DefaultUnit": {
             "external_column": "Intl - Measurement Type",
             "regex": ".*",
             "description": "Possible Values: SF SM ACRES HECTARES",
-            "default": "EMPTY"
+            "default": "EMPTY",
+            "rules": "row"
         },
         "Category": {
             "external_column": "Lease Primary Use - Calculated Field",
@@ -49,7 +53,7 @@
             "regex": ".*",
             "description": "Property Name To Name",
             "default": "EMPTY",
-            "rules": "row"
+            "rules_a": "row"
         },
         "PropertyType": {
             "external_column": "Lease Primary Use - Calculated Field",
@@ -64,8 +68,7 @@
             "default": ""
         },
         "Status": {
-            "external_column": "",
-            "regex": ".*",
+            "external_column": "Active/Inactive",
             "description": "Possible Values: Active Inactive",
             "default": "Active"
         },
@@ -166,8 +169,8 @@
             "default": ""
         },
         "CivicNumber2": {
-            "external_column": "",
-            "regex": ".*",
+            "external_column": "Property Street Address 2",
+            "regex_a": "^\\d+",
             "description": "CivicNumber2 to CivicNumber2",
             "default": ""
         },
@@ -178,8 +181,8 @@
             "default": ""
         },
         "Street2": {
-            "external_column": "",
-            "regex": ".*",
+            "external_column": "Property Street Address 2",
+            "regex_a": "^\\d+\\s(.+)",
             "description": "Street2 to Street2",
             "default": ""
         },

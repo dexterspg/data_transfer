@@ -1,15 +1,13 @@
 import logging
-from datetime import datetime
 from nre_enums import *
 import pandas as pd
 import json
 from typing import List
 from openpyxl import load_workbook
-from openpyxl.styles import Font, Alignment, NamedStyle
+from openpyxl.styles import Font, Alignment
 from id_generator import IdGenerator
 from utils import  LoggingUtil
 from utils.regex_utils import _extract_with_regex
-from utils.excel_style_utils import _apply_date_format
 from sheet_model import Sheet
 from rules import _handle_rules_column, _handle_rules_row
 from nre_enums import LocationLegalEntityColumns, get_sheet_enum
@@ -96,8 +94,7 @@ class ExcelProcessor:
         header_to_autogenerate_id={}
         original_input_columns = input_df.columns.copy()
 
-
-        input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace('-','_').str.replace('(','_').str.replace(')','_').str.replace('#','_')
+        input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace('-','_').str.replace('(','_').str.replace(')','_')
 
         # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
@@ -117,20 +114,16 @@ class ExcelProcessor:
             if default_val=="autogenerate" and prefix !="":
                 header_to_autogenerate_id[header]=prefix 
 
-            normalized_col= output_col.replace(" ", "_").replace("/", "_").replace('-', '_').replace('(','_').replace(')','_').replace('#','_')
+            normalized_col= output_col.replace(" ", "_").replace("/", "_").replace('-', '_').replace('(','_').replace(')','_')
             is_map_in_input_col : bool=  True if normalized_col and normalized_col in input_df.columns else False
             is_regex_exists : bool='regex' in in_header_props and in_header_props['regex'] != ""
 
-            # if sheet_name == "Premise":
-                # print(input_df.loc[:, input_df.columns.str.contains('RE_Tax')])
-        # print(template_sheet.get_headers())
             row_start=template_sheet.get_data_row_start()
             for r_idx, row in enumerate(input_df.itertuples(index=False), start =row_start ):
                 value=None
                 if is_map_in_input_col:
                     text = getattr(row, normalized_col,None)
-                    # if header == "DefaultJurisdictionId":
-                        # print(input_df.loc[:, input_df.columns.str.contains('RE_Tax')])
+                    # if header == "Status":
                         # if r_idx==row_start:
                             # print(row)
                         # print(text)
@@ -151,13 +144,14 @@ class ExcelProcessor:
         print(template_df)
 
         template_df_indices= template_df.index.tolist()
-        print(template_df_indices)
+        # print(template_df_indices)
         save_document_indices(sheet_name, template_df_indices)
 
         header_rules = self.config.get('has_rules')
+        print(header_rules)
         if header_rules:
             for header in header_rules:
-                found_rule= _handle_rules_column(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices, None)
+                found_rule= _handle_rules_column(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'], template_df_indices)
                 if not found_rule.empty:
                     template_df[header] = found_rule[header]
 
@@ -173,11 +167,9 @@ class ExcelProcessor:
                 in_header_props: dict= self.config['mappings'][header]
                 default_val : str = in_header_props.get('default',"")
                 prefix :str = in_header_props.get('prefix',"")
-                format :str = in_header_props.get('format',"")
                 isMandatory : bool = header in mandatory_fields
                 rules = in_header_props.get('rules')
                 value=getattr(row, header)
-                cell=None
                 if value:
                     if rules and rules=="row":
                         indices=[]
@@ -197,7 +189,11 @@ class ExcelProcessor:
                         value=value
                     )
                     
+                    if isMandatory and header_rules and header in header_rules:
+                        cell.font = mandatory_font
+                    
                     cell.alignment = Alignment(wrap_text=True)
+
                 elif default_val and default_val !=  "autogenerate":
                     value = default_val
 
@@ -209,6 +205,7 @@ class ExcelProcessor:
                             value = found_rule
                         else:
                             value = default_val
+
                             # get_rule.append(value)
 
                     cell = template_sheet.cell(

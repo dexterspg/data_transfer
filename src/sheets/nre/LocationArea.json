@@ -3,6 +3,7 @@
     "enabled": true,
     "mandatory_fields": ["LocationId", "AreaId", "Type", "Source", "Unit"],
     "has_reference" : "Location",
+    "has_rules": ["Unit" ],
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",

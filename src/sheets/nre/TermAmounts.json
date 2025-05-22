@@ -3,6 +3,7 @@
     "enabled": true,
     "mandatory_fields":["TermId", "StartDate", "EndDate", "Amount", "TermIndexationType"] ,
     "has_reference" : "Terms",
+    "has_rules": ["StartDate", "EndDate"],
     "mappings": {
         "TermId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -19,20 +20,17 @@
         },
         "StartDate": {
             "external_column": "Base Rent - From",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
             "default": "EMPTY"
         },
         "EndDate": {
             "external_column": "Base Rent - To",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
             "default": "EMPTY"
         },
         "Amount": {
             "external_column": "Base Rent - Agg Per Annum Amt",
-            "regex": ".*",
-            "description": "",
+            "description": "Base Rent - Agg Monthly Amt",
             "default": "EMPTY"
         },
         "Hold": {

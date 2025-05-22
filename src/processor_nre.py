@@ -38,7 +38,8 @@ def main() -> None:
     'PremiseArea.json',
     'Lease.json',
     'Terms.json',
-    'TermAmounts.json'
+    'TermAmounts.json',
+    'TermVendor.json'
     ]
 
     for file in [input_file, template_file, config_file]:
@@ -60,8 +61,9 @@ def main() -> None:
     clear_document_indices()
     data_row_start =None 
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
-    processor.set_limit_rows(100)
-    # processor.set_number_of_last_rows_to_drop(1)
+    # processor.set_limit_rows(50)
+    # processor.set_limit_rows(1000)
+    processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 
     for config in other_configs:

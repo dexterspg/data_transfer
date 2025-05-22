@@ -2,6 +2,7 @@
     "sheet_name": "Terms",
     "enabled": true,
     "mandatory_fields":["LeaseId", "TermId", "StartDate", "EndDate", "AmountFrequency", "PaymentFrequency", "PaymentMode", "CurrencyId", "ExpenseCategoryId"] ,
+    "has_rules": ["StartDate", "EndDate"],
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -17,13 +18,11 @@
         },
         "StartDate": {
             "external_column": "Base Rent - From",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
             "default": "EMPTY"
         },
         "EndDate": {
             "external_column": "Base Rent - To",
-            "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b",
             "description": "",
             "default": "EMPTY"
         },
@@ -55,7 +54,8 @@
             "external_column": "Intl - Currency Type",
             "regex": ".*",
             "description": "Needs to be set to ISO 4217 codes",
-            "default": "EMPTY"
+            "default": "EMPTY",
+            "rules": "row"
         },
         "EndOfMonthPayment": {
             "external_column": "",

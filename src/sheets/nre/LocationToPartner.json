@@ -5,7 +5,6 @@
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
             "prefix": "LO"
@@ -18,15 +17,13 @@
         },
         "PartnerId": {
             "external_column": "",
-            "regex": "",
             "description": "based on Property Owner Vendor",
             "default": "PA-Nakisa-Gen"
         },
         "PartnerRoleId": {
             "external_column": "",
-            "regex": "",
             "description": "",
-            "default": "based on Property Owner Vendor"
+            "default": "based on FOS"
         },
         "DateFrom": {
             "external_column": "",
