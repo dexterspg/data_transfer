@@ -32,7 +32,6 @@ class ExcelProcessor:
         self.number_of_rows_to_skip=0
 
     def _load_config(self, config_file):
-        """Load the configuration from JSON file"""
         with open(config_file, 'r') as f:
             self.config = json.load(f)
 
@@ -65,6 +64,17 @@ class ExcelProcessor:
         return False 
 
 
+    def set_number_of_last_rows_to_drop(self, number_of_rows_to_skip):
+        self.number_of_rows_to_skip=number_of_rows_to_skip
+
+    # def populateIdsFromReference(self, header, reference):
+        # reference_sheet=self.template_wb[reference]
+    def _delete_work_sheet_not_in_list(self, sheetnames):
+        for sheet in self.template_wb.sheetnames:
+            if sheet not in sheetnames:
+                ws=self.template_wb[sheet]
+                self.template_wb.remove(ws)
+
     def autogenerate_cell_ids(self,template_sheet, prefix_dict, data_row_range):
         for header, prefix in prefix_dict.items():
             id_generator=IdGenerator(prefix) if prefix else IdGenerator()
@@ -74,12 +84,34 @@ class ExcelProcessor:
                 cell.font=mandatory_font
                 cell.alignment = Alignment(wrap_text=True)
                 
-    
-    def set_number_of_last_rows_to_drop(self, number_of_rows_to_skip):
-        self.number_of_rows_to_skip=number_of_rows_to_skip
+    def autogenerate_cell_ids_df(self, template_df, data_row_range):
+        entities = {}
+        with open("src/entities.json", "r") as f:
+            entities = json.load(f)
+        # print(entities)
+        id_fields : List[str] = self.config.get("id_fields",[])
+        if not id_fields:
+            return
+        no_of_ids = len(id_fields)
+        for header in id_fields:
+            if header in self.config["id_fields"]:
+                prefix : str = self.config["mappings"][header]["prefix"]
+                if self.config["mappings"][header].get("external_column", "") =="":
+                    print("Create own id mappings")
+                    id_generator=IdGenerator("NO") if prefix else IdGenerator()
+                    
+                    template_df[header]=[id_generator.generate_id() for _ in range(len(template_df))]
+                else:
+                    print("Use id mapping defined")
+                    # template_df[header] = [prefix + value for value in template_df[header]]
+                    print(template_df.index.to_list())
+                    for r_idx, row in enumerate(template_df.itertuples(index=True)):
+                        value = getattr(row, header)
+                        value = prefix + str(value) if pd.notna(value) else value
+                        template_df.at[row.Index, header] = value
 
-    # def populateIdsFromReference(self, header, reference):
-        # reference_sheet=self.template_wb[reference]
+                IdGenerator.dump_ids_for_header(template_df, header)
+        IdGenerator.dump_df_for_col_list(template_df)
 
     def process(self):
         """Process the input file according to the template and mappings"""
@@ -101,7 +133,6 @@ class ExcelProcessor:
 
         # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
-        header_to_apply_column_rule={}
         processed_rows=[{} for _ in range(len(input_df))]  
         for header in template_sheet.get_headers():
             logger.info(f"Processing {header} of sheet {sheet_name}")
@@ -141,18 +172,22 @@ class ExcelProcessor:
 
         input_df.columns=original_input_columns
         template_df = pd.DataFrame(processed_rows) 
+        print(template_df)
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        if reference:
-            indices = retrieve_document_indices(str(reference))
-            duplicated_mask=template_df.duplicated(keep=False)
-            template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
-        else:
-            template_df = template_df.drop_duplicates().dropna(how="all")
+        # if reference:
+            # indices = retrieve_document_indices(str(reference))
+            # duplicated_mask=template_df.duplicated(keep=False)
+            # template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
+        # else:
+            # template_df = template_df.drop_duplicates().dropna(how="all")
+        template_df = template_df.drop_duplicates().dropna(how="all")
+        print("drop duplicate")
         print(template_df)
 
         template_df_indices= template_df.index.tolist()
-        print(template_df_indices)
-        save_document_indices(sheet_name, template_df_indices)
+
+        print(template_df)
+        # save_document_indices(sheet_name, template_df_indices)
 
         header_rules = self.config.get('has_rules')
         if header_rules:
@@ -161,35 +196,37 @@ class ExcelProcessor:
                 if not found_rule.empty:
                     template_df[header] = found_rule[header]
 
+        self.autogenerate_cell_ids_df(template_df, template_df_indices)
         col_index_map = {
             header: template_sheet.get_col_idx(header)
             for header in template_df.columns
         }
 
-        # get_rule=[]
+        # # get_rule=[]
         for r_idx, row in enumerate(template_df.itertuples(index=False), start=self.data_row_start):
             for header in template_df.columns:
                 col_idx=col_index_map[header]
                 in_header_props: dict= self.config['mappings'][header]
                 default_val : str = in_header_props.get('default',"")
                 prefix :str = in_header_props.get('prefix',"")
-                format :str = in_header_props.get('format',"")
+                # format :str = in_header_props.get('format',"")
                 isMandatory : bool = header in mandatory_fields
                 rules = in_header_props.get('rules')
                 value=getattr(row, header)
                 cell=None
                 if value:
                     if rules and rules=="row":
-                        indices=[]
-                        indices.append(template_df_indices[r_idx-self.data_row_start])
+                        # indices=[]
+                        # indices.append(template_df_indices[r_idx-self.data_row_start])
+                        indices= template_df.index.to_list()
                         found_rule= _handle_rules_row(input_df, get_sheet_enum(sheet_name), header, self.config['mappings'],indices, value )
                         if found_rule:
                             value = found_rule
                         else:
                             value = value
 
-                    if default_val != "autogenerate" and prefix != "":
-                        value = prefix + value
+                    # if default_val != "autogenerate" and prefix != "":
+                        # value = prefix + str(value)
 
                     cell = template_sheet.cell(
                         row=r_idx, 
@@ -209,8 +246,8 @@ class ExcelProcessor:
                             value = found_rule
                         else:
                             value = default_val
-                            # get_rule.append(value)
-
+        #                     # get_rule.append(value)
+        #
                     cell = template_sheet.cell(
                         row=r_idx, 
                         column=col_idx, 
@@ -221,9 +258,9 @@ class ExcelProcessor:
                     cell.alignment = Alignment(wrap_text=True)
                 elif isMandatory and not default_val:
                     raise Exception(f"Error: mandatory field '{header}' has missing value")
-
-        # if get_rule:
-            # print(get_rule)
-
-        self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, len(template_df))
-        
+        #
+        # # if get_rule:
+        #     # print(get_rule)
+        #
+        # self.autogenerate_cell_ids(template_sheet, header_to_autogenerate_id, len(template_df))
+        # 

@@ -18,8 +18,8 @@
         "PremiseId": {
             "external_column": "",
             "regex": "",
-            "default_a": "autogenerate",
-            "prefix_a": "P"
+            "default": "autogenerate",
+            "prefix": "P"
         },
         "OriginalLeaseId": {
             "external_column": "",

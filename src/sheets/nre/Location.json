@@ -2,10 +2,12 @@
     "sheet_name": "Location",
     "enabled": true,
     "mandatory_fields": ["LocationId", "BusinessUnitId", "StoreNumber", "Number", "DefaultCurrency", "DefaultUnit", "Name", "Status", "Type", "CountryText", "ProvinceText", "City", "CivicNumber", "PostalCode", "Street"],
+    "id_fields" : ["LocationId"],
     "mappings":{
         "LocationId": {
-            "external_column": "Lease Code 1 - Prim Lease Code",
-            "description": "Alternative:  Property Code 1 - Prim Prop Code",
+            "external_column": "Property Code 1 - Prim Prop Code",
+            "external_column_a": "Lease Code 1 - Prim Lease Code",
+            "description": "Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
             "prefix": "LO"
         },

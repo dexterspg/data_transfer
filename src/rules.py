@@ -1,4 +1,4 @@
-from nre_enums import SHEET_COLUMNS_MAPPING, LocationColumns, LocationLegalEntityColumns, PremiseColumns, SheetName, TermAmountsColumns, TermsColumns
+from nre_enums import SHEET_COLUMNS_MAPPING, LeaseColumns, LocationColumns, LocationLegalEntityColumns, PremiseColumns, SheetName, TermAmountsColumns, TermsColumns
 import pandas as pd
 from conversion import * 
 from utils.excel_style_utils import _apply_date_format
@@ -86,8 +86,8 @@ COLUMN_RULES_MAPPING = {
     (SheetName.PREMISE, PremiseColumns.CLOSINGDATE) : _apply_date_format_to_column,
     (SheetName.PREMISE, PremiseColumns.OPENINGDATE) : _apply_date_format_to_column,
     (SheetName.PREMISE, PremiseColumns.POSSESSIONDATE) : _apply_date_format_to_column,
-    (SheetName.LEASE, TermsColumns.STARTDATE) : _apply_date_format_to_column,
-    (SheetName.LEASE, TermsColumns.ENDDATE) : _apply_date_format_to_column,
+    (SheetName.LEASE, LeaseColumns.STARTDATE) : _apply_date_format_to_column,
+    (SheetName.LEASE, LeaseColumns.ENDDATE) : _apply_date_format_to_column,
     (SheetName.TERMS, TermsColumns.STARTDATE) : _apply_date_format_to_column,
     (SheetName.TERMS, TermsColumns.ENDDATE) : _apply_date_format_to_column,
     (SheetName.TERMAMOUNTS, TermAmountsColumns.STARTDATE) : _apply_date_format_to_column,

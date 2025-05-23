@@ -26,30 +26,33 @@ def main() -> None:
     # output_file = f"output_nre{formatted_datetime}.xlsx"
     output_file = f"output_nre.xlsx"
     base_dir = "src/sheets/nre/"
-    config_file = f"{base_dir}/Location.json"
+    format=".json"
+    config_file = f"{base_dir}/Location{format}"
     other_configs = [
-    'LocationGroup.json',
-    'LocationLegalEntity.json',
-    'LocationArea.json',
-    'LocationAreaHistory.json',
-    'LocationToPartner.json',
-    'LocationToPartnerContact.json',
-    'Premise.json',
-    'PremiseArea.json',
-    'Lease.json',
-    'Terms.json',
-    'TermAmounts.json',
-    'TermVendor.json'
+    # 'LocationGroup',
+    # 'LocationLegalEntity',
+    # 'LocationArea',
+    # 'LocationAreaHistory',
+    # 'LocationToPartner',
+    # 'LocationToPartnerContact',
+    # 'Premise',
+    # 'PremiseArea',
+    # 'Lease',
+    # 'Terms',
+    # 'TermAmounts',
+    # 'TermVendor'
     ]
+    sheet_names = ["Location"]
+    sheet_names += other_configs
 
     for file in [input_file, template_file, config_file]:
         if not os.path.exists(file):
-            print(f"Error: File '{file}' not found")
+            print(f"Error: File '{file}{format}' not found")
             return
 
     for file in other_configs:
-        if not os.path.exists(f"{base_dir}{file}"): 
-            print(f"Error: File '{file}' not found")
+        if not os.path.exists(f"{base_dir}{file}{format}"): 
+            print(f"Error: File '{file}{format}' not found")
             return
 
      # ✅ Check if output file is open
@@ -62,14 +65,15 @@ def main() -> None:
     data_row_start =None 
     processor = ExcelProcessor(input_file, template_file, output_file, config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
     # processor.set_limit_rows(50)
-    # processor.set_limit_rows(1000)
-    processor.set_number_of_last_rows_to_drop(1)
+    processor.set_limit_rows(1000)
+    # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 
     for config in other_configs:
         print(config)
-        processor._load_config(f"{base_dir}{config}")
+        processor._load_config(f"{base_dir}{config}{format}")
         processor.process()
+    processor._delete_work_sheet_not_in_list(sheet_names)
     processor._save_workbook()
     duration = time.time() - start_time
     print(f"Duration: {duration}")
