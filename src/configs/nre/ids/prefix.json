@@ -3,6 +3,8 @@
     "BusinessUnitId" : "BU",
     "PremiseId": "P",
     "AreaId" : "A",
+    "LeaseId" : "LE",
+    "TermId" : "T",
     "PremiseAreaId": "PA"
         
 }

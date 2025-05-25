@@ -3,9 +3,11 @@
     "enabled": true,
     "mandatory_fields":["LeaseId", "TermId", "StartDate", "EndDate", "AmountFrequency", "PaymentFrequency", "PaymentMode", "CurrencyId", "ExpenseCategoryId"] ,
     "has_rules": ["StartDate", "EndDate"],
+    "id_fields" :  "TermId",
+    "reference_id_fields" : {"Lease":"LeaseId"},
     "mappings": {
         "LeaseId": {
-            "external_column": "Lease Code 1 - Prim Lease Code",
+            "external_column_a": "Lease Code 1 - Prim Lease Code",
             "default": "EMPTY",
             "prefix": "LE"
         },

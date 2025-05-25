@@ -39,18 +39,45 @@ class Sheet:
     def get_sheet(self):
         return self.sheet
 
+    def title(self):
+        return self.sheet.title
+
     def get_col_idx(self, header):
         return self.headers.index(header)+1
 
     def get_col_values_for_header(self, header) -> List:
         target_col : int = self.get_col_idx(header)
-        col_iter = self.sheet.iter_cols(min_col=target_col,  max_col=target_col, min_row=1, values_only=True)
+        col_iter = self.sheet.iter_cols(min_col=target_col,  max_col=target_col, min_row=self.data_row_start, values_only=True)
         return list(next(col_iter))
+
+    def get_col_values_for_header_remove_prefix(self, header, prefix) -> List:
+        target_col : int = self.get_col_idx(header)
+        col_iter = self.sheet.iter_cols(min_col=target_col,  max_col=target_col, min_row=self.data_row_start, values_only=True)
+        col_values = list(next(col_iter))
+        col_values_no_prefix = [value[len(prefix):] if isinstance(value, str) and value.startswith(prefix) else value for value in col_values]
+        return col_values_no_prefix
 
     def to_dataframe(self, header: str) ->pd.DataFrame:
         col_values =self.get_col_values_for_header(header)
-        data : List = col_values[self.data_row_start - 1:]
+        data : List = col_values[:]
         return pd.DataFrame({header : data})
+
+    def to_dataframe_remove_prefix(self, header: str, prefix : str) -> pd.DataFrame:
+        col_values = self.get_col_values_for_header(header)
+        data: List = col_values[self.data_row_start - 1:]
+        data_no_prefix = [str(val).replace(prefix, "") if isinstance(val, str) and val.startswith(prefix) else val for val in data]
+        return pd.DataFrame({header: data_no_prefix})
+    
+
+    def remove_prefix_for_dataframe(self, df: pd.DataFrame, prefix: str) -> pd.DataFrame:
+        df_cleaned = df.copy()  # Create a copy to avoid modifying the original DataFrame
+        for col in df_cleaned.columns:
+            for i in range(len(df_cleaned[col])):
+                value = df_cleaned.at[i, col]
+                if isinstance(value, str) and value.startswith(prefix):
+                    df_cleaned.at[i, col] = value[len(prefix):]  # Remove prefix
+
+        return df_cleaned
 
     def sheet_name(self):
         return self.sheet.title
@@ -61,7 +88,6 @@ class Sheet:
     def to_full_data_frame(self):
         data= [row for row in self.sheet.iter_rows(min_row=self.data_row_start, values_only=True)]
         return pd.DataFrame(data)
-
 
     # def max_row(self):
         # return self.sheet.max_row

@@ -3,6 +3,8 @@
     "enabled": true,
     "mandatory_fields": ["LeaseId", "Number", "PremiseId", "Type", "StartDate", "EndDate", "Category", "State", "Status", "IndexationType", "IndexationTypeNonLease", "CalculateTax", "AutoMonthToMonth"] ,
     "has_rules": ["StartDate", "EndDate"],
+    "id_fields" :  "LeaseId",
+    "reference_id_fields" : {"Premise":"PremiseId"},
     "mappings": {
         "LeaseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -16,7 +18,7 @@
             "prefix_a": "EMPTY"
         },
         "PremiseId": {
-            "external_column": "",
+            "external_column_a": "Lease Code 1 - Prim Lease Code",
             "regex": "",
             "default": "autogenerate",
             "prefix": "P"

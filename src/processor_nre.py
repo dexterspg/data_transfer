@@ -26,8 +26,8 @@ def main() -> None:
     # 'LocationToPartnerContact',
     'Premise',
     # 'PremiseArea',
-    # 'Lease',
-    # 'Terms',
+    'Lease',
+    'Terms',
     # 'TermAmounts',
     # 'TermVendor'
     ]
@@ -54,7 +54,7 @@ def main() -> None:
     data_row_start =None 
     processor = ExcelProcessor(input_file=input_file, template_file=TEMPLATE_FILE, output_file=OUTPUT_FILE, config_file=config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
     # processor.set_limit_rows(50)
-    processor.set_limit_rows(1000)
+    processor.set_limit_rows(80)
     # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 

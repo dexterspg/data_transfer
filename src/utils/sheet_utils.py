@@ -1,8 +1,11 @@
 import pandas as pd
+from configs.config import NRE_SHEETS_DIR
 from sheet_model import Sheet
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, PatternFill, Border, Alignment
+import json
+from typing import List
 
 class SheetUtils:
 
@@ -113,3 +116,17 @@ class SheetUtils:
         for row_idx, row in enumerate(df.itertuples(index=False), start=start_row):
             for col_idx, value in enumerate(row, start=1):
                 sheet.cell(row=row_idx, column=col_idx, value=value)
+
+
+    @staticmethod
+    def get_first_matched_indices(df: pd.DataFrame, location_ids: List[str], header) -> List:
+        filtered_df = df[df[header].isin(location_ids)]
+        unique_matches = filtered_df.loc[~filtered_df.duplicated(subset=header)]
+        return unique_matches.index.tolist()
+
+    @staticmethod
+    def _load_other_config(sheet_name):
+        print(sheet_name)
+        config = f"{NRE_SHEETS_DIR}/{sheet_name}.json"
+        with open(config, 'r') as f:
+            return json.load(f)

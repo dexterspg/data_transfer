@@ -16,6 +16,8 @@ PREFIX_FILE = os.path.join(NRE_DIR, "ids", "prefix.json")
 
 ENTITIES_PATH =  os.path.join(SRC_DIR, "store", "ids")
 
+# STORE_FILE = "src/store/document_indices.json"
+INDICES_STORE_FILE= os.path.join(SRC_DIR, "store", "document_indices.json")
 # for directory in [LOGS_DIR, ASSETS_DIR]:
     # if not os.path.isdir(directory):
         # os.makedirs(directory)
