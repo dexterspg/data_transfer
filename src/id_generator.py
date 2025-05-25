@@ -1,11 +1,16 @@
 import uuid
-import random
+from configs.config import ENTITIES_PATH, PREFIX_FILE
+from utils import  LoggingUtil
+import logging
+from domain import Prefix
 import json
 import os
 import numpy as np
 
+logger = LoggingUtil.setup_logger('IdGenerator', console_level=logging.DEBUG)
+
 class IdGenerator:
-    def __init__(self, prefix="ID_", start=100000000, end=999999999):
+    def __init__(self, prefix='ID_', start=100000000, end=999999999):
         self.prefix = prefix
         self.start = start
         self.end = end
@@ -14,20 +19,35 @@ class IdGenerator:
         self.relationships_file = 'relationships.json'
         self.initialize_files()
 
-    def generate_id(self):
-        # with open(self.sequence_file, 'r') as f:
-            # sequences = json.load(f)
-
-        if self.current_id < self.end:
-            self.current_id+=1
-            # with open(self.sequence_file, 'w') as f:
-                # json.dump(sequences, f, indent=4)
+    def set_header(self, header):
+        self.header =header
         
-            return f"{self.prefix}{self.current_id}"
-        else:
-            raise ValueError("ID limit reached")
+    
 
     def initialize_files(self):
+        
+
+        # if not os.path.exists(f"{self.entities_path}{header}.json"):
+            # data = {
+            #     'id_number_range' : {
+            #         "prefix": self.prefix,
+            #         "number_range_start": "",
+            #         "number_range_end": "",
+            #         "last_id_generated": ""
+            #             },
+            #     header : {}
+            # }
+
+        if not os.path.exists(self.sequence_file):
+            initial_sequences = {
+                'LOC': 0,  # Location ID sequence
+                'P': 0,    # Premise ID sequence
+                'L': 0,    # Lease ID sequence
+                'T': 0     # Term ID sequence
+            }
+            with open(self.sequence_file, 'w') as f:
+                json.dump(initial_sequences, f, indent=4)
+
         if not os.path.exists(self.relationships_file):
             initial_relationships = {
                 'location_premise': {}, 
@@ -37,35 +57,86 @@ class IdGenerator:
             with open(self.relationships_file, 'w') as f:
                 json.dump(initial_relationships, f, indent=4)
 
-    def get_next_id(self, prefix):
+    def update_sequence(self, prefix, existing_ids):
+        if not existing_ids:
+            return
+        max_num = max(int(id_str[len(prefix):]) for id_str in existing_ids)
         with open(self.sequence_file, 'r') as f:
             sequences = json.load(f)
-        
-        if prefix not in sequences:
-            sequences[prefix] = 0
-        
-        next_num = sequences[prefix]
-        sequences[prefix] += 1
-        
+        sequences[prefix] = max_num + 1
         with open(self.sequence_file, 'w') as f:
             json.dump(sequences, f, indent=4)
-        
-        return f"{prefix}{next_num:04d}"
+
+    def generate_id(self, header,  prefix):
+        with open(f"{ENTITIES_PATH}/{header}.json", 'r+') as f:
+            data = json.load(f)
+     
+            # if sequences.get(prefix, None) is None:
+            if prefix not in data:
+                data[prefix] = {
+                "number_range_start": self.start,
+                "number_range_end": self.end,
+                "last_id_generated": self.current_id
+                    }
+
+            sequence = data[prefix]
+
+            if  sequence["last_id_generated"] < sequence["number_range_end"]:
+                sequence["last_id_generated"]+=1
+                self.current_id = sequence["last_id_generated"]
+            else:
+                raise ValueError("ID limit reached")
+
+            new_id = f"{self.prefix}{sequence["last_id_generated"]}"
+
+            ids_list = data.get(header, [])
+            ids_list.append(new_id)
+            data[header] = ids_list
+            f.seek(0)
+            json.dump(data, f, indent = 4)
+            f.truncate()
+            return new_id
 
     # @staticmethod
     # def dump_ids(df, header):
         # df[header].to_json("output.json", orient="records", indent=4)
 
-    @staticmethod
-    def dump_ids_for_header(df, header):
-        data = {header: np.array(df[header]).tolist()}  
-        with open("header_output.json", "w") as f:
-            json.dump(data, f, indent=4)
+
+    def write_ids_for_header(self, df, header, output=None):
+        if not output:
+            output = f"{ENTITIES_PATH}/{header}.json"
+        try:
+            with open(output, "r+") as f:
+                data = json.load(f)
+                ids_list = data.get(header, [])
+                print(ids_list)
+
+                new_ids = df[header].to_list()
+                combined_ids = list(dict.fromkeys(ids_list + new_ids))
+
+                data[header] = combined_ids
+                f.seek(0)
+                json.dump(data, f, indent=4)
+                f.truncate()
+        except FileNotFoundError:
+            raise FileNotFoundError(f"File {output} not found")
+        except IOError:
+            raise IOError(f"Error writing to file {output}")
+
+    def read_ids_for_header(self, header, output=None):
+        if not output:
+            output = f"{ENTITIES_PATH}/{header}.json"
+        try:
+            with open(output, "r") as f:
+                curr_data = json.load(f)
+                return curr_data.get(header, [])
+        except Exception as e:
+            logger.error(e)
 
     @staticmethod
-    def dump_df_for_col_list(df):
+    def dump_df_for_col_list(df, output="df_output_col_list.json"):
         data = {col: np.array(df[col]).tolist() for col in df.columns}
-        with open("df_output_col_list.json", "w") as f:
+        with open(output, "w") as f:
             json.dump(data, f, indent=4)
 
     @staticmethod
@@ -97,6 +168,7 @@ class IdGenerator:
             relationships = json.load(f)
 
         return relationships.get(relationship_type, {}).get(parent_id, [])
+
     @staticmethod
     def generate_uuid():
         return str(uuid.uuid4())

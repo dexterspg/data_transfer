@@ -1,14 +1,12 @@
+from configs.config import *
 from report_generator import ExcelProcessor
 import os
-import datetime 
 import time
 from create_documents import clear_document_indices
 
 def is_file_open(file_path):
-    """Checks if a file is open by another process."""
     if not os.path.exists(file_path):
         return False  # File doesn't exist, so it's not open
-
     try:
         with open(file_path, 'a'):  # Try opening in append mode
             return False  # Successfully opened, file is not locked
@@ -16,18 +14,9 @@ def is_file_open(file_path):
         return True  # File is locked/open by another process
 
 def main() -> None:
-    # input_file = "input_only_propertyname.xlsx"
-    # input_file = "input.xlsx"
-    current_time= datetime.datetime.now() 
-    formatted_datetime = current_time.strftime("%Y-%m-%d_%H-%M-%S")
     input_file = "input_prolease_398.xlsx"
-    # input_file = "input_200rows.xlsx"
-    template_file = "template_init_accounting_on_complete.xlsx"
-    # output_file = f"output_nre{formatted_datetime}.xlsx"
-    output_file = f"output_nre.xlsx"
-    base_dir = "src/sheets/nre/"
     format=".json"
-    config_file = f"{base_dir}/Location{format}"
+    config_file = f"{NRE_SHEETS_DIR}/Location{format}"
     other_configs = [
     # 'LocationGroup',
     # 'LocationLegalEntity',
@@ -35,7 +24,7 @@ def main() -> None:
     # 'LocationAreaHistory',
     # 'LocationToPartner',
     # 'LocationToPartnerContact',
-    # 'Premise',
+    'Premise',
     # 'PremiseArea',
     # 'Lease',
     # 'Terms',
@@ -45,25 +34,25 @@ def main() -> None:
     sheet_names = ["Location"]
     sheet_names += other_configs
 
-    for file in [input_file, template_file, config_file]:
+    for file in [input_file, TEMPLATE_FILE, config_file]:
         if not os.path.exists(file):
             print(f"Error: File '{file}{format}' not found")
             return
 
     for file in other_configs:
-        if not os.path.exists(f"{base_dir}{file}{format}"): 
+        if not os.path.exists(f"{NRE_SHEETS_DIR}/{file}{format}"): 
             print(f"Error: File '{file}{format}' not found")
             return
 
      # ✅ Check if output file is open
-    if is_file_open(output_file):
-        print(f" Error: '{output_file}' is currently open. Close it before running the script.")
+    if is_file_open(OUTPUT_FILE):
+        print(f" Error: '{OUTPUT_FILE}' is currently open. Close it before running the script.")
         return
 
     start_time=time.time()
     clear_document_indices()
     data_row_start =None 
-    processor = ExcelProcessor(input_file, template_file, output_file, config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
+    processor = ExcelProcessor(input_file=input_file, template_file=TEMPLATE_FILE, output_file=OUTPUT_FILE, config_file=config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
     # processor.set_limit_rows(50)
     processor.set_limit_rows(1000)
     # processor.set_number_of_last_rows_to_drop(1)
@@ -71,7 +60,7 @@ def main() -> None:
 
     for config in other_configs:
         print(config)
-        processor._load_config(f"{base_dir}{config}{format}")
+        processor._load_config(f"{NRE_SHEETS_DIR}/{config}{format}")
         processor.process()
     processor._delete_work_sheet_not_in_list(sheet_names)
     processor._save_workbook()

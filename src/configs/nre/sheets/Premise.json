@@ -3,18 +3,19 @@
     "enabled": true,
     "mandatory_fields":["LocationId", "PremiseId", "HeadPremise", "Status", "Name", "Number", "Usage", "LegalEntityId", "CostCenterId", "Occupancies"] ,
     "has_rules": ["OpeningDate", "ClosingDate", "PossessionDate" ],
+    "references": ["Location"],
+    "id_fields" : [ "PremiseId"],
+    "reference_id_fields" : {"Location":"LocationId"},
     "mappings": {
         "LocationId": {
             "external_column": "Property Code 1 - Prim Prop Code",
             "external_column_a": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
             "description": "Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
             "prefix": "LO"
         },
         "PremiseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
-            "regex": ".*",
             "description": "Alternative:  Property Code 1 - Prim Prop Code",
             "default": "EMPTY",
             "prefix": "P"

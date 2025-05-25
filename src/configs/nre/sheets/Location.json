@@ -6,10 +6,9 @@
     "mappings":{
         "LocationId": {
             "external_column": "Property Code 1 - Prim Prop Code",
-            "external_column_a": "Lease Code 1 - Prim Lease Code",
+            "external_columnf": "Lease Code 1 - Prim Lease Code",
             "description": "Property Code 1 - Prim Prop Code",
-            "default": "EMPTY",
-            "prefix": "LO"
+            "default": "EMPTY"
         },
         "BusinessUnitId": {
             "external_column": "",

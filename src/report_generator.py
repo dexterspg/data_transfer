@@ -1,9 +1,11 @@
 import logging
 from datetime import datetime
+from configs.config import PREFIX_FILE
+from domain import Prefix
 from nre_enums import *
 import pandas as pd
 import json
-from typing import List
+from typing import List, Dict
 from openpyxl import load_workbook
 from openpyxl.styles import Font, Alignment, NamedStyle
 from id_generator import IdGenerator
@@ -23,13 +25,17 @@ class ExcelProcessor:
     def __init__(self, input_file, template_file, output_file, config_file, template_header_row=1, input_header_row=1, data_row_start=None) :
         self.input_file =input_file 
         self.output_file =output_file
-        self.template_wb= load_workbook(template_file)
-        self._load_config(config_file)
         self.template_header_row = template_header_row
         self.input_header_row = input_header_row
         self.data_row_start= self.template_header_row+1 if data_row_start is None else data_row_start
         self.limitRows = None
         self.number_of_rows_to_skip=0
+        self.initialize_files(template_file, config_file)
+
+    def initialize_files(self, template_file, config_file):
+        self.template_wb= load_workbook(template_file)
+        self._load_config(config_file)
+        self.prefix_obj = Prefix(PREFIX_FILE)
 
     def _load_config(self, config_file):
         with open(config_file, 'r') as f:
@@ -67,51 +73,52 @@ class ExcelProcessor:
     def set_number_of_last_rows_to_drop(self, number_of_rows_to_skip):
         self.number_of_rows_to_skip=number_of_rows_to_skip
 
-    # def populateIdsFromReference(self, header, reference):
-        # reference_sheet=self.template_wb[reference]
     def _delete_work_sheet_not_in_list(self, sheetnames):
         for sheet in self.template_wb.sheetnames:
             if sheet not in sheetnames:
                 ws=self.template_wb[sheet]
                 self.template_wb.remove(ws)
 
-    def autogenerate_cell_ids(self,template_sheet, prefix_dict, data_row_range):
-        for header, prefix in prefix_dict.items():
-            id_generator=IdGenerator(prefix) if prefix else IdGenerator()
-            for r_idx in range(data_row_range):
-                value=id_generator.generate_id()
-                cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)
-                cell.font=mandatory_font
-                cell.alignment = Alignment(wrap_text=True)
-                
+    # def autogenerate_cell_ids(self,template_sheet, prefix_dict, data_row_range):
+    #     for header, prefix in prefix_dict.items():
+    #         # id_generator=IdGenerator(prefix) if prefix else IdGenerator()
+    #         for r_idx in range(data_row_range):
+    #             value=id_generator.generate_id()
+    #             cell =template_sheet.cell(row=r_idx+self.data_row_start, column=template_sheet.get_col_idx(header), value=value)
+    #             cell.font=mandatory_font
+    #             cell.alignment = Alignment(wrap_text=True)
+    #             
     def autogenerate_cell_ids_df(self, template_df, data_row_range):
-        entities = {}
-        with open("src/entities.json", "r") as f:
-            entities = json.load(f)
-        # print(entities)
         id_fields : List[str] = self.config.get("id_fields",[])
+        reference_id_fields: Dict[str, str] = self.config.get("reference_id_fields",None)
         if not id_fields:
             return
-        no_of_ids = len(id_fields)
+
+        if reference_id_fields:
+            for sheet_name in reference_id_fields.keys():
+                sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
+                sheet_df = sheet.to_dataframe(reference_id_fields[sheet_name])
+                print(sheet_df)
+
         for header in id_fields:
-            if header in self.config["id_fields"]:
-                prefix : str = self.config["mappings"][header]["prefix"]
-                if self.config["mappings"][header].get("external_column", "") =="":
-                    print("Create own id mappings")
-                    id_generator=IdGenerator("NO") if prefix else IdGenerator()
-                    
-                    template_df[header]=[id_generator.generate_id() for _ in range(len(template_df))]
-                else:
-                    print("Use id mapping defined")
-                    # template_df[header] = [prefix + value for value in template_df[header]]
-                    print(template_df.index.to_list())
-                    for r_idx, row in enumerate(template_df.itertuples(index=True)):
+            if header in id_fields: 
+                prefix : str = self.prefix_obj.get_prefix(header)
+                id_generator=IdGenerator(prefix)
+                logger.info(f"Processing {header} with prefix {prefix if prefix else 'not found.'}") 
+
+                if self.config["mappings"][header].get("external_column", "") !="":
+                    print(f"Use id mapping defined for {header}")
+                    for row in template_df.itertuples(index=True):
                         value = getattr(row, header)
                         value = prefix + str(value) if pd.notna(value) else value
+                        if not value:
+                            value=id_generator.generate_id(header, prefix)
                         template_df.at[row.Index, header] = value
 
-                IdGenerator.dump_ids_for_header(template_df, header)
-        IdGenerator.dump_df_for_col_list(template_df)
+                    id_generator.write_ids_for_header(template_df, header)
+                else:
+                    print("generate auto id") 
+                    template_df[header]=[id_generator.generate_id(header, prefix) for _ in range(len(template_df))]
 
     def process(self):
         """Process the input file according to the template and mappings"""
@@ -122,16 +129,21 @@ class ExcelProcessor:
             logger.error(f"Warning: Sheet '{sheet_name}' not found in template")
             return
 
+
         template_sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
         mandatory_fields = self.config['mandatory_fields']
+        reference_sheets = self.config.get('references',[])
 
+        if reference_sheets:
+            logger.info(f"{sheet_name} reference sheet {reference_sheets}")
+        
         header_to_autogenerate_id={}
         original_input_columns = input_df.columns.copy()
 
 
         input_df.columns=input_df.columns.str.replace(' ', '_').str.replace("/","_").str.replace('-','_').str.replace('(','_').str.replace(')','_').str.replace('#','_')
 
-        # print(template_sheet.get_headers())
+       # print(template_sheet.get_headers())
         header_to_autogenerate_id={}
         processed_rows=[{} for _ in range(len(input_df))]  
         for header in template_sheet.get_headers():
@@ -182,7 +194,6 @@ class ExcelProcessor:
             # template_df = template_df.drop_duplicates().dropna(how="all")
         template_df = template_df.drop_duplicates().dropna(how="all")
         print("drop duplicate")
-        print(template_df)
 
         template_df_indices= template_df.index.tolist()
 
@@ -197,6 +208,7 @@ class ExcelProcessor:
                     template_df[header] = found_rule[header]
 
         self.autogenerate_cell_ids_df(template_df, template_df_indices)
+        print(template_df)
         col_index_map = {
             header: template_sheet.get_col_idx(header)
             for header in template_df.columns

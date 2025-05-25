@@ -1,0 +1,9 @@
+{
+    "LocationId" : "LO",
+    "BusinessUnitId" : "BU",
+    "PremiseId": "P",
+    "AreaId" : "A",
+    "PremiseAreaId": "PA"
+        
+}
+
