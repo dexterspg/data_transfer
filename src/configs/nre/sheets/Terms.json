@@ -12,7 +12,7 @@
             "prefix": "LE"
         },
         "TermId": {
-            "external_column": "Lease Code 1 - Prim Lease Code",
+            "external_column_a": "Lease Code 1 - Prim Lease Code",
             "regex": ".*",
             "description": "",
             "default": "autogenerate",

@@ -42,3 +42,21 @@ def clear_document_indices():
         json.dump({}, f, indent=4)  # Reset file with an empty JSON object
 
     print("All stored document indices have been cleared.")
+
+
+def clear_json_files_in_folder(folder_path: str):
+    if not os.path.exists(folder_path):
+        print("Folder does not exist:", folder_path)
+        return
+    
+    # Iterate over all files in the folder
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".json"):  # Only process JSON files
+            file_path = os.path.join(folder_path, filename)
+            
+            # Overwrite the JSON file with an empty dictionary
+            with open(file_path, "w") as json_file:
+                json.dump({}, json_file)
+            
+            print(f"Cleared {filename}")
+

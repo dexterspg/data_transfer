@@ -1,0 +1,12 @@
+{
+    "CI": {
+        "number_range_start": 100000000,
+        "number_range_end": 999999999,
+        "last_id_generated": 100000002
+    },
+    "ContactId": [
+        "CI100000000",
+        "CI100000001",
+        "CI100000002"
+    ]
+}

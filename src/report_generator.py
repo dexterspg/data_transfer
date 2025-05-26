@@ -145,7 +145,6 @@ class ExcelProcessor:
         id_fields : str = self.config.get("id_fields","")
         if not id_fields:
             return pd.DataFrame()
-        ext_col = self.config['mappings'][id_fields]['external_column'] 
     
         indices = []
         ref_header = None
@@ -169,12 +168,14 @@ class ExcelProcessor:
             #     indices = SheetUtils.get_first_matched_indices(input_df, df_list, ref_col)  
             #     # print(sheet_df[reference_id_fields[sheet_name]].tolist())
             #
-        duplicated_mask=template_df.duplicated(keep=False)
-        template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
+        if ref_header:
+            duplicated_mask=template_df.duplicated(keep=False)
+            template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
         print("======================================================================")
         print("======================================================================")
         print("======================================================================")
         print(indices)
+        print(template_df)
 
         prefix : str = self.prefix_obj.get_prefix(id_fields)
         id_generator=IdGenerator(prefix)
@@ -194,12 +195,13 @@ class ExcelProcessor:
         #     print("generate auto id") 
         #     template_df[id_fields]=[id_generator.generate_id(id_fields, prefix) for _ in range(len(template_df))]
 
-        isIdDefined = bool(self.config["mappings"][id_fields].get("external_column", "") !="")
+        ext_col = self.config['mappings'][id_fields].get("external_column", "")
+        isIdDefined = bool(ext_col !="")
 
         obj_list : List[IdObj] = []
         for row in template_df.itertuples(index=True):
             raw = None
-            if not isIdDefined:
+            if isIdDefined:
                 value = getattr(row, id_fields)
                 raw = value
                 value = prefix + str(value) if pd.notna(value) else value
@@ -209,6 +211,28 @@ class ExcelProcessor:
             else:
                 template_df.at[row.Index, id_fields] = id_generator.generate_id(id_fields, prefix)
                 raw = id_generator.get_current_raw_id()
+
+            if ref_header:
+                print(row.Index)
+                value= next(
+    (id_obj.get_value() for id_obj in self.id_container[ref_header] if id_obj.get_position() == row.Index), None)
+                if(id_fields == "PremiseId"):
+                    print(row.Index)
+                    print(value)
+                if value:
+                    template_df.at[row.Index, ref_header]  = value
+                else:
+                    ref_list_ids  = self.id_container.get(ref_header, [])
+                    first_entry = ref_list_ids[0]
+                    other_type =  first_entry.get_other_type() if ref_list_ids != [] else ""
+                    ref_prefix = first_entry.get_prefix()
+                    value = ref_prefix + str(input_df.at[row.Index, other_type]) if other_type else None
+                    if(id_fields == "PremiseId"):
+                        print(first_entry)
+                        print(row.Index)
+                        print(value)
+                    template_df.at[row.Index, ref_header] = value
+
             id_obj = IdObj(raw, prefix, row.Index, id_fields, ext_col)
             obj_list.append(id_obj)
             
@@ -218,6 +242,8 @@ class ExcelProcessor:
         self.id_container[id_fields] =  obj_list 
         print("ID CONTAINER ===============================================================")
         print(self.id_container.get(ref_header, []))
+        if not isIdDefined:
+            id_generator.write_ids_for_header(template_df, id_fields)
         return template_df
 
     def process(self):

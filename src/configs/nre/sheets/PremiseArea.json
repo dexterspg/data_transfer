@@ -3,6 +3,8 @@
     "enabled": true,
     "mandatory_fields":["PremiseId", "AreaId", "Type", "Source", "Unit"] ,
     "has_reference": "Premise",
+    "id_fields" :  "AreaId",
+    "reference_id_fields" : {"Premise":"PremiseId"},
     "mappings": {
         "PremiseId": {
             "external_column": "Lease Code 1 - Prim Lease Code",

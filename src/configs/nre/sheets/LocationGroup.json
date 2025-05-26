@@ -2,6 +2,8 @@
     "sheet_name": "LocationGroup",
     "enabled": true,
     "mandatory_fields": ["LocationId", "Group", "GroupOption"],
+    "id_fields" :  "LocationId",
+    "reference_id_fields" : {"Location":"LocationId"},
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",

@@ -2,6 +2,8 @@
     "sheet_name": "LocationToPartnerContact",
     "enabled": true,
     "mandatory_fields": ["LocationToPartnerId", "ContactId", "Email", "Name", "ContactTypes"],
+    "id_fields" :  "ContactId",
+    "reference_id_fields" : {"LocationToPartner":"LocationToPartnerId"},
     "mappings": {
         "LocationToPartnerId": {
             "external_column": "",

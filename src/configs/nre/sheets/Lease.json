@@ -7,7 +7,7 @@
     "reference_id_fields" : {"Premise":"PremiseId"},
     "mappings": {
         "LeaseId": {
-            "external_column": "Lease Code 1 - Prim Lease Code",
+            "external_column_a": "Lease Code 1 - Prim Lease Code",
             "default": "EMPTY",
             "prefix_": "LE"
         },

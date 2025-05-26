@@ -2,6 +2,8 @@
     "sheet_name": "LocationToPartner",
     "enabled": true,
     "mandatory_fields":["LocationId", "LocationToPartnerId", "PartnerId", "PartnerRoleId"] ,
+    "id_fields" :  "LocationToPartnerId",
+    "reference_id_fields" : {"Location":"LocationId"},
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",

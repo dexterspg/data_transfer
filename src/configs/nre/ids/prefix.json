@@ -5,7 +5,10 @@
     "AreaId" : "A",
     "LeaseId" : "LE",
     "TermId" : "T",
-    "PremiseAreaId": "PA"
-        
+    "LocatonToPartnerId": "LP",
+    "ContactId" : "CI",
+    "VendorId" : "PA"
+
+    
 }
 

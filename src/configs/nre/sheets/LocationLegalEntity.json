@@ -3,6 +3,8 @@
     "enabled": true,
     "mandatory_fields": ["LocationId", "LegalEntityId", "ErpSystemDisplayId"],
     "has_rules": ["LegalEntityId"],
+    "id_fields" :  "LocationId",
+    "reference_id_fields" : {"Location":"LocationId"},
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
@@ -15,7 +17,7 @@
             "external_column": "Lessee",
             "description": "",
             "default": "1000",
-            "rules_a":"column"
+            "rules":"column"
         },
         "ErpSystemDisplayId": {
             "external_column": "",

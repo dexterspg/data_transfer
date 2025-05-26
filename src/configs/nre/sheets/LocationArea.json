@@ -4,6 +4,8 @@
     "mandatory_fields": ["LocationId", "AreaId", "Type", "Source", "Unit"],
     "has_reference" : "Location",
     "has_rules": ["Unit" ],
+    "id_fields" :  "AreaId",
+    "reference_id_fields" : {"Location":"LocationId"},
     "mappings": {
         "LocationId": {
             "external_column": "Lease Code 1 - Prim Lease Code",
