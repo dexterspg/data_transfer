@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from configs.config import NRE_SHEETS_DIR
 from configs.config import PREFIX_FILE
-from domain import Prefix
+from domain import Prefix, IdObj
 from nre_enums import *
 import pandas as pd
 import json
@@ -24,6 +24,7 @@ logger = LoggingUtil.setup_logger('ExcelProcessor', console_level=logging.DEBUG)
 class ExcelProcessor:
 
     def __init__(self, input_file, template_file, output_file, config_file, template_header_row=1, input_header_row=1, data_row_start=None) :
+        self.id_container = {}
         self.input_file =input_file 
         self.output_file =output_file
         self.template_header_row = template_header_row
@@ -41,10 +42,6 @@ class ExcelProcessor:
     def _load_config(self, config_file):
         with open(config_file, 'r') as f:
             self.config = json.load(f)
-
-    # def _load_other_config(self, config_file):
-        # with open(config_file, 'r') as f:
-            # return json.load(f)
 
     def _save_workbook(self):
         self.template_wb.save(self.output_file)
@@ -148,47 +145,79 @@ class ExcelProcessor:
         id_fields : str = self.config.get("id_fields","")
         if not id_fields:
             return pd.DataFrame()
+        ext_col = self.config['mappings'][id_fields]['external_column'] 
     
         indices = []
-        header = None
-        reference_id_fields: Dict[str, str] = self.config.get("reference_id_fields",None)
+        ref_header = None
+        ref_col = None
+        reference_id_fields: Dict[str, str] = self.config.get("reference_id_fields",{})
         if reference_id_fields:
-            for sheet_name in reference_id_fields.keys():
-                prefix : str = self.prefix_obj.get_prefix(reference_id_fields[sheet_name])
-                sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
-                header  = reference_id_fields[sheet_name]
-                df_list = sheet.get_col_values_for_header_remove_prefix(header, prefix)
-                # sheet_df = sheet.to_dataframe_remove_prefix(header, prefix)
-                print("EXTERNAL CONFIG LOADING.....")
-                ext_config = SheetUtils._load_other_config(sheet.title())
-                ext_col = ext_config['mappings'][header]['external_column']
-                indices = SheetUtils.get_first_matched_indices(input_df, df_list, ext_col)  
-                # print(sheet_df[reference_id_fields[sheet_name]].tolist())
-
+            ref_header = next(iter(reference_id_fields.values()), None)
+            ref_obj_list : List[IdObj] = self.id_container.get(ref_header, [])
+            for ref_obj in ref_obj_list:
+                indices.append(ref_obj.get_position())
+            
+            # for sheet_name in reference_id_fields.keys():
+            #     prefix : str = self.prefix_obj.get_prefix(reference_id_fields[sheet_name])
+            #     sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
+            #     ref_header  = reference_id_fields[sheet_name]
+            #     df_list = sheet.get_col_values_for_header_remove_prefix(ref_header, prefix)
+            #     # sheet_df = sheet.to_dataframe_remove_prefix(header, prefix)
+            #     print("EXTERNAL CONFIG LOADING.....")
+            #     ext_config = SheetUtils._load_other_config(sheet.title())
+            #     ref_col = ext_config['mappings'][ref_header]['external_column']
+            #     indices = SheetUtils.get_first_matched_indices(input_df, df_list, ref_col)  
+            #     # print(sheet_df[reference_id_fields[sheet_name]].tolist())
+            #
         duplicated_mask=template_df.duplicated(keep=False)
         template_df = template_df[~duplicated_mask | template_df.index.isin(indices)]
         print("======================================================================")
         print("======================================================================")
         print("======================================================================")
+        print(indices)
 
         prefix : str = self.prefix_obj.get_prefix(id_fields)
         id_generator=IdGenerator(prefix)
         logger.info(f"Processing {id_fields} with prefix {prefix if prefix else 'not found.'}") 
 
-        if self.config["mappings"][id_fields].get("external_column", "") !="":
-            print(f"Use id mapping defined for {id_fields}")
-            for row in template_df.itertuples(index=True):
+        # if self.config["mappings"][id_fields].get("external_column", "") !="":
+        #     print(f"Use id mapping defined for {id_fields}")
+        #     for row in template_df.itertuples(index=True):
+        #         value = getattr(row, id_fields)
+        #         value = prefix + str(value) if pd.notna(value) else value
+        #         if not value:
+        #             value=id_generator.generate_id(id_fields, prefix)
+        #         template_df.at[row.Index, id_fields] = value
+        #
+        #     id_generator.write_ids_for_header(template_df, id_fields)
+        # else:
+        #     print("generate auto id") 
+        #     template_df[id_fields]=[id_generator.generate_id(id_fields, prefix) for _ in range(len(template_df))]
+
+        isIdDefined = bool(self.config["mappings"][id_fields].get("external_column", "") !="")
+
+        obj_list : List[IdObj] = []
+        for row in template_df.itertuples(index=True):
+            raw = None
+            if not isIdDefined:
                 value = getattr(row, id_fields)
+                raw = value
                 value = prefix + str(value) if pd.notna(value) else value
                 if not value:
-                    value=id_generator.generate_id(id_fields, prefix)
+                    value = id_generator.generate_id(id_fields, prefix)
                 template_df.at[row.Index, id_fields] = value
-
-            id_generator.write_ids_for_header(template_df, id_fields)
-        else:
-            print("generate auto id") 
-            template_df[id_fields]=[id_generator.generate_id(id_fields, prefix) for _ in range(len(template_df))]
-
+            else:
+                template_df.at[row.Index, id_fields] = id_generator.generate_id(id_fields, prefix)
+                raw = id_generator.get_current_raw_id()
+            id_obj = IdObj(raw, prefix, row.Index, id_fields, ext_col)
+            obj_list.append(id_obj)
+            
+            # if ref_header == "LocationId" and id_fields == "PremiseId":
+                # value =input_df.at[row.Index, ext_col]
+                # id_generator.add_relationship("location_premise", value, inpu ) if isIdDefined: id_generator.write_ids_for_header(template_df, id_fields)
+        self.id_container[id_fields] =  obj_list 
+        print("ID CONTAINER ===============================================================")
+        print(self.id_container.get(ref_header, []))
         return template_df
 
     def process(self):

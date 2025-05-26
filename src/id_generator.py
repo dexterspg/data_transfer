@@ -23,30 +23,7 @@ class IdGenerator:
         self.header =header
         
     
-
     def initialize_files(self):
-        
-
-        # if not os.path.exists(f"{self.entities_path}{header}.json"):
-            # data = {
-            #     'id_number_range' : {
-            #         "prefix": self.prefix,
-            #         "number_range_start": "",
-            #         "number_range_end": "",
-            #         "last_id_generated": ""
-            #             },
-            #     header : {}
-            # }
-
-        if not os.path.exists(self.sequence_file):
-            initial_sequences = {
-                'LOC': 0,  # Location ID sequence
-                'P': 0,    # Premise ID sequence
-                'L': 0,    # Lease ID sequence
-                'T': 0     # Term ID sequence
-            }
-            with open(self.sequence_file, 'w') as f:
-                json.dump(initial_sequences, f, indent=4)
 
         if not os.path.exists(self.relationships_file):
             initial_relationships = {
@@ -67,11 +44,13 @@ class IdGenerator:
         with open(self.sequence_file, 'w') as f:
             json.dump(sequences, f, indent=4)
 
+    def get_current_raw_id(self):
+        return self.current_id
+
     def generate_id(self, header,  prefix):
         with open(f"{ENTITIES_PATH}/{header}.json", 'r+') as f:
             data = json.load(f)
-     
-            # if sequences.get(prefix, None) is None:
+
             if prefix not in data:
                 data[prefix] = {
                 "number_range_start": self.start,
@@ -109,7 +88,6 @@ class IdGenerator:
             with open(output, "r+") as f:
                 data = json.load(f)
                 ids_list = data.get(header, [])
-                print(ids_list)
 
                 new_ids = df[header].to_list()
                 combined_ids = list(dict.fromkeys(ids_list + new_ids))
