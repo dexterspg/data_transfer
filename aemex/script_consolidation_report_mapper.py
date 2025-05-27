@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font, PatternFill, Border, Alignment
 from openpyxl.worksheet import worksheet
 import pandas as pd
 import numpy as np
@@ -30,7 +31,6 @@ def descripcion_formula(header: str, src_df : pd.DataFrame,  *args) -> pd.DataFr
 
     return df
 
-
 def gl_account_split(header: str, src_df: pd.DataFrame, *args) -> pd.DataFrame:
     header_to_index = {
         "compania": 0,
@@ -57,6 +57,7 @@ def gl_account_split(header: str, src_df: pd.DataFrame, *args) -> pd.DataFrame:
     return pd.DataFrame({header: col_data})
 
 formula_mappings = {
+    "TC" : None, 
     "Nombre": nombre_formula,
     "divisa": lambda header, src_df, *args : pd.DataFrame({ header: src_df["Contract Currency"]}),
     "compania": gl_account_split,
@@ -88,6 +89,7 @@ formula_mappings = {
 }
 
 cell_number_format = {
+    "TC":'_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
     "debito":'_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
     "credito": '_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
     "debito_convertido": '_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
@@ -104,6 +106,24 @@ def _handle_formula(header: str, src_df,  *args) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def get_cell_formula_value(r_idx, tc_letter, debitcredit_letter):
+
+    r_idx+=1
+    conv_formula = (
+            f"=IF(OR(ISBLANK({tc_letter}{r_idx}),ISBLANK({debitcredit_letter}{r_idx})),0,{tc_letter}{r_idx}*{debitcredit_letter}{r_idx})"
+        )
+    
+    return conv_formula
+
+def apply_header_styling(ws, header_loc : int = 1):
+    header_font = Font(name="Calibri", bold=True, size=11)
+    header_fill = PatternFill(patternType="solid", fgColor="B3E5FC")  # Light blue color (adjust as needed)
+    header_alignment = Alignment(horizontal="center", vertical="center")
+
+    for cell in ws[header_loc]:  
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = header_alignment
 
 def mapped_data(source_file: str, template_file: str, updated_file: str, formula_mappings: dict,
                 input_header_start: int = 27, input_data_start: int =28, template_header_start: int = 1,
@@ -113,8 +133,7 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
     source_file = os.path.abspath(source_file)
     template_file= os.path.abspath(template_file)
     updated_file= os.path.abspath(updated_file)
-
-    input_df= pd.read_excel(source_file, header=input_header_start-1)
+    input_df= pd.read_excel(source_file, header=input_header_start-1, nrows=10)
     template_df = pd.read_excel(template_file) 
 
     template_wb= load_workbook(template_file)
@@ -131,7 +150,10 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
             for header in template_df.columns
         }
 
-    for r_idx, row in enumerate(template_df.itertuples(index=False), start=1):
+    tc_idx = int(col_index_map.get("TC"))
+    tc_letter = get_column_letter(tc_idx + template_header_start)
+
+    for r_idx, row in enumerate(template_df.itertuples(index=False), start=template_header_start):
         for header in template_df.columns:
             col_idx = col_index_map.get(header)
             if not isinstance(col_idx, int):
@@ -142,60 +164,60 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
                 row=r_idx+1,
                 column=col_idx+1,
             )
-            cell.value = value
+
+            if header=="debito_convertido":
+                debito_idx = int(col_index_map.get("debito"))
+                debito_letter = get_column_letter(debito_idx + 1)
+                cell.value=get_cell_formula_value(r_idx, tc_letter, debito_letter)
+
+            elif header=="credito_convertido":
+                credito_idx = int(col_index_map.get("credito"))
+                credito_letter = get_column_letter(credito_idx + 1)
+                cell.value=get_cell_formula_value(r_idx, tc_letter, credito_letter)
+
+            else:
+                cell.value = value
 
             if header in cell_number_format.keys():
                 cell.number_format  = cell_number_format[header]
 
-    tc_idx = col_index_map.get("TC")
-    debito_idx = col_index_map.get("debito")
-    debito_conv_idx = col_index_map.get("debito_convertido")
-    credito_idx = col_index_map.get("credito")
-    credito_conv_idx = col_index_map.get("credito_convertido")
+
+    # debito_conv_letter = get_column_letter(debito_conv_idx + template_header_start)
+    # credito_conv_letter = get_column_letter(credito_conv_idx + template_header_start)
+    #
+    # num_data_rows = len(template_df)
+    # for row_number in range(template_data_start, num_data_rows + template_data_start):
+    #     # cell_tc =template_ws.cell(row=row_number, column=tc_idx+1)
+    #     # cell_tc.number_format = cell_number_format["TC"]
+    #
+    #     debito_conv_formula = (
+    #         f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({debito_conv_letter}{row_number})),0,{tc_letter}{row_number}*{debito_conv_letter}{row_number})"
+    #     )
+    #     cell_debito_conv = template_ws.cell(row=row_number, column=debito_conv_idx + 1)
+    #     cell_debito_conv.value = debito_conv_formula
+    #     cell_debito_conv.number_format = cell_number_format["debito_convertido"]
+    #     
+    #     credito_conv_formula = (
+    #         f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({credito_conv_letter}{row_number})),0,{tc_letter}{row_number}*{credito_conv_letter}{row_number})"
+    #     )
+    #     cell_credito_conv = template_ws.cell(row=row_number, column=credito_conv_idx + 1)
+    #     cell_credito_conv.value = credito_conv_formula
+    #     cell_credito_conv.number_format = cell_number_format["credito_convertido"]
+    #
     
-    # Validate that the necessary columns are available.
-    if tc_idx is None or debito_idx is None or debito_conv_idx is None:
-        raise ValueError("Required columns (TC, debito, debito_convertido) not found in template data")
-    if tc_idx is None or credito_idx is None or credito_conv_idx is None:
-        raise ValueError("Required columns (TC, credito, credito_convertido) not found in template data")
-    
-    # Cast indexes to int explicitly.
-    tc_idx = int(tc_idx)
-    debito_idx = int(debito_idx)
-    debito_conv_idx = int(debito_conv_idx)
-    credito_idx = int(credito_idx)
-    credito_conv_idx = int(credito_conv_idx)
-    
-    tc_letter = get_column_letter(tc_idx + template_header_start)
-    debito_letter = get_column_letter(debito_idx + template_header_start)
-    credito_letter = get_column_letter(credito_idx + template_header_start)
-    
-    num_data_rows = len(template_df)
-    for row_number in range(template_data_start, num_data_rows + template_data_start):
-        debito_formula = (
-            f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({debito_letter}{row_number})),0,{tc_letter}{row_number}*{debito_letter}{row_number})"
-        )
-        cell_debito = template_ws.cell(row=row_number, column=debito_conv_idx + template_header_start)
-        cell_debito.value = debito_formula
-        
-        # Formula for credito_convertido: =IF(OR(ISBLANK(TC_row),ISBLANK(credito_row)),0,TC_row*credito_row)
-        credito_formula = (
-            f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({credito_letter}{row_number})),0,{tc_letter}{row_number}*{credito_letter}{row_number})"
-        )
-        cell_credito = template_ws.cell(row=row_number, column=credito_conv_idx + template_data_start)
-        cell_credito.value = credito_formula
+
 
     # Save the updated workbook.
     template_wb.save(updated_file)
-    end = time.perf_counter()
 
+    end = time.perf_counter()
     print(f"Processing time completed: {end-start:.2f} seconds")
     print(f"Output file saved to {updated_file}")
 
 def main():
 
-    source_file = input("Enter the path to the source file: ")
-    # source_file = "Consolidated Transaction Report.xlsx"
+    # source_file = input("Enter the path to the source file: ")
+    source_file = "Consolidated Transaction Report.xlsx"
     template_file = "poliza_ledger_template.xlsx"
     updated_file = "poliza_ledger_output.xlsx"
 
