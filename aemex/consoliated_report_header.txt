@@ -1,0 +1,63 @@
+Sheet: ConsolidatedTransaction :
+System
+Lease Area
+Business Unit
+Lease Department
+Unit Cost Center
+Unit Profit Center
+Unit Responsible Cost Center
+WBS
+Business Area
+Functional Area
+Segment
+Source
+Purchasing Organization
+Purchasing Order
+Translation Type
+Transaction Type Value
+Contract ID
+Contract Name
+Internal Contract Reference
+Contract Cost Center
+Principal Position
+Company Code
+Accounting Standard
+Lease Classification
+Asset Class
+Unit
+Internal Document Number
+External Document Number
+Internal Reversal Document Number
+External Reversal Document Number
+Original Internal Document Number
+Original External Document Number
+Internal Status
+External Status
+Externally Posted By
+Fiscal Year
+Fiscal Period
+Translation Date
+Posting Date
+Document Date
+User Document Date
+Document Type
+Depreciation Area
+GL Account
+Account Name
+Vendor
+Trading Partner ID
+Trading Partner Name
+Accounting Entry
+Description
+Contract Currency
+Amount in Contract Currency
+Company Currency
+Company Currency Exchange Rate
+Amount in Company Currency
+Group Currency 1
+Group Currency Exchange Rate 1
+Amount in Group Currency 1
+Group Currency 2
+Group Currency Exchange Rate 2
+Amount in Group Currency 2
+

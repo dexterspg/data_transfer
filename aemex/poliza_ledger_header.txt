@@ -1,0 +1,18 @@
+Sheet: PolizaLedger :
+TC
+Nombre
+divisa
+compania
+Unidad
+CC
+ubicacion
+cuenta
+subcuenta
+equipo
+intercompania
+debito
+credito
+debito_convertido
+credito_convertido
+descripcion
+
