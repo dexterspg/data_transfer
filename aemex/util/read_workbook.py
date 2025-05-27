@@ -53,6 +53,26 @@ def put_header_name_into_txt(file_name: str,  header_loc: int = 1, out : str = "
             f.write('\n')
     print(f"saved to {out} file")
 
+def read_header_styles(file_name : str, header_loc :int =1):
+    wb=load_workbook(file_name)
+
+    for sheetname in wb.sheetnames:
+        print(sheetname)
+        ws=wb[sheetname]
+        for cell in ws[header_loc]:
+            print("Cell Value")
+            print(cell.value)
+            print("Cell Format")
+            print(cell.number_format)
+            print("Cell Font")
+            print(cell.font)
+            print("Cell Fill")
+            print(cell.fill)
+    
+
+file_name="../poliza_ledger_template.xlsx"
+read_header_styles(file_name)
+
 
 
 
