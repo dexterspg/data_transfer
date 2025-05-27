@@ -89,7 +89,7 @@ formula_mappings = {
 }
 
 cell_number_format = {
-    "TC":'_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
+    "TC":'_-* #,##0.0000_-;-* #,##0.0000_-;_-* "-"??_-;_-@_-',
     "debito":'_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
     "credito": '_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
     "debito_convertido": '_-* #,##0.00_-;-* #,##0.00_-;_-* "-"??_-;_-@_-',
@@ -106,14 +106,18 @@ def _handle_formula(header: str, src_df,  *args) -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def get_cell_formula_value(r_idx, tc_letter, debitcredit_letter):
-
-    r_idx+=1
-    conv_formula = (
-            f"=IF(OR(ISBLANK({tc_letter}{r_idx}),ISBLANK({debitcredit_letter}{r_idx})),0,{tc_letter}{r_idx}*{debitcredit_letter}{r_idx})"
-        )
+def get_cell_formula_exch_multiplier(r_idx, tc_letter, debitcredit_letter):
+    return f"=IF(OR(ISBLANK({tc_letter}{r_idx}),ISBLANK({debitcredit_letter}{r_idx})),0,{tc_letter}{r_idx}*{debitcredit_letter}{r_idx})"
     
-    return conv_formula
+def get_cell_formula_sum_rows(r_idx, debitcredit_letter):
+    return f"=SUM({debitcredit_letter}2:{debitcredit_letter}{r_idx})"
+
+def set_sum_cell(ws, last_row_idx, idx, letter, header ):
+    cell = ws.cell(row = last_row_idx+1, column= idx+1)
+    cell.value=get_cell_formula_sum_rows(last_row_idx, letter) 
+    cell.number_format=cell_number_format[header]
+    sum_fill= PatternFill(patternType="solid", fgColor="FFB6C1")  
+    cell.fill= sum_fill
 
 def apply_header_styling(ws, header_loc : int = 1):
     header_font = Font(name="Calibri", bold=True, size=11)
@@ -133,7 +137,7 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
     source_file = os.path.abspath(source_file)
     template_file= os.path.abspath(template_file)
     updated_file= os.path.abspath(updated_file)
-    input_df= pd.read_excel(source_file, header=input_header_start-1, nrows=10)
+    input_df= pd.read_excel(source_file, header=input_header_start-1, nrows=50)
     template_df = pd.read_excel(template_file) 
 
     template_wb= load_workbook(template_file)
@@ -153,6 +157,18 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
     tc_idx = int(col_index_map.get("TC"))
     tc_letter = get_column_letter(tc_idx + template_header_start)
 
+    debito_idx = int(col_index_map.get("debito"))
+    debito_letter = get_column_letter(debito_idx + 1)
+    credito_idx = int(col_index_map.get("credito"))
+    credito_letter = get_column_letter(credito_idx + 1)
+
+
+    debito_convertido_idx = int(col_index_map.get("debito_convertido"))
+    debito_converido_letter = get_column_letter(debito_convertido_idx + 1)
+    credito_convertido_idx = int(col_index_map.get("credito_convertido"))
+    credito_convertido_letter = get_column_letter(credito_convertido_idx + 1)
+
+
     for r_idx, row in enumerate(template_df.itertuples(index=False), start=template_header_start):
         for header in template_df.columns:
             col_idx = col_index_map.get(header)
@@ -166,14 +182,10 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
             )
 
             if header=="debito_convertido":
-                debito_idx = int(col_index_map.get("debito"))
-                debito_letter = get_column_letter(debito_idx + 1)
-                cell.value=get_cell_formula_value(r_idx, tc_letter, debito_letter)
+                cell.value=get_cell_formula_exch_multiplier(r_idx+1, tc_letter, debito_letter)
 
             elif header=="credito_convertido":
-                credito_idx = int(col_index_map.get("credito"))
-                credito_letter = get_column_letter(credito_idx + 1)
-                cell.value=get_cell_formula_value(r_idx, tc_letter, credito_letter)
+                cell.value=get_cell_formula_exch_multiplier(r_idx+1, tc_letter, credito_letter)
 
             else:
                 cell.value = value
@@ -181,31 +193,13 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
             if header in cell_number_format.keys():
                 cell.number_format  = cell_number_format[header]
 
-
-    # debito_conv_letter = get_column_letter(debito_conv_idx + template_header_start)
-    # credito_conv_letter = get_column_letter(credito_conv_idx + template_header_start)
-    #
-    # num_data_rows = len(template_df)
-    # for row_number in range(template_data_start, num_data_rows + template_data_start):
-    #     # cell_tc =template_ws.cell(row=row_number, column=tc_idx+1)
-    #     # cell_tc.number_format = cell_number_format["TC"]
-    #
-    #     debito_conv_formula = (
-    #         f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({debito_conv_letter}{row_number})),0,{tc_letter}{row_number}*{debito_conv_letter}{row_number})"
-    #     )
-    #     cell_debito_conv = template_ws.cell(row=row_number, column=debito_conv_idx + 1)
-    #     cell_debito_conv.value = debito_conv_formula
-    #     cell_debito_conv.number_format = cell_number_format["debito_convertido"]
-    #     
-    #     credito_conv_formula = (
-    #         f"=IF(OR(ISBLANK({tc_letter}{row_number}),ISBLANK({credito_conv_letter}{row_number})),0,{tc_letter}{row_number}*{credito_conv_letter}{row_number})"
-    #     )
-    #     cell_credito_conv = template_ws.cell(row=row_number, column=credito_conv_idx + 1)
-    #     cell_credito_conv.value = credito_conv_formula
-    #     cell_credito_conv.number_format = cell_number_format["credito_convertido"]
-    #
     
-
+    last_row_idx = len(template_df) + template_header_start
+    
+    set_sum_cell(template_ws, last_row_idx, debito_idx, debito_letter, "debito")
+    set_sum_cell(template_ws, last_row_idx, credito_idx, credito_letter, "credito")
+    set_sum_cell(template_ws, last_row_idx, debito_convertido_idx, debito_converido_letter, "debito_convertido")
+    set_sum_cell(template_ws, last_row_idx, credito_convertido_idx, credito_convertido_letter, "credito_convertido")
 
     # Save the updated workbook.
     template_wb.save(updated_file)
