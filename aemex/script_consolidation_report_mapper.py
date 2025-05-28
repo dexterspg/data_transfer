@@ -1,4 +1,4 @@
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, PatternFill, Border, Alignment
 from openpyxl.worksheet import worksheet
@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import time
 import os
-
+from datetime import datetime
 
 def nombre_formula(header: str, src_df : pd.DataFrame,  *args) -> pd.DataFrame:
 
@@ -79,7 +79,7 @@ formula_mappings = {
     "credito": lambda header, src_df, *args: pd.DataFrame({
     header: np.where(
         src_df["Amount in Contract Currency"].astype(float) < 0,
-        src_df["Amount in Contract Currency"].astype(float),
+        np.abs(src_df["Amount in Contract Currency"].astype(float)),
         0
     )
 }),
@@ -129,25 +129,25 @@ def apply_header_styling(ws, header_loc : int = 1):
         cell.fill = header_fill
         cell.alignment = header_alignment
 
-def mapped_data(source_file: str, template_file: str, updated_file: str, formula_mappings: dict,
+def mapped_data(source_file: str, updated_file: str, formula_mappings: dict,
                 input_header_start: int = 27, input_data_start: int =28, template_header_start: int = 1,
                 template_data_start: int = 2):
     start = time.perf_counter()
     print(f"Processing source file {source_file}")
     source_file = os.path.abspath(source_file)
-    template_file= os.path.abspath(template_file)
+    # template_file= os.path.abspath(template_file)
     updated_file= os.path.abspath(updated_file)
-    input_df= pd.read_excel(source_file, header=input_header_start-1, nrows=50)
-    template_df = pd.read_excel(template_file) 
+    input_df= pd.read_excel(source_file, header=input_header_start-1)
+    # template_df = pd.read_excel(template_file) 
 
-    template_wb= load_workbook(template_file)
-    template_ws = template_wb.worksheets[0]
+    # template_wb= load_workbook(template_file)
+    # template_ws = template_wb.worksheets[0]
 
-    for header in template_df.columns:
-        if header in formula_mappings.keys():
-            result_df :pd.DataFrame = _handle_formula(header, input_df, template_df)
-            if not result_df.empty:
-                template_df[header] = result_df[header]
+    template_df = pd.DataFrame(columns=[column for column in formula_mappings.keys()])
+    for header in formula_mappings.keys():
+        result_df :pd.DataFrame = _handle_formula(header, input_df, template_df)
+        if not result_df.empty:
+            template_df[header] = result_df[header]
 
     col_index_map = {
             header: template_df.columns.get_loc(header)
@@ -167,6 +167,13 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
     debito_converido_letter = get_column_letter(debito_convertido_idx + 1)
     credito_convertido_idx = int(col_index_map.get("credito_convertido"))
     credito_convertido_letter = get_column_letter(credito_convertido_idx + 1)
+
+    template_wb = Workbook()
+    template_ws = template_wb.active
+    template_ws.title = "PolizaLedger"
+
+    template_ws.append(template_df.columns.to_list())
+    apply_header_styling(template_ws, template_header_start)
 
 
     for r_idx, row in enumerate(template_df.itertuples(index=False), start=template_header_start):
@@ -193,9 +200,9 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
             if header in cell_number_format.keys():
                 cell.number_format  = cell_number_format[header]
 
-    
+
     last_row_idx = len(template_df) + template_header_start
-    
+
     set_sum_cell(template_ws, last_row_idx, debito_idx, debito_letter, "debito")
     set_sum_cell(template_ws, last_row_idx, credito_idx, credito_letter, "credito")
     set_sum_cell(template_ws, last_row_idx, debito_convertido_idx, debito_converido_letter, "debito_convertido")
@@ -211,12 +218,15 @@ def mapped_data(source_file: str, template_file: str, updated_file: str, formula
 def main():
 
     # source_file = input("Enter the path to the source file: ")
-    source_file = "Consolidated Transaction Report.xlsx"
-    template_file = "poliza_ledger_template.xlsx"
-    updated_file = "poliza_ledger_output.xlsx"
+    # source_file = "Consolidated Transaction Report.xlsx"
+    # template_file = "poliza_ledger_template.xlsx"
+    source_file = input("Enter name excel file (Recommended : Put the source file in the same folder as the script): ")
+    current_time= datetime.now() 
+    formatted_datetime = current_time.strftime("%Y%m%d_%H%M%S")
+    updated_file = f"poliza_ledger_output{formatted_datetime}.xlsx"
 
 
-    mapped_data(source_file, template_file, updated_file, formula_mappings, input_header_start=27,
+    mapped_data(source_file, updated_file, formula_mappings, input_header_start=27,
                 input_data_start=28, template_header_start=1, template_data_start= 2)
 
 if __name__ == "__main__":
