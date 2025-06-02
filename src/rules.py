@@ -1,12 +1,15 @@
 from nre_enums import SHEET_COLUMNS_MAPPING, LeaseColumns, LocationColumns, LocationLegalEntityColumns, PremiseColumns, SheetName, TermAmountsColumns, TermsColumns
 import pandas as pd
 from conversion import * 
-from utils.excel_style_utils import _apply_date_format
+from utils.regex_utils import _extract_with_regex 
+from nre_enums import SheetName
 
-def _handle_rules_column(input_df, sheet_name: SheetName, header, mapping_config, indices, value) -> pd.DataFrame:
+def _handle_rules_column(template_df , input_df, sheetname: str , header, mapping_config, indices, value) -> pd.DataFrame:
 
-    if sheet_name is None or not header:
+    if not sheetname or not header:
         return pd.DataFrame()
+
+    sheet_name = SheetName.get_enum(sheetname)
 
     if sheet_name not in SHEET_COLUMNS_MAPPING:
         return pd.DataFrame()
@@ -20,12 +23,13 @@ def _handle_rules_column(input_df, sheet_name: SheetName, header, mapping_config
     rule_function_column = COLUMN_RULES_MAPPING.get((sheet_name, header))
 
     if rule_function_column:
-        return rule_function_column(header.value, input_df, mapping_config, indices, value) if rule_function_column else pd.DataFrame()
+        return rule_function_column(template_df, header.value, input_df, mapping_config, indices, value) if rule_function_column else pd.DataFrame()
 
     return pd.DataFrame()
 
-def _handle_rules_row(input_df, sheet_name: SheetName, header, mapping_config, indices, value):
+def _handle_rules_row(input_df, sheetname: str, header, mapping_config, indices, value):
 
+    sheet_name = SheetName.get_enum(sheetname)
     if sheet_name is None or not header:
         return None
 
@@ -53,7 +57,7 @@ def createLocationNameValue(input_df, mapping_config, indices, value):
     value =  f"{locationId_ext}TEST"
     return value
 
-def createLegalEntityId(column, input_df, mapping_config,indices, value):
+def createLegalEntityId(template_df, header, input_df, mapping_config,indices, value):
     col_ext= mapping_config[LocationColumns.LOCATIONID.value].get("external_column", "")
     # legalEnityId_ext = mapping_config[LocationLegalEntityColumns.LEGALENTITYID.value].get("external_column", "")
     lessee = input_df[['Lessee']]
@@ -65,23 +69,31 @@ def createLegalEntityId(column, input_df, mapping_config,indices, value):
     
     return df
 
-def _apply_date_format_to_column(header, input_df, mapping_config,indices, value):
+def _apply_date_format_to_column(curr_df, header, input_df, mapping_config, indices, value):
     date_format='%d/%m/%Y'
     col_ext = mapping_config[header].get("external_column", "")
 
-    df = input_df.loc[indices, [col_ext]]
-    df.columns=[header]
-    df[header] = pd.to_datetime(df[header], errors='coerce')
-    df[header] = df[header].apply(lambda x : x.strftime(date_format) if pd.notna(x) else "")
+    # print(indices)
+    # df = input_df.loc[indices, [col_ext]]
+    # df = curr_df.copy() 
+    # print(df.index.to_list())
+
+    # df.columns=[header]
+    # df[header] = pd.to_datetime(df[header], errors='coerce')
+    # df[header] = df[header].apply(lambda x : x.strftime(date_format) if pd.notna(x) else "")
     
-    return df
+    # curr_df[header] = pd.to_datetime(df[header], errors='coerce')
+    return curr_df
 
         
 ROW_RULES_MAPPING = {
     (SheetName.LOCATION, LocationColumns.NAME) : createLocationNameValue
 }
 
+
 COLUMN_RULES_MAPPING = {
+    (SheetName.LOCATION, LocationColumns.CIVICNUMBER): lambda addr: _extract_with_regex(addr, "^\\d+"),
+    (SheetName.LOCATION, LocationColumns.STREET) : lambda addr : _extract_with_regex(addr, "^\\d+\\s(.+)") ,
     (SheetName.LOCATIONLEGALENTITY, LocationLegalEntityColumns.LEGALENTITYID) : createLegalEntityId ,
     (SheetName.PREMISE, PremiseColumns.CLOSINGDATE) : _apply_date_format_to_column,
     (SheetName.PREMISE, PremiseColumns.OPENINGDATE) : _apply_date_format_to_column,

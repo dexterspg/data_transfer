@@ -7,6 +7,7 @@ class IdObj:
     position: int
     type: str  
     other_type: str = ""
+    prev : str = ""
     
     value: str = field(init=False)
     

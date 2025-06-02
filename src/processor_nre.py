@@ -18,18 +18,18 @@ def main() -> None:
     format=".json"
     config_file = f"{NRE_SHEETS_DIR}/Location{format}"
     other_configs = [
-    'LocationGroup',
-    'LocationLegalEntity',
-    'LocationArea',
-    'LocationAreaHistory',
-    'LocationToPartner',
-    'LocationToPartnerContact',
+    # 'LocationGroup',
+    # 'LocationLegalEntity',
+    # 'LocationArea',
+    # 'LocationAreaHistory',
+    # 'LocationToPartner',
+    # 'LocationToPartnerContact',
     'Premise',
-    'PremiseArea',
+    # 'PremiseArea',
     'Lease',
-    'Terms',
-    'TermAmounts',
-    'TermVendor'
+    # 'Terms',
+    # 'TermAmounts',
+    # 'TermVendor'
     ]
     sheet_names = ["Location"]
     sheet_names += other_configs
@@ -52,10 +52,11 @@ def main() -> None:
     start_time=time.time()
     clear_document_indices()
     clear_json_files_in_folder(ENTITIES_PATH)
+    clear_json_files_in_folder(RELATIONSHIP_PATH)
     data_row_start =None 
     processor = ExcelProcessor(input_file=input_file, template_file=TEMPLATE_FILE, output_file=OUTPUT_FILE, config_file=config_file, template_header_row=3, input_header_row=3, data_row_start=data_row_start)
     # processor.set_limit_rows(50)
-    processor.set_limit_rows(80)
+    processor.set_limit_rows(200)
     # processor.set_number_of_last_rows_to_drop(1)
     processor.process()
 

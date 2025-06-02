@@ -57,7 +57,6 @@ class SheetUtils:
          
         ws.delete_rows(sheet.get_data_row_start(), ws.max_row)
 
-# Ensure new rows are written before restoring formatting
         for row_idx, row_values in enumerate(df.itertuples(index=False, name=None), start=sheet.get_data_row_start()):
             for col_idx, value in enumerate(row_values, start=1):
                 cell = ws.cell(row=row_idx, column=col_idx, value=value)

@@ -4,6 +4,8 @@ from typing import Optional
 
 
 def _extract_with_regex(text: Optional[str], pattern: str) -> Optional[str]:
+    print(pattern)
+    print(str(text))
     match = re.search(pattern, str(text))
     if match:
         if match.groups():

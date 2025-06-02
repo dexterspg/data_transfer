@@ -16,24 +16,10 @@ class IdGenerator:
         self.end = end
         self.current_id = start -1
         self.sequence_file = 'id_sequences.json'
-        self.relationships_file = 'relationships.json'
-        self.initialize_files()
 
     def set_header(self, header):
         self.header =header
-        
     
-    def initialize_files(self):
-
-        if not os.path.exists(self.relationships_file):
-            initial_relationships = {
-                'location_premise': {}, 
-                'premise_lease': {},     
-                'lease_term': {}         
-            }
-            with open(self.relationships_file, 'w') as f:
-                json.dump(initial_relationships, f, indent=4)
-
     def update_sequence(self, prefix, existing_ids):
         if not existing_ids:
             return
@@ -123,29 +109,6 @@ class IdGenerator:
     
         with open(output_file, "w") as f:
             json.dump(data, f, indent=4)
-
-
-    def add_relationship(self, relationship_type, parent_id, child_id):
-        with open(self.relationships_file, 'r') as f:
-            relationships = json.load(f)
-        
-        if relationship_type not in relationships:
-            relationships[relationship_type] = {}
-        
-        if parent_id not in relationships[relationship_type]:
-            relationships[relationship_type][parent_id] = []
-        
-        if child_id not in relationships[relationship_type][parent_id]:
-            relationships[relationship_type][parent_id].append(child_id)
-        
-        with open(self.relationships_file, 'w') as f:
-            json.dump(relationships, f, indent=4)
-
-    def get_related_ids(self, relationship_type, parent_id):
-        with open(self.relationships_file, 'r') as f:
-            relationships = json.load(f)
-
-        return relationships.get(relationship_type, {}).get(parent_id, [])
 
     @staticmethod
     def generate_uuid():

@@ -47,7 +47,7 @@
             "default": "EMPTY"
         },
         "Usage": {
-            "external_column": "Lease Primary Use - Calculated Field Primary Use",
+            "external_column": "Lease Primary Use - Calculated Field",
             "external_column_a": "Subspace Primary Use",
             "regex": ".*",
             "description": "",

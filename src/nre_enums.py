@@ -1,6 +1,16 @@
 from enum import Enum
 
-class SheetName(Enum):
+class BaseEnum(Enum):
+
+    @classmethod
+    def get_enum(cls, value):
+        return cls(value)
+
+    @classmethod
+    def get_values(cls):
+        return [e.value for e in cls]
+
+class SheetName(BaseEnum):
 	LOCATION="Location"
 	LOCATIONGROUP="LocationGroup"
 	LOCATIONLEGALENTITY="LocationLegalEntity"
@@ -42,11 +52,13 @@ class SheetName(Enum):
 	NOTEENTITYTYPEOPTION="NoteEntityTypeOption"
 	DOCUMENTENTITIES="DocumentEntities"
 
-def get_sheet_enum(value):
-    return SheetName(value)
+
+# def get_sheet_enum(value):
+    # return SheetName(value)
 
 
-class LocationColumns(Enum):
+
+class LocationColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	BUSINESSUNITID="BusinessUnitId"
 	STORENUMBER="StoreNumber"
@@ -80,17 +92,20 @@ class LocationColumns(Enum):
 	STREET2="Street2"
 	SUITE2="Suite2"
 
-class LocationGroupColumns(Enum):
+
+
+class LocationGroupColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	GROUP="Group"
 	GROUPOPTION="GroupOption"
 
-class LocationLegalEntityColumns(Enum):
+
+class LocationLegalEntityColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	LEGALENTITYID="LegalEntityId"
 	ERPSYSTEMDISPLAYID="ErpSystemDisplayId"
 
-class LocationAreaColumns(Enum):
+class LocationAreaColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	AREAID="AreaId"
 	TYPE="Type"
@@ -103,7 +118,7 @@ class LocationAreaColumns(Enum):
 	VERIFIED="Verified"
 	APPLICABLEEXPENSES="ApplicableExpenses"
 
-class LocationAreaHistoryColumns(Enum):
+class LocationAreaHistoryColumns(BaseEnum):
 	AREAID="AreaId"
 	DETAILS="Details"
 	STARTDATE="StartDate"
@@ -112,7 +127,7 @@ class LocationAreaHistoryColumns(Enum):
 	MEASURE="Measure"
 	SUITE="Suite"
 
-class LocationToPartnerColumns(Enum):
+class LocationToPartnerColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	LOCATIONTOPARTNERID="LocationToPartnerId"
 	PARTNERID="PartnerId"
@@ -120,7 +135,7 @@ class LocationToPartnerColumns(Enum):
 	DATEFROM="DateFrom"
 	DATETO="DateTo"
 
-class LocationToPartnerContactColumns(Enum):
+class LocationToPartnerContactColumns(BaseEnum):
 	LOCATIONTOPARTNERID="LocationToPartnerId"
 	CONTACTID="ContactId"
 	ADDRESS="Address"
@@ -132,20 +147,20 @@ class LocationToPartnerContactColumns(Enum):
 	FAX="Fax"
 	CONTACTTYPES="ContactTypes"
 
-class OperatingCostPeriodColumns(Enum):
+class OperatingCostPeriodColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	OPERATINGCOSTPERIODID="OperatingCostPeriodId"
 	YEAR="Year"
 	STATUS="Status"
 
-class OperatingCostPeriodExpenseColumns(Enum):
+class OperatingCostPeriodExpenseColumns(BaseEnum):
 	OPERATINGCOSTPERIODID="OperatingCostPeriodId"
 	EXPENSETYPE="ExpenseType"
 	AMOUNT="Amount"
 	REVISEDAMOUNT="RevisedAmount"
 	CONSIDERREVISEDAMOUNT="ConsiderRevisedAmount"
 
-class PremiseColumns(Enum):
+class PremiseColumns(BaseEnum):
 	LOCATIONID="LocationId"
 	PREMISEID="PremiseId"
 	PARENTPREMISEID="ParentPremiseId"
@@ -166,7 +181,7 @@ class PremiseColumns(Enum):
 	OCCUPANCIES="Occupancies"
 	DEFAULTJURISDICTIONID="DefaultJurisdictionId"
 
-class PremiseAreaColumns(Enum):
+class PremiseAreaColumns(BaseEnum):
 	PREMISEID="PremiseId"
 	AREAID="AreaId"
 	TYPE="Type"
@@ -180,7 +195,7 @@ class PremiseAreaColumns(Enum):
 	VERIFIED="Verified"
 	APPLICABLEEXPENSES="ApplicableExpenses"
 
-class PremiseAreaHistoryColumns(Enum):
+class PremiseAreaHistoryColumns(BaseEnum):
 	AREAID="AreaId"
 	DETAILS="Details"
 	STARTDATE="StartDate"
@@ -189,12 +204,12 @@ class PremiseAreaHistoryColumns(Enum):
 	MEASURE="Measure"
 	SUITE="Suite"
 
-class PremiseGroupColumns(Enum):
+class PremiseGroupColumns(BaseEnum):
 	PREMISEID="PremiseId"
 	GROUP="Group"
 	GROUPOPTION="GroupOption"
 
-class LeaseColumns(Enum):
+class LeaseColumns(BaseEnum):
 	LEASEID="LeaseId"
 	NUMBER="Number"
 	PREMISEID="PremiseId"
@@ -227,7 +242,7 @@ class LeaseColumns(Enum):
 	CALCULATETAX="CalculateTax"
 	AUTOMONTHTOMONTH="AutoMonthToMonth"
 
-class TermsColumns(Enum):
+class TermsColumns(BaseEnum):
 	LEASEID="LeaseId"
 	TERMID="TermId"
 	STARTDATE="StartDate"
@@ -243,7 +258,7 @@ class TermsColumns(Enum):
 	FIRSTPAYMENTDATE="FirstPaymentDate"
 	NOTE="Note"
 
-class TermAmountsColumns(Enum):
+class TermAmountsColumns(BaseEnum):
 	TERMID="TermId"
 	LEGACY="Legacy"
 	STARTDATE="StartDate"
@@ -259,12 +274,12 @@ class TermAmountsColumns(Enum):
 	RATE="Rate"
 	TERMINDEXATIONTYPE="TermIndexationType"
 
-class TermVendorColumns(Enum):
+class TermVendorColumns(BaseEnum):
 	TERMID="TermId"
 	VENDORID="VendorId"
 	OWNERSHIP="Ownership"
 
-class NfsLinkColumns(Enum):
+class NfsLinkColumns(BaseEnum):
 	NFSLINKID="NfsLinkId"
 	LEASEID="LeaseId"
 	MASTERAGREEMENTID="MasterAgreementId"
@@ -272,18 +287,18 @@ class NfsLinkColumns(Enum):
 	LEASECOMPONENTID="LeaseComponentId"
 	ACTIVATIONGROUPID="ActivationGroupId"
 
-class PercentageRentPeriodColumns(Enum):
+class PercentageRentPeriodColumns(BaseEnum):
 	LEASEID="LeaseId"
 	PERCENTAGERENTPERIODID="PercentageRentPeriodId"
 	DATEFROM="DateFrom"
 	DATETO="DateTo"
 
-class PercentageRentExclusionColumns(Enum):
+class PercentageRentExclusionColumns(BaseEnum):
 	PERCENTAGERENTPERIODID="PercentageRentPeriodId"
 	SALECATEGORY="SaleCategory"
 	SALESUBCATEGORY="SaleSubCategory"
 
-class PercentageRentRuleColumns(Enum):
+class PercentageRentRuleColumns(BaseEnum):
 	PERCENTAGERENTPERIODID="PercentageRentPeriodId"
 	CATEGORY="Category"
 	SUBCATEGORY="SubCategory"
@@ -300,26 +315,26 @@ class PercentageRentRuleColumns(Enum):
 	FORMULA="Formula"
 	NOTE="Note"
 
-class LeaseClauseTypeColumns(Enum):
+class LeaseClauseTypeColumns(BaseEnum):
 	LEASEID="LeaseId"
 	LEASECLAUSETYPEID="LeaseClauseTypeId"
 	TYPE="Type"
 	ISNOTAPPLICABLE="IsNotApplicable"
 
-class ClauseColumns(Enum):
+class ClauseColumns(BaseEnum):
 	LEASECLAUSETYPEID="LeaseClauseTypeId"
 	CLAUSEID="ClauseId"
 	PAGE="Page"
 	RENTORCOST="RentOrCost"
 	SECTION="Section"
 
-class LeaseCriticalClauseTypeColumns(Enum):
+class LeaseCriticalClauseTypeColumns(BaseEnum):
 	LEASEID="LeaseId"
 	LEASECRITICALCLAUSETYPEID="LeaseCriticalClauseTypeId"
 	TYPE="Type"
 	ISNOTAPPLICABLE="IsNotApplicable"
 
-class CriticalClauseColumns(Enum):
+class CriticalClauseColumns(BaseEnum):
 	LEASECRITICALCLAUSETYPEID="LeaseCriticalClauseTypeId"
 	CRITICALCLAUSEID="CriticalClauseId"
 	STARTDATE="StartDate"
@@ -335,7 +350,7 @@ class CriticalClauseColumns(Enum):
 	RENTTYPE="RentType"
 	EXERCISEMETHOD="ExerciseMethod"
 
-class InsuranceColumns(Enum):
+class InsuranceColumns(BaseEnum):
 	LEASEID="LeaseId"
 	INSURANCEID="InsuranceId"
 	TYPE="Type"
@@ -343,7 +358,7 @@ class InsuranceColumns(Enum):
 	PAGE="Page"
 	SECTION="Section"
 
-class LeaseConditionColumns(Enum):
+class LeaseConditionColumns(BaseEnum):
 	LEASEID="LeaseId"
 	LEASECONDITIONID="LeaseConditionId"
 	REPLACEDBY="ReplacedBy"
@@ -360,34 +375,34 @@ class LeaseConditionColumns(Enum):
 	PROSHAREID="ProShareId"
 	CAPID="CAPId"
 
-class AreaBasedProShareColumns(Enum):
+class AreaBasedProShareColumns(BaseEnum):
 	AREABASEDPROSHAREID="AreaBasedProShareId"
 	DIVIDENDAREATYPE="DividendAreaType"
 	DIVISORAREATYPE="DivisorAreaType"
 
-class FixedPercentageProShareColumns(Enum):
+class FixedPercentageProShareColumns(BaseEnum):
 	FIXEDPERCENTAGEPROSHAREID="FixedPercentageProShareId"
 	FIXEDPERCENTAGE="FixedPercentage"
 
-class FixedCAPColumns(Enum):
+class FixedCAPColumns(BaseEnum):
 	FIXEDCAPID="FixedCAPId"
 	AMOUNT="Amount"
 
-class OverBaseCAPColumns(Enum):
+class OverBaseCAPColumns(BaseEnum):
 	OVERBASECAPID="OverBaseCAPId"
 	BASEYEAR="BaseYear"
 	BASEAMOUNT="BaseAmount"
 	MAXINCREASEPERCENTAGE="MaxIncreasePercentage"
 	CUMULATIVE="Cumulative"
 
-class OverYearCAPColumns(Enum):
+class OverYearCAPColumns(BaseEnum):
 	OVERYEARCAPID="OverYearCAPId"
 	BASEYEAR="BaseYear"
 	BASEAMOUNT="BaseAmount"
 	MAXINCREASEPERCENTAGE="MaxIncreasePercentage"
 	CUMULATIVE="Cumulative"
 
-class LeaseIncentiveColumns(Enum):
+class LeaseIncentiveColumns(BaseEnum):
 	LEASEID="LeaseId"
 	LEASEINCENTIVEID="LeaseIncentiveId"
 	TYPE="Type"
@@ -395,7 +410,7 @@ class LeaseIncentiveColumns(Enum):
 	PAGE="Page"
 	SECTION="Section"
 
-class DrawColumns(Enum):
+class DrawColumns(BaseEnum):
 	DRAWID="DrawId"
 	TRIGGER="Trigger"
 	FOLLOWUPDATE="FollowUpDate"
@@ -408,7 +423,7 @@ class DrawColumns(Enum):
 	LEASEINCENTIVEID="LeaseIncentiveId"
 	DRAWNUMBER="DrawNumber"
 
-class UserDefinedFieldsColumns(Enum):
+class UserDefinedFieldsColumns(BaseEnum):
 	OBJECTTYPE="ObjectType"
 	OBJECTID="ObjectId"
 	GROUP="Group"
@@ -417,7 +432,7 @@ class UserDefinedFieldsColumns(Enum):
 	FIELDTYPE="FieldType"
 	FIELDVALUE="FieldValue"
 
-class LeaseEventColumns(Enum):
+class LeaseEventColumns(BaseEnum):
 	LEASEID="LeaseId"
 	TYPE="Type"
 	ACTIVITYDATE="ActivityDate"
@@ -425,7 +440,7 @@ class LeaseEventColumns(Enum):
 	CODE="Code"
 	RELATEDOPTION="RelatedOption"
 
-class DocumentLinkColumns(Enum):
+class DocumentLinkColumns(BaseEnum):
 	LINK="Link"
 	ENTITY="Entity"
 	ENTITYID="EntityId"
@@ -435,15 +450,15 @@ class DocumentLinkColumns(Enum):
 	STATUS="Status"
 	DOCUMENTTYPE="DocumentType"
 
-class NoteColumns(Enum):
+class NoteColumns(BaseEnum):
 	ENTITYTYPE="EntityType"
 	ENTITYID="EntityId"
 	MESSAGE="Message"
 
-class NoteEntityTypeOptionColumns(Enum):
+class NoteEntityTypeOptionColumns(BaseEnum):
 	PREMISE="Premise"
 
-class DocumentEntitiesColumns(Enum):
+class DocumentEntitiesColumns(BaseEnum):
 	LOCATION="Location"
 
 SHEET_COLUMNS_MAPPING  = {
@@ -488,3 +503,7 @@ SHEET_COLUMNS_MAPPING  = {
 	SheetName.NOTEENTITYTYPEOPTION : NoteEntityTypeOptionColumns,
 	SheetName.DOCUMENTENTITIES : DocumentEntitiesColumns,
 }
+
+
+
+

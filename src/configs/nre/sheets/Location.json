@@ -170,7 +170,7 @@
             "default": ""
         },
         "CivicNumber2": {
-            "external_column": "Property Street Address 2",
+            "external_column": "Property Address 2",
             "regex_a": "^\\d+",
             "description": "CivicNumber2 to CivicNumber2",
             "default": ""
@@ -182,7 +182,7 @@
             "default": ""
         },
         "Street2": {
-            "external_column": "Property Street Address 2",
+            "external_column": "Property Address 2",
             "regex_a": "^\\d+\\s(.+)",
             "description": "Street2 to Street2",
             "default": ""

@@ -60,3 +60,4 @@ def clear_json_files_in_folder(folder_path: str):
             
             print(f"Cleared {filename}")
 
+

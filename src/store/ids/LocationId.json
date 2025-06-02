@@ -1,17 +1,19 @@
 {
-    "LO": {
-        "number_range_start": 100000000,
-        "number_range_end": 999999999,
-        "last_id_generated": 100000007
-    },
     "LocationId": [
-        "LO100000000",
-        "LO100000001",
-        "LO100000002",
-        "LO100000003",
-        "LO100000004",
-        "LO100000005",
-        "LO100000006",
-        "LO100000007"
+        "LO046611",
+        "LO046606",
+        "LO046324",
+        "LO046595",
+        "LOAUSBRI004",
+        "LOAUSADE002",
+        "LOAUSSYD007",
+        "LOAUSHOB002",
+        "LOAUSSYD006",
+        "LOBELDIEM001",
+        "LOCHNSHA001",
+        "LOBOGOTA0001",
+        "LO046528",
+        "LO046572",
+        "LOCZEPRA001"
     ]
 }
