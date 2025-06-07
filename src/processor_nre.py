@@ -1,5 +1,5 @@
 from configs.config import *
-from report_generator import ExcelProcessor
+from report_generator_duck import ExcelProcessor
 import os
 import time
 from create_documents import clear_document_indices, clear_json_files_in_folder
@@ -58,6 +58,7 @@ def main() -> None:
     # processor.set_limit_rows(50)
     processor.set_limit_rows(200)
     # processor.set_number_of_last_rows_to_drop(1)
+    processor.initialize_input_df()
     processor.process()
 
     for config in other_configs:

@@ -1,4 +1,6 @@
 import logging
+from create_duckdb_table import *
+import duckdb
 from datetime import datetime
 from os import waitpid
 from configs.config import DATE_STYLE, MANDATORY_FONT_STYLE, NRE_SHEETS_DIR, PREFIX_FILE
@@ -16,7 +18,7 @@ from utils import  LoggingUtil, SheetUtils
 from utils.regex_utils import _extract_with_regex
 from utils.excel_style_utils import _apply_date_format, _add_named_style, apply_named_style_in_cols, apply_missing_data_with_values_and_font_color
 from sheet_model import Sheet
-from rules import _handle_rules_column, _handle_rules_row
+from rules import COLUMN_RULES_MAPPING, _handle_rules_column, _handle_rules_row
 from nre_enums import SheetName
 from create_documents import save_document_indices, retrieve_document_indices
 from relationship_mapper import RelationshipMapper
@@ -29,7 +31,9 @@ class ExcelProcessor:
 
     def __init__(self, input_file, template_file, output_file, config_file, template_header_row=1, input_header_row=1, data_row_start=None) :
         self.id_container = {}
-        self.input_file =input_file 
+        self.df_map : Dict [str, pd.DataFrame]={}
+        self.input_file =input_file
+        self.input_df = pd.DataFrame()
         self.output_file =output_file
         self.template_header_row = template_header_row
         self.input_header_row = input_header_row
@@ -38,13 +42,24 @@ class ExcelProcessor:
         self.number_of_rows_to_skip=0
         self.initialize_files(template_file, config_file)
 
-    def initialize_files(self, template_file, config_file):
+    def initialize_input_df(self):
+        self.input_df = pd.read_excel(io=self.input_file, header=self.input_header_row, nrows=self.limitRows, 
+                                 skipfooter=self.number_of_rows_to_skip)
+
+        print(self.input_df[['Property Code 1 - Prim Prop Code', 'Lease Code 1 - Prim Lease Code']].drop_duplicates())
+        self.input_df['row_index'] = self.input_df.index 
+        self.conn = duckdb.connect(":memory:")
+        self.conn.register("raw_data", self.input_df)
+        # create_duck_tables(self.conn, self.config)
+
+    def initialize_files(self,template_file, config_file):
         self.template_wb= load_workbook(template_file)
         _add_named_style(self.template_wb, DATE_STYLE)
         self.config = MappingConfig(config_file) 
         self.prefix_obj = Prefix(PREFIX_FILE)
         relMapper = RelationshipMapper()
         relMapper.initialize_files()
+
 
     def _load_config(self, config_file):
         self.config._load_config(config_file)
@@ -61,7 +76,7 @@ class ExcelProcessor:
 
     def valid_header_mapping(self, header : str) -> bool:
         sheet_name = self.config.get_sheet_name()
-        if header in  self.config.get_src_fields():
+        if header in  self.config.get_df_fields():
             in_header_props: dict =  self.config.get_header_props(header)
 
             if not in_header_props:
@@ -199,13 +214,31 @@ class ExcelProcessor:
 
         return filtered_df
 
+    def migrate_date_with_duck(self, conn):
+        dest_column_fields = self.config.get_df_fields()   
+
+        query_fields = [
+            f'"{self.config.get_external_column_of_header(col)}" AS "{col}"'
+            if self.config.get_external_column_of_header(col)
+            else f"'NA' AS \"{col}\""
+            for col in dest_column_fields
+        ]
+
+        query_string = ",\n " .join(query_fields)
+
+        df = conn.execute(f"""
+        SELECT DISTINCT
+        {query_string}
+        FROM raw_data
+        """).fetchdf()
+
+
+        return df
+
+    
     def process(self):
         """Process the input file according to the template and mappings"""
         sheet_name = self.config.get_sheet_name()
-
- 
-        input_df = pd.read_excel(io=self.input_file, header=self.input_header_row, nrows=self.limitRows, 
-                                 skipfooter=self.number_of_rows_to_skip)
 
         if sheet_name not in self.template_wb.sheetnames:
             logger.error(f"Warning: Sheet '{sheet_name}' not found in template")
@@ -214,14 +247,72 @@ class ExcelProcessor:
         template_sheet : Sheet= Sheet(self.template_wb[sheet_name], self.template_header_row, self.data_row_start)
         mandatory_fields = self.config.get_mandatory_fields()
 
-        
         dest_columns = SHEET_COLUMNS_MAPPING[SheetName.get_enum(sheet_name)].get_values()
-        template_df = self.migrate_data(sheet_name, input_df.copy(), dest_columns)
+        # template_df = self.migrate_data(sheet_name, input_df.copy(), dest_columns)
+        if sheet_name == 'Location':
+            create_location(self.config, self.conn)
+            # location_df = self.conn.execute("SELECT * FROM Location").fetchdf()
+            # print(location_df)
+        # elif sheet_name == 'Premise':
+            # create_premise(self.config, self.conn)
+            # premise_df= self.conn.execute("SELECT * FROM Premise").fetchdf()
+            # print(premise_df)
+        # elif sheet_name == "Lease":
+            # create_lease(self.config, self.conn)
+            # lease_df = self.conn.execute("SELECT * FROM Lease").fetchdf()
+            # print(lease_df)
+        # else:
+
+            # return
+
+        return
+            
+        template_df = self.migrate_date_with_duck(self.conn)
+        self.df_map[sheet_name]  = template_df
+        self.conn.register(sheet_name, template_df)
         print("BEFORE")
-        print(template_df)
+        print(self.df_map.get(sheet_name, {}))
 
         id_field : str = self.config.get_id_field()
         ref_header = self.config.get_reference_header_value()
+        print(ref_header)
+
+
+        return
+        # if sheet_name == 'Premise':
+            # print("ref_df ===================000000000000000000000000000")
+
+                         
+
+            # dest_column_fields = self.config.get_df_fields()   
+
+            # query_fields = [
+                # f'"{self.config.get_external_column_of_header(col)}" AS "{col}"'
+                # if self.config.get_external_column_of_header(col)
+                # else f"'NA' AS {col}"
+
+
+
+            # location  = self.conn.execute("SELECT * FROM Location").fetchdf()
+            # query_fields.append(f'"{self.config.get_external_column_of_header("LocationId")}" AS LocationId')
+            # print(query_fields)
+            #
+            # # location  = self.conn.execute("SELECT * FROM Location").fetchdf()
+            # # premise = self.conn.execute("SELECT * FROM Premise").fetchdf()
+            # print("duckdb1")
+            # # print(location)
+            # # print(premise)
+            # print("duckdb1")
+            # query_string = ",\n " .join(query_fields)
+            #
+            # merge_df = self.conn.execute(f"""
+            # SELECT DISTINCT
+            # {query_string}
+            # FROM input_data
+            # """).fetchdf()
+            #
+            # print(merge_df)
+            #
 
         logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
         print(self.config.get_config_path())

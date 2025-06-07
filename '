@@ -1,0 +1,71 @@
+def create_sheet_table(self, conn):
+        dest_column_fields = self.config.get_df_fields()   
+
+        query_fields = [
+            f'"{self.config.get_external_column_of_header(col)}" AS "{col}"'
+            if self.config.get_external_column_of_header(col)
+            else f"'NA' AS \"{col}\""
+            for col in dest_column_fields
+        ]
+
+        query_string = ",\n " .join(query_fields)
+
+        df = conn.execute(f"""
+        SELECT DISTINCT
+        {query_string}
+        FROM input_data
+        """)
+
+
+        return df
+
+def create_location(config, conn)-> None:
+        dest_column_fields = config.get_df_fields()   
+        src_column_fields  = config.get_external_column_fields()
+        print(src_column_fields)
+        query_fields = [
+            f'"{config.get_external_column_of_header(col)}" AS "{col}"'
+            if config.get_external_column_of_header(col)
+            else f"'NA' AS \"{col}\""
+            for col in dest_column_fields
+        ]
+
+        query_string = ",\n " .join(query_fields)
+
+        conn.execute(f"""
+        CREATE TABLE Location AS
+        SELECT DISTINCT
+        {query_string}
+        FROM raw_data
+        """)
+
+def create_premise(config, conn)-> None:
+        dest_column_fields = config.get_df_fields()   
+
+        query_fields = [
+            f'"{config.get_external_column_of_header(col)}" AS "{col}"'
+            if config.get_external_column_of_header(col)
+            else f"'NA' AS \"{col}\""
+            for col in dest_column_fields
+        ]
+        pivot = 'Property Code 1 - Prim Prop Code'
+        
+        for i, query_field in enumerate(query_fields):
+            if 'LocationId' in query_field:
+                print(query_field)
+                query_fields[i] = query_field.replace('NA', pivot)
+
+        query_string = ",\n " .join(query_fields)
+        print(query_fields)
+
+        conn.execute(f"""
+        CREATE TABLE premise AS
+        SELECT
+            {query_string}
+        FROM (
+          SELECT DISTINCT 
+          {query_string}
+          FROM raw_data
+        ) t
+        """)
+

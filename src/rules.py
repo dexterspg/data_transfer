@@ -3,6 +3,7 @@ import pandas as pd
 from conversion import * 
 from utils.regex_utils import _extract_with_regex 
 from nre_enums import SheetName
+from typing import Optional, Callable, Any
 
 def _handle_rules_column(template_df , input_df, sheetname: str , header, mapping_config, indices, value) -> pd.DataFrame:
 
@@ -26,6 +27,25 @@ def _handle_rules_column(template_df , input_df, sheetname: str , header, mappin
         return rule_function_column(template_df, header.value, input_df, mapping_config, indices, value) if rule_function_column else pd.DataFrame()
 
     return pd.DataFrame()
+
+def get_column_rule_for_sheet_name(sheetname: str, header) -> Optional[Callable[..., Any]]:
+
+    if not sheetname or not header:
+        return None
+
+    sheet_name = SheetName.get_enum(sheetname)
+
+    if sheet_name not in SHEET_COLUMNS_MAPPING:
+        return None
+
+    columns = SHEET_COLUMNS_MAPPING[sheet_name]
+    
+    header = next((col for col in columns if header == col.value), None)
+    if not header:
+        return None
+
+    return COLUMN_RULES_MAPPING.get((sheet_name, header))
+
 
 def _handle_rules_row(input_df, sheetname: str, header, mapping_config, indices, value):
 
@@ -89,7 +109,6 @@ def _apply_date_format_to_column(curr_df, header, input_df, mapping_config, indi
 ROW_RULES_MAPPING = {
     (SheetName.LOCATION, LocationColumns.NAME) : createLocationNameValue
 }
-
 
 COLUMN_RULES_MAPPING = {
     (SheetName.LOCATION, LocationColumns.CIVICNUMBER): lambda addr: _extract_with_regex(addr, "^\\d+"),
