@@ -27,7 +27,7 @@ def main() -> None:
     'Premise',
     # 'PremiseArea',
     'Lease',
-    # 'Terms',
+    'Terms',
     # 'TermAmounts',
     # 'TermVendor'
     ]

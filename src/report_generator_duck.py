@@ -76,18 +76,18 @@ class ExcelProcessor:
 
     def valid_header_mapping(self, header : str) -> bool:
         sheet_name = self.config.get_sheet_name()
-        if header in  self.config.get_df_fields():
+        if header in self.config.get_df_fields():
             in_header_props: dict =  self.config.get_header_props(header)
 
             if not in_header_props:
                 print()
-                # logger.warning(f"Warning: no input mapping found for '{header}' for Sheet '{sheet_name}'") 
+                logger.warning(f"Warning: no input mapping found for '{header}' for Sheet '{sheet_name}'") 
 
             default_val: str= self.config.get_default_value(header)
             output_col : str =  self.config.get_external_column_of_header(header)
 
             if not default_val and not output_col:
-                # logger.error(f"Warning: no mapping found for '{header}' for Sheet '{sheet_name}'")
+                logger.error(f"Warning: no mapping found for '{header}' for Sheet '{sheet_name}'")
                 return False 
 
             return True
@@ -108,16 +108,18 @@ class ExcelProcessor:
             header : self.config.get_external_column_of_header(header)
             for header in dest_columns
         }
+        print(mapping)
+        # print(mapping)
 
         dest_df : pd.DataFrame = pd.DataFrame(columns = dest_columns)
-
         for header in dest_columns:
             # logger.info(f"Processing {header} of sheet {sheet_name}")
-            if not self.valid_header_mapping(header):
-                continue
+            if self.valid_header_mapping(header):
+                if mapping[header]!= "":
+                    dest_df[header] = src_df[mapping[header]]
 
-            if mapping[header]!= "":
-                dest_df[header] = src_df[mapping[header]]
+            if header in src_df.columns and dest_df[header].isna().all():
+                    dest_df[header] = src_df[header]
         
         # print(dest_df.info())
 
@@ -235,6 +237,9 @@ class ExcelProcessor:
 
         return df
 
+    # def get_template_df(df : pd.pd.DataFrame):
+        # for col in df
+
     
     def process(self):
         """Process the input file according to the template and mappings"""
@@ -249,98 +254,68 @@ class ExcelProcessor:
 
         dest_columns = SHEET_COLUMNS_MAPPING[SheetName.get_enum(sheet_name)].get_values()
         # template_df = self.migrate_data(sheet_name, input_df.copy(), dest_columns)
+        df = pd.DataFrame()
         if sheet_name == 'Location':
             create_location(self.config, self.conn)
-            # location_df = self.conn.execute("SELECT * FROM Location").fetchdf()
-            # print(location_df)
-        # elif sheet_name == 'Premise':
-            # create_premise(self.config, self.conn)
-            # premise_df= self.conn.execute("SELECT * FROM Premise").fetchdf()
-            # print(premise_df)
-        # elif sheet_name == "Lease":
-            # create_lease(self.config, self.conn)
-            # lease_df = self.conn.execute("SELECT * FROM Lease").fetchdf()
-            # print(lease_df)
-        # else:
-
-            # return
-
-        return
-            
-        template_df = self.migrate_date_with_duck(self.conn)
-        self.df_map[sheet_name]  = template_df
-        self.conn.register(sheet_name, template_df)
-        print("BEFORE")
-        print(self.df_map.get(sheet_name, {}))
-
-        id_field : str = self.config.get_id_field()
-        ref_header = self.config.get_reference_header_value()
-        print(ref_header)
-
-
-        return
-        # if sheet_name == 'Premise':
-            # print("ref_df ===================000000000000000000000000000")
-
-                         
-
-            # dest_column_fields = self.config.get_df_fields()   
-
-            # query_fields = [
-                # f'"{self.config.get_external_column_of_header(col)}" AS "{col}"'
-                # if self.config.get_external_column_of_header(col)
-                # else f"'NA' AS {col}"
-
-
-
-            # location  = self.conn.execute("SELECT * FROM Location").fetchdf()
-            # query_fields.append(f'"{self.config.get_external_column_of_header("LocationId")}" AS LocationId')
-            # print(query_fields)
-            #
-            # # location  = self.conn.execute("SELECT * FROM Location").fetchdf()
-            # # premise = self.conn.execute("SELECT * FROM Premise").fetchdf()
-            # print("duckdb1")
-            # # print(location)
-            # # print(premise)
-            # print("duckdb1")
-            # query_string = ",\n " .join(query_fields)
-            #
-            # merge_df = self.conn.execute(f"""
-            # SELECT DISTINCT
-            # {query_string}
-            # FROM input_data
-            # """).fetchdf()
-            #
-            # print(merge_df)
-            #
-
-        logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
-        print(self.config.get_config_path())
-        if id_field and ref_header:
-            template_df=self.get_filtered_df_by_ref_header(input_df, template_df, ref_header)
+            df = self.conn.execute("SELECT * FROM Location").fetchdf()
+        elif sheet_name == 'Premise':
+            create_premise(self.config, self.conn)
+            df= self.conn.execute("SELECT * FROM Premise").fetchdf()
+        elif sheet_name == "Lease":
+            create_lease(self.config, self.conn)
+            df = self.conn.execute("SELECT * FROM Lease").fetchdf()
+        elif sheet_name == "Terms":
+            create_terms(self.config, self.conn)
+            df = self.conn.execute("SELECT * FROM Terms").fetchdf()
         else:
-            template_df = template_df.drop_duplicates().dropna(how="all")
+            return
+        print("Resulting df")
+        print(df)
+
+
+        template_df = self.migrate_data(sheet_name, df, dest_columns)
+        print("after migration")
+        print(template_df)
+        
+            
+        # template_df = self.migrate_date_with_duck(self.conn)
+        # self.conn.register(sheet_name, template_df)
+        # print("BEFORE")
+        # print(self.df_map.get(sheet_name, {}))
+
+        # id_field : str = self.config.get_id_field()
+        # ref_header = self.config.get_reference_header_value()
+        # print(ref_header)
+
+
+
+        # logger.info(f"Removing duplicates for colummn {template_sheet.sheet_name()}")
+        # print(self.config.get_config_path())
+        # if id_field and ref_header:
+            # template_df=self.get_filtered_df_by_ref_header(input_df, template_df, ref_header)
+        # else:
+            # template_df = template_df.drop_duplicates().dropna(how="all")
 
         # template_df = template_df.drop_duplicates().dropna(how="all")
-        template_df_indices= template_df.index.tolist()
-        print(template_df)
+        # template_df_indices= template_df.index.tolist()
+        # print(template_df)
         # save_document_indices(sheet_name, template_df_indices)
 
-        header_rules = self.config.get_column_rules() 
-        if header_rules:
-            for header in header_rules:
-                found_rule= _handle_rules_column(template_df, input_df, sheet_name, header, self.config.get_mappings(), template_df_indices, None)
-                if not found_rule.empty:
-                    template_df[header] = found_rule[header]
+        # header_rules = self.config.get_column_rules() 
+        # if header_rules:
+            # for header in header_rules:
+                # found_rule= _handle_rules_column(template_df, input_df, sheet_name, header, self.config.get_mappings(), template_df_indices, None)
+                # if not found_rule.empty:
+                    # template_df[header] = found_rule[header]
 
         # template_df = self.save_entities(template_df, input_df)
 
-        if id_field:
-            prefix : str = self.prefix_obj.get_prefix(id_field)
-            self.save_entities(template_df, id_field, ref_header,  prefix)
+        # if id_field:
+            # prefix : str = self.prefix_obj.get_prefix(id_field)
+            # self.save_entities(template_df, id_field, ref_header,  prefix)
 
-        print("AFTER")
-        print(template_df)
+        # print("AFTER")
+        # print(template_df)
 
         col_index_map = {
             header: template_sheet.get_col_idx(header)
@@ -371,15 +346,15 @@ class ExcelProcessor:
                 value=getattr(row, header)
                 cell=None
                 if value and not pd.isna(value):
-                    if rules and rules=="row":
+                    # if rules and rules=="row":
                         # indices=[]
                         # indices.append(template_df_indices[r_idx-self.data_row_start])
-                        indices= template_df.index.to_list()
-                        found_rule= _handle_rules_row(input_df, sheet_name, header, self.config.get_mappings(),indices, value )
-                        if found_rule:
-                            value = found_rule
-                        else:
-                            value = value
+                        # indices= template_df.index.to_list()
+                        # found_rule= _handle_rules_row(input_df, sheet_name, header, self.config.get_mappings(),indices, value )
+                        # if found_rule:
+                            # value = found_rule
+                        # else:
+                            # value = value
 
                     # if default_val != "autogenerate" and prefix != "":
                         # value = prefix + str(value)
@@ -394,14 +369,14 @@ class ExcelProcessor:
                 elif default_val and default_val !=  "autogenerate":
                     value = default_val
 
-                    if rules and rules=="row":
-                        indices=[]
-                        indices.append(template_df_indices[r_idx-self.data_row_start])
-                        found_rule= _handle_rules_row(input_df, sheet_name, header, self.config.get_mappings(),indices, value )
-                        if found_rule:
-                            value = found_rule
-                        else:
-                            value = default_val
+                    # if rules and rules=="row":
+                        # indices=[]
+                        # indices.append(template_df_indices[r_idx-self.data_row_start])
+                        # found_rule= _handle_rules_row(input_df, sheet_name, header, self.config.get_mappings(),indices, value )
+                        # if found_rule:
+                            # value = found_rule
+                        # else:
+                            # value = default_val
         #                     # get_rule.append(value)
         #
                     cell = template_sheet.cell(

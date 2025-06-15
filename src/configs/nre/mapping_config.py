@@ -36,7 +36,7 @@ class MappingConfig:
 
     def get_config_for_sheet_name(self, sheet_name: str):
         current_path = self.config_path
-        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name.capitalize()}.json')
+        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name}.json')
         entity = self.copy()
         self._load_config(current_path)
         return entity
@@ -79,7 +79,7 @@ class MappingConfig:
 
     def get_df_fields_for_sheet_name(self, sheet_name : str) -> List[str]:
         current_path = self.config_path
-        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name.capitalize()}.json')
+        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name}.json')
         df_fields = self.get_df_fields() 
         self._load_config(current_path)
         return df_fields 
@@ -92,7 +92,7 @@ class MappingConfig:
 
     def get_external_column_of_header_on_sheet(self, sheet_name : str,  header: str) -> str:
         current_path = self.config_path
-        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name.capitalize()}.json')
+        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name}.json')
         header = self.get_external_column_of_header(header) 
         self._load_config(current_path)
         return header
@@ -103,14 +103,14 @@ class MappingConfig:
 
     def get_external_column_fields_on_sheet(self, sheet_name :str) -> List[str]:
         current_path = self.config_path
-        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name.capitalize()}.json')
+        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name}.json')
         ext_fields = self.get_external_column_fields()
         self._load_config(current_path)
         return ext_fields
 
     def get_df_fields_for_sheet_name_with_ext(self, config, sheet_name :str="") -> List[str]:
         current_path = self.config_path
-        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name.capitalize()}.json')
+        self._load_config(f'{NRE_SHEETS_DIR}/{sheet_name}.json')
         src_fields : List[str] = self.get_df_fields()
         src_fields_with_ext_col = [
             src
